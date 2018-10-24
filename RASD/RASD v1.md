@@ -55,32 +55,32 @@
 
 * [D4]  All individuals registered to Data4Help own a device capable of measuring all the parameteres required by the service application domain.
 
-* [D5]  All third parties posses a unique Identifier.
+* [D5]  All third parties are capable of elaborate requests according to the types of data collected by the system.
+
+* [D6]  Third party users are always available to receive data.
 
 ## Domain Assumptions: AutomatedSOS
 
-* [D6]  The users' local emergency services offer APIs to communicate emergencies.
+* [D7]  The users' local emergency services offer APIs to communicate emergencies.
 
-* [D7]  The users' local emergency services are always available to receive emergency aid requests.
+* [D8]  The users' local emergency services are always available to receive emergency aid requests.
 
-* [D8]  The user knows the parameters he needs to have monitored and the thresholds of those parameters.
+* [D9]  The user knows the parameters he needs to have monitored and the thresholds of those parameters.
 
 
 ## Domain Assumptions: Track4Run
 
-* [D9]  Track4Run is to organize No-Profit run so the system doesn't support payments.
+* [D10]  Track4Run is to organize No-Profit run so the system doesn't support payments.
 
-* [D10]  Track4Run Users that enroll a run also own a Data4Help account.
+* [D11]  Track4Run Users that enroll a run also own a Data4Help account.
 
-* [D11]  Guest users can access Track4Run data on a specific run without any credential.
+* [D12]  Guest users can access Track4Run data on a specific run without any credential.
 
-* [D12]  Users participating to a run must have their monitoring device equipped during the run.
+* [D13]  Users participating to a run must have their monitoring device equipped during the run.
 
 ## Functional Requirements: Data4Help
 
 #### [G1] - The user must be able to register on the platform as an individual or third party.
-
-* [D5]  All third parties posses a unique Identifier.
 
 * [R1]  Users can register to the platform through his/her SSN and password.
 
@@ -107,8 +107,22 @@
 
 #### [G4] - Third party users must be able to access both individual's and group's data safely.
 
+* [D5]  All third parties are capable of elaborate requests according to the types of data collected by the system.
+
 * [R5]  The System has to allow third party users to filter data on request.
     - [R5.1]  Third party users can specify filters by the creation of categories to which the data previously collected belong.
     
+* [R6]  The System provides the requested only if there are at least 1000 users belonging to the selcted filter.
+
+* [R7]  The System allows the third party to obtain a specific individual data only if he/she grants the acces to them.
+    
             [R7]  Organizers can register via Organizers Identifier and password
-            requirement for track for run.
+            requirement for track for run.     
+            
+#### [G5] - Third party users can subscribe to groups of data to be updated as soon as new data are available.
+
+* [D6]  Third party users are always available to receive data.
+
+* [R8]  The System keeps track of the last update sent to the third party.
+
+* [R8]  The System periodically checks if new data belonging to the subscribed filter are available and sends a proper update.
