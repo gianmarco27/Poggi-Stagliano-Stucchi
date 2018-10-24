@@ -6,28 +6,23 @@
 
 ## Goals: Data4Help
 
-* [G1]  The Application must allow the user to register on the platform as an individual or third party.
+* [G1]  The user must be able to register on the platform as an individual or third party.
 
-* [G2]  The Application allows the individual to be monitored constantly.
+* [G2]  The individual has to be monitored constantly.
 
-* [G3]  The System allows the user to access his/her data anytime anywhere.
+* [G3]  The user can access his/her data anytime anywhere.
 
-* [G4]  The System has to allow third party users to access certain data.
-
-* [G5]  The System allows third party users to access users' data safely.
+* [G4]  Third party users must be able to access both individual's and group's data safely.
 
   [Requirement related]  If there are at least 1000 users belonging to the selected category the system provides the data.
   
   [Requirement related]  If the Individual grants the access to his data to a specific request of a third party, the system allows the third party to obtain said user data.
 
-* [G6]  The System sends new data to the subscribed third party as soon as they are available.
-
+* [G5]  Third party users can subscribe to groups of data to be updated as soon as new data are available.
 
 ## Goals: AutomatedSOS
 
-* [G7]  The System notifies the users's local emergency service when the user's data fall below certain selected thresholds.
-
- 
+* [G6] The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
 
  [Requirement related]  The user can specify his own parameters and thresholds to be monitored into the application.
 
@@ -39,11 +34,11 @@
 ## Goals: Track4Run
         to use this service a user first must own a data4help account
 
-* [G8]  The System allows new users to register as organizers.
+* [G8]  Users can register as organizers.
 
 * [G9]  Organizers can create a run specifying its path.
 
-* [G10]  The System allows participants to enroll to a run through his/her Data4Help account.
+* [G10]  Participants can enroll to a run through their Data4Help account.
 
 * [G11]  Any user can access Track4Run as a Guest (Spectator).
 
@@ -83,7 +78,7 @@
 
 ## Functional Requirements: Data4Help
 
-#### [G1] - The application must allow the user to register on the platform as an individual or third party.
+#### [G1] - The user must be able to register on the platform as an individual or third party.
 
 * [D5]  All third parties posses a unique Identifier.
 
@@ -92,7 +87,7 @@
 * [R2]  The application has to allow the registering user to sign up as an individual or as a third party.
 
 
-#### [G2] - The Application allows the individual to be monitored constantly.
+#### [G2] - The individual has to be monitored constantly.
 
 * [D1]  Monitoring devices are always connected to the network.
 
@@ -105,17 +100,15 @@
 * [R3]  The application has to keep a log of each data registered by the monitoring devices.
   
 
-#### [G3] - The System allows the user to access his/her data anytime anywhere.
+#### [G3] - The user can access his/her data anytime anywhere.
 
-* [R4]  The service must be reachable all the time.
-
-* [R5]  The application allows the user to select certain periods of time from which retrieve his/her data.  
+* [R4]  The application allows the user to select certain periods of time from which retrieve his/her data.  
 
 
-#### [G4] - The System has to allow third party users to access certain data.
+#### [G4] - Third party users must be able to access both individual's and group's data safely.
 
-* [R6]  The System has to allow third party users to filter data on request.
-    - [R6.1]  Third party users can specify filters by the creation of categories to which the data previously collected belong.
+* [R5]  The System has to allow third party users to filter data on request.
+    - [R5.1]  Third party users can specify filters by the creation of categories to which the data previously collected belong.
     
             [R7]  Organizers can register via Organizers Identifier and password
             requirement for track for run.
