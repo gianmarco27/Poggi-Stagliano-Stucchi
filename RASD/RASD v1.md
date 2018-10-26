@@ -215,3 +215,49 @@ On first access to the service he specified the theresholds of his heartbeat out
 | col 1 is |  left-aligned | $1600 |
 | col 2 is |    centered   |   $12 |
 | col 3 is | right-aligned |    $1 |
+
+
+| Name              | Sign up                                                                 |
+|:------------------|:------------------------------------------------------------------------|
+| Actor             | User                                                                    |
+| Entry conditions  | The user has installed the application on his/her device                |
+| Events flows      | <ol><li>The user click on "Sign up as individual" or "sign up as third party" button</li><li>The user fill all the mandatory fields, provide the SSN, for the individuals, or the VAT, for the third party, and a valide password</li><li>The user click on "Confirm" button</li><li>The system saves the data</li></ol>                              
+| Exit conditions   | The user has successfully registered                                    
+| Exceptions        | <ol><li> The user is already signed up</li><li>The user didn't fill all of the mandatory fields with valid data</li></ol></br>All the excpetions are handled by notifying the user and taking him back to the sign up activity   
+
+
+        Sign up comment
+        Is the third exceptions necessary?
+        Do we have to put in the event flows the fact that the individuals have to agree the GDPR? two ways
+        
+
+
+
+
+| Name              | Log in                                                                  |
+|:------------------|:------------------------------------------------------------------------|
+| Actor             | Third party                                                             |
+| Entry conditions  | The third party is successfully submitted to the service                | 
+| Events flows      | <ol><li> The third party enters his credentials in the "VAT/SSN" and "PASSWORD" fields</li><li>The third party clicks on the "Log in" button  </li><li> The third party is successfully logged in Data4Help</li></ol>
+| Exit conditions   | The third party is redirected to the select filters' interface          |
+| Exceptions        | <ol><li> The third party enters invalid credentials</li></ol></br> The excpetion is handled by notifying the third party and taking him back to the log in activity  |
+
+        Log in comment
+        Do we have to put the fact that the user open the application on his device?
+
+
+| Name              | Filter data                                                             |
+|:------------------|:------------------------------------------------------------------------|
+| Actor             | Third party                                                             |
+| Entry conditions  | The third party is successfully logged in                               | 
+| Events flows      |<ol><li>  The third party selects the categories of data of his interest</li><li> The third party specify if he wants to be subscribed to the data </li></ol> 
+| Exit conditions   |           |
+| Exceptions        |    </br>  |
+
+
+
+        Filter data comment
+        Do we have to make a filter data table or we can make a request data table and includes in the event flow the filtering part?
+        
+
+
