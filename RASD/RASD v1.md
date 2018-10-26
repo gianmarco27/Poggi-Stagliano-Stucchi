@@ -206,3 +206,12 @@ Giovanni is 80 years old and suffers of a heart disease, since he lives alone he
 On first access to the service he specified the theresholds of his heartbeat outside of which he wants to be assisted by his local emergency service. One morning, while working in his backyard, he has a tachycardia attack, as soon as it is decteded my his monitoring device, AutomatedSOS alerts his local first aid specifying Giovanni's location.
 
 
+
+# Tables
+
+
+| Tables   |      Are      |  Cool |
+|:---------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
