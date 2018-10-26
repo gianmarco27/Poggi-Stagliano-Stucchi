@@ -10,6 +10,8 @@
 
 * [G1]  The user must be able to register on the platform as an individual or third party.
 
+        Third party users registers via VAT.
+
 * [G2]  The individual has to be monitored constantly.
 
 * [G3]  Third party users must be able to access both individual's and group's data safely.
@@ -55,24 +57,26 @@
 
 ## Domain Assumptions: AutomatedSOS
 
-* [D8]  The users' local emergency services offer APIs to communicate emergencies.
+* [D9]  The users' local emergency services offer APIs to communicate emergencies.
 
-* [D9]  The users' local emergency services are always available to receive emergency aid requests.
+* [D10]  The users' local emergency services are always available to receive emergency aid requests.
 
-* [D10]  The user knows the parameters he needs to have monitored and the thresholds of those parameters.
+* [D11]  The user knows the parameters he needs to have monitored and the thresholds of those parameters.
+
+* [D12] AutomatedSOS users are arleady registered to Data4Help as individuals.
 
 
 ## Domain Assumptions: Track4Run
 
-* [D11]  Track4Run is to organize No-Profit run so the system doesn't support payments.
+* [D13]  Track4Run is to organize No-Profit run so the system doesn't support payments.
 
-* [D12]  Track4Run users that enroll a run also own a Data4Help account.
+* [D14]  Track4Run users that enroll a run also own a Data4Help account.
 
-* [D13]  Users participating to a run must have their monitoring device equipped during the run.
+* [D15]  Users participating to a run must have their monitoring device equipped during the run.
 
-* [D14]  Track4Run organizers cannot be Data4Help individuals.
+* [D16]  Track4Run organizers cannot be Data4Help individuals.
 
-* [D15]  Paths specified in runs must be feasible paths, not including obstacles of any genre.
+* [D17]  Paths specified in runs must be feasible paths, not including obstacles of any genre.
 
 
 ## Functional Requirements: Data4Help
@@ -109,7 +113,7 @@
 * [R5]  The System has to allow third party users to filter data on request.
     - [R5.1]  Third party users can specify filters by the creation of categories to which the data previously collected belong.
     
-* [R6]  The System provides the requested only if there are at least 1000 users belonging to the selcted filter.
+* [R6]  The System provides the requested data only if there are at least 1000 users belonging to the selcted filter.
 
 * [R7]  The System allows the third party to obtain a specific individual data only if he/she grants the acces to them.
    
@@ -127,11 +131,11 @@
 
 #### [G5] - The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
 
-* [D8]  The users' local emergency services offer APIs to communicate emergencies.
+* [D9]  The users' local emergency services offer APIs to communicate emergencies.
 
-* [D9]  The users' local emergency services are always available to receive emergency aid requests.
+* [D10]  The users' local emergency services are always available to receive emergency aid requests.
 
-* [D10]  The user knows the parameters he needs to have monitored and the thresholds of those parameters.
+* [D11]  The user knows the parameters he needs to have monitored and the thresholds of those parameters.
 
 * [R11]  The user can specify his/her own parameters and thresholds to be monitored into the application.
 
@@ -142,14 +146,14 @@
 
 #### [G6] - Users can register as organizers.
 
-* [D14]  Track4Run organizers cannot be Data4Help individuals.
+* [D16]  Track4Run organizers cannot be Data4Help individuals.
 
 * [R14]  On first login users can provide their VAT number to obtain access to the system as organizers of runs.
 
 
 #### [G7] - Organizers can create runs.
 
-* [D15]  Paths specified in runs must be feasible paths, not including obstacles of any genre.
+* [D17]  Paths specified in runs must be feasible paths, not including obstacles of any genre.
 
 * [R15]  Organizers can specify the path, the title, the date, the start time and a brief description of the run they are creating.
 
@@ -163,7 +167,7 @@
 
 #### [G9] - Users can enroll to a run.
 
-* [D12]  Track4Run users that enroll a run also own a Data4Help account.
+* [D14]  Track4Run users that enroll a run also own a Data4Help account.
 
 * [R17]  Users can visualize title, description, date, start time and path of available runs.
 
@@ -172,9 +176,9 @@
 
 #### [G10] - Spectators can follow the progress of an ongoing run.
 
-* [D12]  Track4Run users that enroll a run also own a Data4Help account.
+* [D14]  Track4Run users that enroll a run also own a Data4Help account.
 
-* [D13]  Users participating to a run must have their monitoring device equipped during the run.
+* [D15]  Users participating to a run must have their monitoring device equipped during the run.
 
 * [R17]  Users can visualize title, description, date, start time and path of available runs.
 
@@ -184,5 +188,21 @@
 ## Scenarios
 
 #### Scenario 1
+
+A basketball team coach wants to adopt a new training method that requires him to monitor constantly the players, so he asks them to subscribe to Data4Help and allow him to access their data.
+
+        Insert here the subscription of the players (using their personal information).
+
+He proceeds to register himself as a third party, then he requests via SSN the players' data. Data4Help forwards the requests to the specified users, and as previously agreed, they accept so from now on the coach can track his team.
+
+#### Scenario 2
+
+A statistic institute wants to conduct a research on the health status of people aged 25 in Romano di Lombardia, in order to collect the nedeed data they decide to exploit the service offered by Data4Help, so they specify their data preferences on Data4Help portal. 
+Since the request doesn't fit the privacy constraints of the service, the acces to the data is denied, the institute sends a new request widening the search to people between 24 and 26 years old. Now the request fits the privacy constraints and Data4Help sends the specified data to the institute.
+
+#### Scenario 3
+
+Giovanni is 80 years old and suffers of a heart disease, since he lives alone he decided to register to AutomatedSOS.  
+On first access to the service he specified the theresholds of his heartbeat outside of which he wants to be assisted by his local emergency service. One morning, while working in his backyard, he has a tachycardia attack, as soon as it is decteded my his monitoring device, AutomatedSOS alerts his local first aid specifying Giovanni's location.
 
 
