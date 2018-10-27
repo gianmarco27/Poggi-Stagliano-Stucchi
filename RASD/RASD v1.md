@@ -207,14 +207,20 @@ On first access to the service he specified the ****thresholds** of his heartbea
 
 
 
-# Tables
+# use cases
 
+        modificare titoli
 
 | Tables   |      Are      |  Cool |
 |:---------|:-------------:|------:|
 | col 1 is |  left-aligned | $1600 |
 | col 2 is |    centered   |   $12 |
 | col 3 is | right-aligned |    $1 |
+
+
+
+
+### Data4Help - use cases
 
 
 | Name              | Sign up                                                                 |
@@ -250,7 +256,7 @@ On first access to the service he specified the ****thresholds** of his heartbea
 | Entry conditions  | The third party selected the functionality to request data from a group of individuals   | 
 | Events flows      |<ol><li> The third party specifies the filtering values accordingly with the previously data inserted by the individuals upon registration </li><li> The third party specify if he wants to be subscribed to the data </li></ol> 
 | Exit conditions   | The request is correctly sent    |
-| Exceptions        | The third party inserts a non valid value in the filtering fields</br></br> The exception is handled by prompting the third party to replace the incorrect values|
+| Exceptions        | <ol><li>The third party inserts a non valid value in the filtering fields</li></ol></br> The exception is handled by prompting the third party to replace the incorrect values|
 
 
 
@@ -268,11 +274,51 @@ On first access to the service he specified the ****thresholds** of his heartbea
 
 
 
-| Name              | Request data of an individuals group                                  |
-|:------------------|:------------------------------------------------------------------------|
-| Actor             | Third party                                                 |
-| Entry conditions  | The third party is logged in     | 
+| Name              | Request data of an individuals group |
+|:------------------|:--------------|
+| Actor             | Third party |
+| Entry conditions  | The third party is logged in | 
 | Events flows      |<ol><li>  The third party selects the functionality to request data from a group of individuals</li><li> The third party enters in the "filter data" use case to properly select the categories to which the interest data belong</li></ol>
 | Exit conditions   |Data4Help provides the third party with the requested data     |
 | Exceptions        | <ol><li>The request doesn't fit the privacy constraints of Data4Help</li></ol></br> The exception is handled notifying that the requested data are not accessible  |
 
+        Data4Help use case? value the request of the third party
+
+
+### AutomatedSOS - use cases
+
+| Name              | |
+|:------------------|:------------------------------------------------------------------------|
+| Actor             | User |
+| Entry conditions  | <ul><li>The individual is registered to Data4Help</li><li>The individual is accessing for the first time</li></ul>  | 
+| Events flows      |<ol><li> The individual logs in with the Data4Help account</li><li> AutomatedSOS asks the client to insert the threshold of the parameters on wich he wants to be monitored </li></ol>
+| Exit conditions   |AutomatedSOS notifies the user that it started to monitor the specified parameters |
+| Exceptions        | <ol><li>The individual inserts a non valid value in the parameters fields</li></ol></br> The exception is handled requesting again the value |
+
+
+| Name              | Notify emergency |
+|:------------------|:------------------------------------------------------------------------|
+| Actor             | AutomatedSOS, individual |
+| Entry conditions  | The individual's parameters go outside the thresholds | 
+| Events flows      |<ol><li> AutomatedSOS detects that certain parameters aren't in the specified thresholds</li><li>AutomatedSOS tracks down the location of the individual</li><li> AutomatedSOS signals to the local emergency service the user location and the type of the emergency </li></ol>
+| Exit conditions   | The local emergency service replies to AutomatedSOS that the emergency has been correctly delivered |
+| Exceptions        | |
+
+
+### Track4run - use cases
+
+| Name              | Organizer registration |
+|:------------------|:------------------------------------------------------------------------|
+| Actor             | User |
+| Entry conditions  | The user has to organize a run | 
+| Events flows      |<ol><li> The user registers as an organizer providing the VAT </li></ol>
+| Exit conditions   |Track4Run notifies that the organizer is correctly subscribed to the service|
+| Exceptions        | <ol><li>The user was already subscribed</li></ol></br> The exception is handled by notifying the presence of the user |
+
+| Name              | Creation of a run  |
+|:------------------|:------------------------------------------------------------------------|
+| Actor             | Organizer |
+| Entry conditions  | Organizer is registered to the service and correctly logged in | 
+| Events flows      |<ol><li> The organizer inserts a title for the run </li><li> Track4Run validates the title and prompts the user to draw the designed path on a map</li><li>The organizer draws the path</li><li>Track4Run prompts to fill-in the description and the start time fields of the run</li></ol>
+| Exit conditions   |Track4Run notifies the organizer that the run has been correctly inserted in the system|
+| Exceptions        | <ol><li>The title is already in the system</li><li>The start time isn't consistent</li></ol></br> The exception is handled by notifying the organizer to refill the wrong fields |
