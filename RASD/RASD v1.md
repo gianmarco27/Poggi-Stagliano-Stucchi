@@ -214,13 +214,13 @@ On first access to the service he specified the **thresholds** of his heartbeat 
 ### Data4Help - use cases
 
 
-| Name                                                               |Sign up|
-|:-------------------------------------------------------------------|:-|
-| Actor                                                              |User|
-| Entry conditions                                                   |The user has installed the application on his/her device|
-| Events flows                                                       |<ol><li>The user click on "Sign up as individual" or "sign up as third party" button</li><li>The user provides the SSN for the individuals, or the VAT for the third party, a valid password and fills all the mandatory fields about his/her personal data </li><li>The user clicks on "Confirm" button</li><li>The system saves the data</li></ol>|
-| Exit conditions                                                    |The user has successfully registered|
-| Exceptions                                                         |<ol><li> The user is already signed up</li><li>The user didn't fill all of the mandatory fields with valid data</li></ol></br>All the excpetions are handled by notifying the user and taking him back to the sign up activity|
+| Name                                                               |Sign up
+|:-------------------------------------------------------------------|:-
+| Actor                                                              |User
+| Entry conditions                                                   |The user has installed the application on his/her device
+| Events flows                                                       |<ol><li>The user click on "Sign up as individual" or "sign up as third party" button</li><li>The user provides the SSN for the individuals, or the VAT for the third party, a valid password and fills all the mandatory fields about his/her personal data </li><li>The user clicks on "Confirm" button</li><li>The system saves the data</li></ol>
+| Exit conditions                                                    |The user has successfully registered
+| Exceptions                                                         |<ol><li> The user is already signed up</li><li>The user didn't fill all of the mandatory fields with valid data</li></ol></br>All the excpetions are handled by notifying the user and taking him back to the sign up activity
 
 
         Sign up comment
@@ -229,25 +229,25 @@ On first access to the service he specified the **thresholds** of his heartbeat 
         
 
 
-| Name                                                               |Log in|
-|:-------------------------------------------------------------------|:-|
-| Actor                                                              |Third party|
-| Entry conditions                                                   |The third party is successfully submitted to the service| 
-| Events flows                                                       |<ol><li> The third party enters his credentials in the "VAT/SSN" and "PASSWORD" fields</li><li>The third party clicks on the "Log in" button  </li><li> The third party is successfully logged in Data4Help</li></ol>|
-| Exit conditions                                                    |The third party is redirected to the select filters' interface|
-| Exceptions                                                         |The third party enters invalid credentials</br></br> The exception is handled by notifying the third party and taking him back to the log in activity|
+| Name                                                               |Log in
+|:-------------------------------------------------------------------|:-
+| Actor                                                              |Third party
+| Entry conditions                                                   |The third party is successfully submitted to the service
+| Events flows                                                       |<ol><li> The third party enters his credentials in the "VAT/SSN" and "PASSWORD" fields</li><li>The third party clicks on the "Log in" button  </li><li> The third party is successfully logged in Data4Help</li></ol>
+| Exit conditions                                                    |The third party is redirected to the select filters' interface
+| Exceptions                                                         |The third party enters invalid credentials</br></br> The exception is handled by notifying the third party and taking him back to the log in activity
 
         Log in comment
         Do we have to put the fact that the user open the application on his device?
 
 
-| Name                                                               |Filter data|
-|:-------------------------------------------------------------------|:-|
-| Actor                                                              |Third party|
-| Entry conditions                                                   |The third party selected the functionality to request data from a group of individuals   | 
+| Name                                                               |Filter data
+|:-------------------------------------------------------------------|:-
+| Actor                                                              |Third party
+| Entry conditions                                                   |The third party selected the functionality to request data from a group of individuals
 | Events flows                                                       |<ol><li> The third party specifies the filtering values accordingly with the previously data inserted by the individuals upon registration </li><li> The third party specify if he wants to be subscribed to the data </li></ol> 
-| Exit conditions                                                    |The request is correctly sent    |
-| Exceptions                                                         |<ol><li>The third party inserts a non valid value in the filtering fields</li></ol></br> The exception is handled by prompting the third party to replace the incorrect values|
+| Exit conditions                                                    |The request is correctly sent
+| Exceptions                                                         |<ol><li>The third party inserts a non valid value in the filtering fields</li></ol></br> The exception is handled by prompting the third party to replace the incorrect values
 
 
 
@@ -255,23 +255,23 @@ On first access to the service he specified the **thresholds** of his heartbeat 
         Do we have to make a filter data table or we can make a request data table and includes in the event flow the filtering part?
         
 
-| Name                                                               |Request data of an individual|
-|:-------------------------------------------------------------------|:-|
-| Actor                                                              |Third party, individual|
-| Entry conditions                                                   |The third party is logged in| 
-| Events flows                                                       |<ol><li>The third party selects the functionality to request data from an individual</li><li> The third party inserts the SSN of the individual of interest</li><li>Data4Help forwards the request to the specified individual</li><li>The individual accepts the request to access the data</li></ol>|
-| Exit conditions                                                    |Data4Help provides the third party with the requested data|
-| Exceptions                                                         |<ol><li>The individual refuses to grant the access to his/her data</li><li>The individual isn't registered to Data4Help</li></ol></br> Both exceptions are handled notifying that the requested data are not accessible|
+| Name                                                               |Request data of an individual
+|:-------------------------------------------------------------------|:-
+| Actor                                                              |Third party, individual
+| Entry conditions                                                   |The third party is logged in
+| Events flows                                                       |<ol><li>The third party selects the functionality to request data from an individual</li><li> The third party inserts the SSN of the individual of interest</li><li>Data4Help forwards the request to the specified individual</li><li>The individual accepts the request to access the data</li></ol>
+| Exit conditions                                                    |Data4Help provides the third party with the requested data
+| Exceptions                                                         |<ol><li>The individual refuses to grant the access to his/her data</li><li>The individual isn't registered to Data4Help</li></ol></br> Both exceptions are handled notifying that the requested data are not accessible
 
 
 
-| Name                                                               |Request data of an individuals group |
-|:-------------------------------------------------------------------|:-|
-| Actor                                                              |Third party |
-| Entry conditions                                                   |The third party is logged in | 
+| Name                                                               |Request data of an individuals group
+|:-------------------------------------------------------------------|:-
+| Actor                                                              |Third party
+| Entry conditions                                                   |The third party is logged in
 | Events flows                                                       |<ol><li>  The third party selects the functionality to request data from a group of individuals</li><li> The third party enters in the "filter data" use case to properly select the categories to which the interest data belong</li></ol>
-| Exit conditions                                                    |Data4Help provides the third party with the requested data     |
-| Exceptions                                                         |<ol><li>The request doesn't fit the privacy constraints of Data4Help</li></ol></br> The exception is handled notifying that the requested data are not accessible  |
+| Exit conditions                                                    |Data4Help provides the third party with the requested data
+| Exceptions                                                         |<ol><li>The request doesn't fit the privacy constraints of Data4Help</li></ol></br> The exception is handled notifying that the requested data are not accessible
 
         Data4Help use case? value the request of the third party
 
@@ -279,7 +279,7 @@ On first access to the service he specified the **thresholds** of his heartbeat 
 ### AutomatedSOS - use cases
 
 | Name                                                               |Parameters' setting
-|:-------------------------------------------------------------------|:-|
+|:-------------------------------------------------------------------|:-
 | Actor                                                              |User
 | Entry conditions                                                   |<ul><li>The individual is registered to Data4Help</li><li>The individual is accessing for the first time</li></ul>
 | Events flows                                                       |<ol><li> The individual logs in with the Data4Help account</li><li> AutomatedSOS asks the client to insert the threshold of the parameters on wich he wants to be monitored </li></ol>
@@ -293,26 +293,24 @@ On first access to the service he specified the **thresholds** of his heartbeat 
 | Entry conditions                                                   |The individual's parameters go outside the thresholds
 | Events flows                                                       |<ol><li> AutomatedSOS detects that certain parameters aren't in the specified thresholds</li><li>AutomatedSOS tracks down the location of the individual</li><li> AutomatedSOS signals to the local emergency service the user location and the type of the emergency </li></ol>
 | Exit conditions                                                    |The local emergency service replies to AutomatedSOS that the emergency has been correctly delivered 
-| Exceptions                                                         |</br>|
+| Exceptions                                                         |</br>
 
 
 ### Track4run - use cases
-<div width="100%">
 
-| Name              | Organizer registration |
-|:------------------|:------------------------------------------------------------------------|
-| Actor             | User |
-| Entry conditions  | The user has to organize a run | 
-| Events flows      |<ol><li> The user registers as an organizer providing the VAT </li></ol>|
-| Exit conditions   |Track4Run notifies that the organizer is correctly subscribed to the service|
-| Exceptions        | <ol><li>The user was already subscribed</li></ol></br> The exception is handled by notifying the presence of the user |
+| Name                                                               |Organizer registration
+|:-------------------------------------------------------------------|:-
+| Actor                                                              |User
+| Entry conditions                                                   |The user has to organize a run
+| Events flows                                                       |<ol><li> The user registers as an organizer providing the VAT </li></ol>
+| Exit conditions                                                    |Track4Run notifies that the organizer is correctly subscribed to the service
+| Exceptions                                                         |<ol><li>The user was already subscribed</li></ol></br> The exception is handled by notifying the presence of the user
 
-</div>
 
-| Name              | Creation of a run  |
-|:------------------|:------------------------------------------------------------------------|
-| Actor             | Organizer |
-| Entry conditions  | Organizer is registered to the service and correctly logged in | 
-| Events flows      |<ol><li> The organizer inserts a title for the run </li><li> Track4Run validates the title and prompts the user to draw the designed path on a map</li><li>The organizer draws the path</li><li>Track4Run prompts to fill-in the description and the start time fields of the run</li></ol>
-| Exit conditions   |Track4Run notifies the organizer that the run has been correctly inserted in the system|
-| Exceptions        | <ol><li>The title is already in the system</li><li>The start time isn't consistent</li></ol></br> The exception is handled by notifying the organizer to refill the wrong fields |
+| Name                                                               |Creation of a run
+|:-------------------------------------------------------------------|:-
+| Actor                                                              |Organizer
+| Entry conditions                                                   |Organizer is registered to the service and correctly logged in
+| Events flows                                                       |<ol><li> The organizer inserts a title for the run </li><li> Track4Run validates the title and prompts the user to draw the designed path on a map</li><li>The organizer draws the path</li><li>Track4Run prompts to fill-in the description and the start time fields of the run</li></ol>
+| Exit conditions                                                    |Track4Run notifies the organizer that the run has been correctly inserted in the system
+| Exceptions                                                         |<ol><li>The title is already in the system</li><li>The start time isn't consistent</li></ol></br> The exception is handled by notifying the organizer to refill the wrong fields
