@@ -221,7 +221,7 @@ On first access to the service he specified the theresholds of his heartbeat out
 |:------------------|:------------------------------------------------------------------------|
 | Actor             | User                                                                    |
 | Entry conditions  | The user has installed the application on his/her device                |
-| Events flows      | <ol><li>The user click on "Sign up as individual" or "sign up as third party" button</li><li>The user fill all the mandatory fields, provide the SSN, for the individuals, or the VAT, for the third party, and a valide password</li><li>The user click on "Confirm" button</li><li>The system saves the data</li></ol>                              
+| Events flows      | <ol><li>The user click on "Sign up as individual" or "sign up as third party" button</li><li>The user provides the SSN for the individuals, or the VAT for the third party, a valid password and fills all the mandatory fields about his/her personal data </li><li>The user clicks on "Confirm" button</li><li>The system saves the data</li></ol>                             
 | Exit conditions   | The user has successfully registered                                    
 | Exceptions        | <ol><li> The user is already signed up</li><li>The user didn't fill all of the mandatory fields with valid data</li></ol></br>All the excpetions are handled by notifying the user and taking him back to the sign up activity   
 
@@ -232,15 +232,13 @@ On first access to the service he specified the theresholds of his heartbeat out
         
 
 
-
-
 | Name              | Log in                                                                  |
 |:------------------|:------------------------------------------------------------------------|
 | Actor             | Third party                                                             |
 | Entry conditions  | The third party is successfully submitted to the service                | 
 | Events flows      | <ol><li> The third party enters his credentials in the "VAT/SSN" and "PASSWORD" fields</li><li>The third party clicks on the "Log in" button  </li><li> The third party is successfully logged in Data4Help</li></ol>
 | Exit conditions   | The third party is redirected to the select filters' interface          |
-| Exceptions        | <ol><li> The third party enters invalid credentials</li></ol></br> The excpetion is handled by notifying the third party and taking him back to the log in activity  |
+| Exceptions        | The third party enters invalid credentials</br></br> The exception is handled by notifying the third party and taking him back to the log in activity  |
 
         Log in comment
         Do we have to put the fact that the user open the application on his device?
@@ -249,10 +247,10 @@ On first access to the service he specified the theresholds of his heartbeat out
 | Name              | Filter data                                                             |
 |:------------------|:------------------------------------------------------------------------|
 | Actor             | Third party                                                             |
-| Entry conditions  | The third party is successfully logged in                               | 
-| Events flows      |<ol><li>  The third party selects the categories of data of his interest</li><li> The third party specify if he wants to be subscribed to the data </li></ol> 
-| Exit conditions   |           |
-| Exceptions        |    </br>  |
+| Entry conditions  | The third party selected the functionality to request data from a group of individuals   | 
+| Events flows      |<ol><li> The third party specifies the filtering values accordingly with the previously data inserted by the individuals upon registration </li><li> The third party specify if he wants to be subscribed to the data </li></ol> 
+| Exit conditions   | The request is correctly sent    |
+| Exceptions        | The third party inserts a non valid value in the filtering fields</br></br> The exception is handled by prompting the third party to replace the incorrect values|
 
 
 
@@ -260,4 +258,21 @@ On first access to the service he specified the theresholds of his heartbeat out
         Do we have to make a filter data table or we can make a request data table and includes in the event flow the filtering part?
         
 
+| Name              | Request data of an individual                                           |
+|:------------------|:------------------------------------------------------------------------|
+| Actor             | Third party, individual                                                 |
+| Entry conditions  | The third party is logged in     | 
+| Events flows      |<ol><li>  The third party selects the functionality to request data from an individual</li><li> The third party inserts the SSN of the individual of interest</li> <li>Data4Help forwards the request to the specified individual </li> <li>The individual accepts the request to access the data</li></ol>
+| Exit conditions   |Data4Help provides the third party with the requested data     |
+| Exceptions        | <ol><li>The individual refuses to grant the access to his/her data</li><li>The individual isn't registered to Data4Help</li></ol></br> Both exceptions are handled notifying that the requested data are not accessible  |
+
+
+
+| Name              | Request data of an individuals group                                  |
+|:------------------|:------------------------------------------------------------------------|
+| Actor             | Third party                                                 |
+| Entry conditions  | The third party is logged in     | 
+| Events flows      |<ol><li>  The third party selects the functionality to request data from a group of individuals</li><li> The third party enters in the "filter data" use case to properly select the categories to which the interest data belong</li></ol>
+| Exit conditions   |Data4Help provides the third party with the requested data     |
+| Exceptions        | <ol><li>The request doesn't fit the privacy constraints of Data4Help</li></ol></br> The exception is handled notifying that the requested data are not accessible  |
 
