@@ -213,6 +213,10 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 
 # Use cases
 
+### Use Case Diagram
+
+<img src="../Diagrams/UseCase%2520Diagram%2520Export/UseCaseDiagram1.jpg"/>
+
 ### Data4Help - use cases
 
 
@@ -315,10 +319,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Entry conditions                                                   |Organizer is registered to the service
 | Events flows                                                       |<ol><li>The organizer logs into the system with his credentials</li><li>The organizer chooses to create a new run</li><li>Track4Run asks the organizer the title of the run to create</li><li>The organizer inserts a title for the run</li><li> Track4Run validates the title and prompts the user to draw the designed path on a map</li><li>The organizer draws the path</li><li>Track4Run prompts to fill-in the description and the start time fields of the run</li></ol>
 | Exit conditions                                                    |Track4Run notifies the organizer that the run has been correctly inserted in the system
-<<<<<<< HEAD
 | Exceptions                                                         |<ol><li>The credentials used to login are invalid</li><li>The title is already in the system</li><li>The start time isn't consistent</li></ol></br> The exception are handled by notifying the organizer to refill the wrong fields
-=======
-| Exceptions                                                         |<ol><li>The title is already in the system</li><li>The start time isn't consistent</li></ol></br> The exception is handled by notifying the organizer to refill the wrong fields
 
 
 | Name                                                               |Enrolling to a run
@@ -339,5 +340,3 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Exceptions                                                         |<ol><li>The selected run has not started yet, Track4Run notifies it to the user</li></ol>
 
         -- Inserire caso d'uso della notifica degli aggiornamenti? --
-
->>>>>>> 5fdbe4c2c376965593eb40a7d6bf7079578f6825
