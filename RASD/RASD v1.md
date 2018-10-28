@@ -2,6 +2,7 @@
 
 # RASD
 
+        //TODO: UML diagrams (to remember: use case diagramn, class diagram, sequence diagrams), scope description*, introduction*, Alloy, interface and constraints*.
 
 ## Introduction
 
@@ -23,7 +24,7 @@
 
 ## Goals: AutomatedSOS
 
-* [G5] The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
+* **[G5]** The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
 
 
 ## Goals: Track4Run
@@ -192,9 +193,7 @@
 #### Scenario 1
 
 A basketball team coach wants to adopt a new training method that requires him to monitor constantly the players, so he asks them to subscribe to **Data4Help** and allow him to access their data.
-
-        Insert here the subscription of the players (using their personal information).
-
+The players subscribes to Data4Help inserting their SSN, a password and filling the mandatory fields, such as Name, Surname, Age, Residency and so on and so forth.
 He proceeds to register himself as a **third party**, then he requests via SSN the players' data. Data4Help forwards the requests to the **specified users**, and as previously agreed, they accept, and so from now on the coach can track his team.
 
 #### Scenario 2
@@ -207,9 +206,12 @@ Since the request doesn't fit the privacy constraints of the service, the acces 
 Giovanni is 80 years old and suffers of a heart disease, since he lives alone he decided to register to **AutomatedSOS**.  
 On first access to the service he specified the **thresholds** of his heartbeat outside of which he wants to be assisted by his local **emergency service**. One morning, while working in his backyard, he has a tachycardia attack, as soon as it is decteded my his monitoring device, **AutomatedSOS** alerts his local first aid specifying Giovanni's location.
 
+#### Scenario 4
+
+Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help is offering a new service to allow runners to patecipate to organized competitions. He decides to exploit this opportunity and accesses to Track4Run as a guest. He visualizes all the available runs and selects the closest to his position and enrolls inserting his Data4Help credentials. Luca can now attend the competition 
 
 
-# use cases
+# Use cases
 
 ### Data4Help - use cases
 
@@ -314,3 +316,24 @@ On first access to the service he specified the **thresholds** of his heartbeat 
 | Events flows                                                       |<ol><li> The organizer inserts a title for the run </li><li> Track4Run validates the title and prompts the user to draw the designed path on a map</li><li>The organizer draws the path</li><li>Track4Run prompts to fill-in the description and the start time fields of the run</li></ol>
 | Exit conditions                                                    |Track4Run notifies the organizer that the run has been correctly inserted in the system
 | Exceptions                                                         |<ol><li>The title is already in the system</li><li>The start time isn't consistent</li></ol></br> The exception is handled by notifying the organizer to refill the wrong fields
+
+
+| Name                                                               |Enrolling to a run
+|:-------------------------------------------------------------------|:-
+| Actor                                                              |Individual
+| Entry conditions                                                   |<ul><li>The individual is registered to Data4Help</li><li>There is at least one run available</li></ul>
+| Events flows                                                       |<ol><li>The individual accesses the list of the available runs (as a guest)</li><li> The individual selects the run which he/she wants to enroll to</li><li>Track4Run asks the user if he wants to enroll the competition or to spectate the run</li><li>The user chooses the enroll option</li><li>Track4Run requires his/her Data4Help credentials</li><li>The individual inputs the required credentials</li></ol>
+| Exit conditions                                                    |Track4Run notifies the user that he is correctly enrolled to the run
+| Exceptions                                                         |<ol><li>The individual inserts wrong credentials, the exception is handled inviting the user to refill the wrong fields</li><li>The run is already started, the exception is handled notifying the user that he can't enroll anymore</li></ol>
+
+
+| Name                                                               |Following a run
+|:-------------------------------------------------------------------|:-
+| Actor                                                              |Spectator
+| Entry conditions                                                   |<ul><li>There is at least one run available</li></ul>
+| Events flows                                                       |<ol><li>The spectator accesses Track4Run as a guest</li><li>The spectator selects a run that he wants to follow from the list of available runs</li><li>Track4Run asks the user if he wants to enroll the competition or to spectate the run</li><li>The user selects the spectate option</li><li>Track4Run prompts the user with the track of the competition, periodically updating the position of the runners</li></ol>
+| Exit conditions                                                    |The followed run has reached the end
+| Exceptions                                                         |<ol><li>The selected run has not started yet, Track4Run notifies it to the user</li></ol>
+
+        -- Inserire caso d'uso della notifica degli aggiornamenti? --
+
