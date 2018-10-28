@@ -215,7 +215,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 
 ### Use Case Diagram
 
-<img src="../Diagrams/UseCase%2520Diagram%2520Export/UseCaseDiagram1.jpg"/>
+<img src="../Diagrams/UseCase_Diagram_Export/UseCaseDiagram1.jpg"/>
 
 ### Data4Help - use cases
 
