@@ -278,7 +278,7 @@ On first access to the service he specified the **thresholds** of his heartbeat 
 
 ### AutomatedSOS - use cases
 
-| Name                                                               |Parameters' setting
+| Name                                                               |Parameters setting
 |:-------------------------------------------------------------------|:-
 | Actor                                                              |User
 | Entry conditions                                                   |<ul><li>The individual is registered to Data4Help</li><li>The individual is accessing for the first time</li></ul>
@@ -286,9 +286,9 @@ On first access to the service he specified the **thresholds** of his heartbeat 
 | Exit conditions                                                    |AutomatedSOS notifies the user that it started to monitor the specified parameters
 | Exceptions                                                         |<ol><li>The individual inserts a non valid value in the parameters fields</li></ol></br> The exception is handled requesting again the value
 
-
+    
 | Name                                                               |Notify emergency
-|:-------------------------------------------------------------------|:-|
+|:-------------------------------------------------------------------|:-
 | Actor                                                              |AutomatedSOS, individual
 | Entry conditions                                                   |The individual's parameters go outside the thresholds
 | Events flows                                                       |<ol><li> AutomatedSOS detects that certain parameters aren't in the specified thresholds</li><li>AutomatedSOS tracks down the location of the individual</li><li> AutomatedSOS signals to the local emergency service the user location and the type of the emergency </li></ol>
@@ -310,7 +310,7 @@ On first access to the service he specified the **thresholds** of his heartbeat 
 | Name                                                               |Creation of a run
 |:-------------------------------------------------------------------|:-
 | Actor                                                              |Organizer
-| Entry conditions                                                   |Organizer is registered to the service and correctly logged in
-| Events flows                                                       |<ol><li> The organizer inserts a title for the run </li><li> Track4Run validates the title and prompts the user to draw the designed path on a map</li><li>The organizer draws the path</li><li>Track4Run prompts to fill-in the description and the start time fields of the run</li></ol>
+| Entry conditions                                                   |Organizer is registered to the service
+| Events flows                                                       |<ol><li>The organizer logs into the system with his credentials</li><li>The organizer chooses to create a new run</li><li>Track4Run asks the organizer the title of the run to create</li><li>The organizer inserts a title for the run</li><li> Track4Run validates the title and prompts the user to draw the designed path on a map</li><li>The organizer draws the path</li><li>Track4Run prompts to fill-in the description and the start time fields of the run</li></ol>
 | Exit conditions                                                    |Track4Run notifies the organizer that the run has been correctly inserted in the system
-| Exceptions                                                         |<ol><li>The title is already in the system</li><li>The start time isn't consistent</li></ol></br> The exception is handled by notifying the organizer to refill the wrong fields
+| Exceptions                                                         |<ol><li>The credentials used to login are invalid</li><li>The title is already in the system</li><li>The start time isn't consistent</li></ol></br> The exception are handled by notifying the organizer to refill the wrong fields
