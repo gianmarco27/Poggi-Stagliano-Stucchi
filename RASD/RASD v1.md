@@ -271,13 +271,13 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 
 
 
-| Name                                                               |Request data of an individuals group
+| Name                                                               |Request data of an individuals' group
 |:-------------------------------------------------------------------|:-
 | Actor                                                              |Third party
 | Entry conditions                                                   |The third party is logged in
 | Events flows                                                       |<ol><li>  The third party selects the functionality to request data from a group of individuals</li><li> The third party enters in the "filter data" use case to properly select the categories to which the interest data belong</li></ol>
 | Exit conditions                                                    |Data4Help provides the third party with the requested data
-| Exceptions                                                         |<ol><li>The request doesn't fit the privacy constraints of Data4Help</li></ol></br> The exception is handled notifying that the requested data are not accessible
+| Exceptions                                                         |<ol><li>The request doesn't fit the privacy constraints of Data4Help</li></ol></br> The exception is handled notifying that the requested data are not accessible and requesting to select new filters
 
         Data4Help use case? value the request of the third party
 
