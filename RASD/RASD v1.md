@@ -8,7 +8,6 @@
 
 ////TODO
 
-
 ## Goals: Data4Help
 
 * **[G1]**  The user must be able to register on the platform as an individual or third party.
@@ -187,6 +186,10 @@
 
 * **[R18]**  Spectator can visualize the location of each participant to a selected run.
 
+## UML Class Diagram
+
+<img src="../Diagrams/DiagramExport/UMLclassDiagram.JPG"/>
+
 
 ## Scenarios
 
@@ -215,7 +218,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 
 ### Use Case Diagram
 
-<img src="../Diagrams/UseCase_Diagram_Export/UseCaseDiagram1.jpg"/>
+<img src="../Diagrams/DiagramExport/UseCaseDiagram1.jpg"/>
 
 ### Data4Help - use cases
 
@@ -340,3 +343,9 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Exceptions                                                         |<ol><li>The selected run has not started yet, Track4Run notifies it to the user</li></ol>
 
         -- Inserire caso d'uso della notifica degli aggiornamenti? --
+
+### Use case sequnce diagram - Data4Help
+
+<img src="../Diagrams/DiagramExport/RequestofaGroup.JPG"/>
+<img src="../Diagrams/DiagramExport/RequestofanIndividual.JPG"/>
+
