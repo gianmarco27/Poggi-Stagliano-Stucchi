@@ -640,9 +640,9 @@
 												"$ref": "AAAAAAFmxheckus3Dsw="
 											},
 											"font": "Arial;13;0",
-											"left": 301,
+											"left": 284,
 											"top": 242,
-											"width": 153.1689453125,
+											"width": 187.83984375,
 											"height": 13,
 											"alpha": -4.579838103109907,
 											"distance": 15.132745950421556,
@@ -650,7 +650,7 @@
 												"$ref": "AAAAAAFmxheck+s4MRs="
 											},
 											"edgePosition": 1,
-											"text": "3 : sendFilters(subscribed)"
+											"text": "3 : sendFilters(filters,subscribed)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1281,9 +1281,9 @@
 												"$ref": "AAAAAAFmxjePPpdYiHk="
 											},
 											"font": "Arial;13;0",
-											"left": 357,
+											"left": 295,
 											"top": 676,
-											"width": 43.3671875,
+											"width": 167.6416015625,
 											"height": 13,
 											"alpha": 1.5707963267948966,
 											"distance": 10,
@@ -1291,7 +1291,7 @@
 												"$ref": "AAAAAAFmxjePPpdZTtA="
 											},
 											"edgePosition": 1,
-											"text": "8 : data"
+											"text": "8 : sendData(monitoredData)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1419,7 +1419,7 @@
 							"target": {
 								"$ref": "AAAAAAFmxfZQnuhLShA="
 							},
-							"arguments": "subscribed"
+							"arguments": "filters,subscribed"
 						},
 						{
 							"_type": "UMLMessage",
@@ -1486,14 +1486,15 @@
 							"_parent": {
 								"$ref": "AAAAAAFmxfOa8ugZZtw="
 							},
-							"name": "data",
+							"name": "sendData",
 							"source": {
 								"$ref": "AAAAAAFmxfZQnuhLShA="
 							},
 							"target": {
 								"$ref": "AAAAAAFmxfZGcOgs8mk="
 							},
-							"messageSort": "reply"
+							"messageSort": "reply",
+							"arguments": "monitoredData"
 						}
 					],
 					"participants": [
