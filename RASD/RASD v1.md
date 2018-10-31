@@ -330,5 +330,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 <img src="../Diagrams/DiagramExport/RequestofaGroup.JPG"/>
 <img src="../Diagrams/DiagramExport/RequestofanIndividual.JPG"/>
 <img src="../Diagrams/DiagramExport/NotifyEmergency.JPG"/>
+<img src="../Diagrams/DiagramExport/CreationOfaRun.JPG"/>
+<img src="../Diagrams/DiagramExport/RunEnrollment.JPG"/>
 
 
