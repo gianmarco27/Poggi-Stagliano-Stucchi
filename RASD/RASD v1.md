@@ -2,8 +2,8 @@
 
 # RASD
 
-        //TODO: UML diagrams (to remember: use case diagramn, class diagram, sequence diagrams), scope description*, introduction*, Alloy, interface and constraints*.
-
+        //TODO: sequence diagrams, scope description*, introduction*, Alloy, interface and constraints*.
+        
 ## Introduction
 
 ////TODO
@@ -11,8 +11,6 @@
 ## Goals: Data4Help
 
 * **[G1]**  The user must be able to register on the platform as an individual or third party.
-
-        Third party users registers via VAT.
 
 * **[G2]**  The individual has to be monitored constantly.
 
@@ -83,7 +81,6 @@
 
 ## Functional Requirements: Data4Help
  
- ?requirements da punto di vista funzionalità utente e non da punto di vista del sistema?
 #### [G1] - The user must be able to register on the platform as an individual or third party.
 
 * **[R1]**  Users can register to the platform through his/her SSN and password.
@@ -232,12 +229,6 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Exceptions                                                         |<ol><li> The user is already signed up</li><li>The user didn't fill all of the mandatory fields with valid data</li></ol></br>All the excpetions are handled by notifying the user and taking him back to the sign up activity
 
 
-        Sign up comment
-        Is the third exceptions necessary?
-        Do we have to put in the event flows the fact that the individuals have to agree the GDPR? two ways
-        
-
-
 | Name                                                               |Log in
 |:-------------------------------------------------------------------|:-
 | Actor                                                              |Third party
@@ -245,9 +236,6 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Events flows                                                       |<ol><li> The third party enters his credentials in the "VAT/SSN" and "PASSWORD" fields</li><li>The third party clicks on the "Log in" button  </li><li> The third party is successfully logged in Data4Help</li></ol>
 | Exit conditions                                                    |The third party is redirected to the select filters' interface
 | Exceptions                                                         |The third party enters invalid credentials</br></br> The exception is handled by notifying the third party and taking him back to the log in activity
-
-        Log in comment
-        Do we have to put the fact that the user open the application on his device?
 
 
 | Name                                                               |Filter data
@@ -259,10 +247,6 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Exceptions                                                         |<ol><li>The third party inserts a non valid value in the filtering fields</li></ol></br> The exception is handled by prompting the third party to replace the incorrect values
 
 
-
-        Filter data comment
-        Do we have to make a filter data table or we can make a request data table and includes in the event flow the filtering part?
-        
 
 | Name                                                               |Request data of an individual
 |:-------------------------------------------------------------------|:-
@@ -281,8 +265,6 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Events flows                                                       |<ol><li>  The third party selects the functionality to request data from a group of individuals</li><li> The third party enters in the "filter data" use case to properly select the categories to which the interest data belong</li></ol>
 | Exit conditions                                                    |Data4Help provides the third party with the requested data
 | Exceptions                                                         |<ol><li>The request doesn't fit the privacy constraints of Data4Help</li></ol></br> The exception is handled notifying that the requested data are not accessible and requesting to select new filters
-
-        Data4Help use case? value the request of the third party
 
 
 ### AutomatedSOS - use cases
@@ -342,10 +324,11 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Exit conditions                                                    |The followed run has reached the end
 | Exceptions                                                         |<ol><li>The selected run has not started yet, Track4Run notifies it to the user</li></ol>
 
-        -- Inserire caso d'uso della notifica degli aggiornamenti? --
 
-### Use case sequnce diagram - Data4Help
+### Use case sequence diagram - Data4Help
 
 <img src="../Diagrams/DiagramExport/RequestofaGroup.JPG"/>
 <img src="../Diagrams/DiagramExport/RequestofanIndividual.JPG"/>
+<img src="../Diagrams/DiagramExport/NotifyEmergency.JPG"/>
+
 
