@@ -121,10 +121,12 @@
 													"_parent": {
 														"$ref": "AAAAAAFmxfZGceguufk="
 													},
-													"visible": false,
 													"font": "Arial;13;0",
-													"left": -16,
-													"height": 13
+													"left": 149,
+													"top": 45,
+													"width": 75.0126953125,
+													"height": 13,
+													"text": "«Actor»"
 												},
 												{
 													"_type": "LabelView",
@@ -134,7 +136,7 @@
 													},
 													"font": "Arial;13;1",
 													"left": 149,
-													"top": 47,
+													"top": 60,
 													"width": 75.0126953125,
 													"height": 13,
 													"text": "ThirdParty"
@@ -1505,6 +1507,7 @@
 								"$ref": "AAAAAAFmxfOa8ugZZtw="
 							},
 							"name": "ThirdParty",
+							"stereotype": "Actor",
 							"represent": {
 								"$ref": "AAAAAAFmxfZGbugrtmA="
 							},
@@ -1532,8 +1535,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFmxfOa8ugYO9M="
 					},
-					"name": "Role1",
-					"type": ""
+					"name": "Role1"
 				},
 				{
 					"_type": "UMLAttribute",
