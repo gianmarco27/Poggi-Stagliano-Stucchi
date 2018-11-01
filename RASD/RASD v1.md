@@ -3,6 +3,9 @@
 # RASD
 
         //TODO: sequence diagrams, scope description*, introduction*, Alloy, interface and constraints*.
+        //leo: purpose
+        //gab: scope, 1.3
+        //gian: scope, mockup
         
 ## Introduction
 
@@ -188,6 +191,32 @@
 <img src="../Diagrams/DiagramExport/UMLclassDiagram.JPG"/>
 
 
+## Overall description
+
+#### Product perspective
+
+The system described in this document is based on Data4Help, an underlying service that tracks and monitors its users providing also the possibility to retrieve data by third party users. AutomatedSOS  and Track4Run are two other functionalities that lay on top of this low applicational and service level, the first guarantees the notification of an emergency to the appropriate authorities and the second offers a platform on which users can create, enroll or spectate running competitions.
+
+#### Product functions
+
+     
+
+##### Data monitoring and managing    
+     //gian
+
+Monitoring devices, like activity trackers and smart-watches, are used by the system to collect data regarding individuals' activities. This data are stored to fulfill future requests by third parties concerning categories of individuals or a specific individual, guaranteeing to handle them safely according to the privacy constraints, not disclosing any data belonging to categories of too few individuals or that a specific individual didn't grant the access to.
+
+##### Real time emergency notification   
+    //leonardo
+
+A user interested in this kind of service has as a first step to specify the parameters which he needs to be monitored with their relative thresholds, AutomatedSOS upon recording those parameters begins to periodically check the health status of the user according to the request. When the monitoring contraints are violated an appropriate service is contacted by the application exploiting the communication services it offers.
+
+##### Creation and enrollment to a run   
+    //gab
+
+An organizer through Track4Run can create a run specifying the title, the path, a description and the starting time, inserting it into the list of competitions accessible by the users which upon selecting one of the listed runs and visualized the relative information can enroll to it until it has started. Similarly a user can decide to spectate the selected run following the progress of the runners on the track.
+
+
 ## Scenarios
 
 #### Scenario 1
@@ -334,3 +363,4 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 <img src="../Diagrams/DiagramExport/RunEnrollment.JPG"/>
 
 
+    
