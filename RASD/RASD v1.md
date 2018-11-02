@@ -9,8 +9,16 @@
         
 ## Introduction
 
-////TODO
+## Purpose
 
+        //TODO [Gianmarco]: sistemare formattazione del testo, con indentazione e grossettatura
+
+The purpose of the following document is to provide an overview of what are the requirements and goals of the system that the company, called TrackMe, wants to develop. The subject of the document is made up by three macro-functionalities that together concurr to give to the company customers a comnplete tracking, managing and share services of their personal data that nowadays are easly collectable with common  wearable devices. 
+Different type of stakeholders are addressed by the complex application, the three functionalities, in fact, try to separate in different levels this type of users, or stakeholders in general.
+The First, Data4Help is the most general-purpose one, it is addressed to any type of user that simply wants to be tracked and share their informations in a way in which their privacy is assured to be never violated, independently from what is the aim of the tracking. The sharing aspect of the application is given by the possibility of providing filters that can simply be referred to a single person (the Social Security Number is choosen for this objective), or to categories of users selected with respect to the parameters that they gave in the registration phase. Given these filters, the third party passes its request to the system that is in charge to check the privacy aspect. Privacy is assured adopting a simple policy that covers both the cases of individuals' and groups' requests: the first is simple passing the request to the individual addressed who can decide to accept or deny the access to his data, the second is managed internally by the system that returns data only if a sufficient number of users is addressed by the request.
+AutomatedSOS is a specific service, it is addressed to elderly people that want to be sure that, in case of health problemm, their wearable devices, collaborating with the system, can contact quickly the local emergency service in order to receive a proper assistance. AutomatedSOS gives the possibility to specify what are the critical parameters that have to be monitored and what are the correct values in which they are supposed to be, then periodically checks data, tracked from personal devices, using the provided APIs to contact local services when anomalies appears.
+Track4Me is mainly addressed to runners, sports fan and organizers of running events. The service allows to choose, from a list of previously inserted runs, the event to which users want to subscribe or which they want to spectate, providing its information like the path (visualized on a map) that is going to be followed, the starting time and a general description. All these fields are previously inserted by the organizer that mainly uses the application in order to collect subscription in an easy and distributed way. People that want to spectate runs, are not logged to the service, they are simple able to see the progress of the run through the successive positions of the partecipants on a map.
+Data4Help is the base layer of all the complex system, active users of Track4Run or AutomatedSOS are, in fact, previously registered to it, this is possible because of the general purpose of this component, though which specializing higher level functionalities and being open to new one is even simpler.
 ## Goals: Data4Help
 
 * **[G1]**  The user must be able to register on the platform as an individual or third party.
