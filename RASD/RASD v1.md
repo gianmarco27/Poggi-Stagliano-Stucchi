@@ -386,5 +386,51 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 <img src="../Diagrams/DiagramExport/CreationOfaRun.JPG"/>
 <img src="../Diagrams/DiagramExport/RunEnrollment.JPG"/>
 
+## Effort Spent
 
-    
+#### Leonardo
+
+|Section                               |Time spent
+|--------------------------------------|----------
+|Purpose                               | 2H
+|Scope                                 | 1H
+|Goals                                 | 3H
+|Domain Assumptions                    | 3H
+|Requirements                          | 3H
+|Use Case Diagram                      | 2H
+|Sequence Diagram                      | 4H
+|Class Diagram                         | 1H
+
+
+
+
+
+#### Gabriele
+
+|Section                               |Time spent
+|--------------------------------------|----------
+|Purpose                               | 0H
+|Scope                                 | 2H
+|Goals                                 | 3H
+|Domain Assumptions                    | 3H
+|Requirements                          | 3H
+|Use Case Diagram                      | 2H
+|Sequence Diagram                      | 4H
+|Class Diagram                         | 1H
+
+
+
+
+#### Gianmarco
+
+|Section                               |Time spent
+|--------------------------------------|----------
+|Purpose                               | 1H
+|Scope                                 | 2H
+|Goals                                 | 3H
+|Domain Assumptions                    | 3H
+|Requirements                          | 3H
+|Use Case Diagram                      | 2H
+|Sequence Diagram                      | 4H
+|Class Diagram                         | 1H
+
