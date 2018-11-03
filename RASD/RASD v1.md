@@ -44,11 +44,6 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 
 ## Definitions
 
-- Individuals: users subscribed and monitored by Data4Help
-- Third parties: users subscribed to Data4Help that request data from it
-- Organizers: users subscribed to Track4Run that create run
-- Runners: users subscribed to Data4Help that partecipate a run of Track4Run
-- Spectators: user logged as guest in Track4Run that spectate the progress of a run 
 - Location: the position of a user in a specific time
 - Path: a route or track between one place and another
 - Wearable device:  is a technology that is worn on the human body, that include tracking information related to health status and location of the user
@@ -276,8 +271,33 @@ A user interested in this kind of service has as a first step to specify the par
 ##### Creation and enrollment to a run   
     //gab
 
-An organizer through Track4Run can create a run specifying the title, the path, a description (such as the motivation of the run, the sponsors..) and the starting time, inserting it into the list of competitions accessible by the users which upon selecting one of the listed runs and visualized the relative information can enroll to it until it has started (if the run is ongoing the user is notified that he can't enroll it). Similarly a user can decide to spectate the selected run following the progress of the runners on the track, users can't spectate a run that hasn't started yet.
+An organizer through Track4Run can create a run specifying the title, the path, a description (such as the motivation of the run, the sponsors..) and the starting time, inserting it into the list of competitions accessible by the users which upon selecting one of the listed runs and visualized the relative info-rmation can enroll to it until it has started (if the run is ongoing the user is notified that he can't enroll it). Similarly a user can decide to spectate the selected run following the progress of the runners on the track, users can't spectate a run that hasn't started yet.
 
+## User characteristics
+
+- Individuals: users subscribed and monitored by Data4Help
+- Third parties: users subscribed to Data4Help that request data from it
+- Organizers: users subscribed to Track4Run that create runs
+- Runners: users subscribed to Data4Help that partecipate to a run of Track4Run
+- Spectators: user logged as guest in Track4Run that spectate the progress of a run 
+
+
+## External interface requirement
+
+#### User interfaces
+
+#### Hardware Interfaces
+
+The system to be able to execute its functionalities needs the following hardware interfaces: monitoring device provided with GPS and Bluetooth technologies, smartphone with an internet connection and software device that can support the web browsing funcionalities.
+
+#### Software Interfaces 
+
+Software requirements for the correct execution of the services are:
+- Route maps: 
+  - Google maps for the web-side application;
+  - The default map service for the smartphone-side. 
+- Local emergency service must provide an API to allow other servers to send an emergency notification affecting its emergency dispatching. 
+- Communication interface: HTTP protocol used between the service and the user's hardware interfaces.  
 
 ## Scenarios
 
@@ -423,6 +443,9 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 <img src="../Diagrams/DiagramExport/NotifyEmergency.JPG"/>
 <img src="../Diagrams/DiagramExport/CreationOfaRun.JPG"/>
 <img src="../Diagrams/DiagramExport/RunEnrollment.JPG"/>
+
+
+## Performance requirements
 
 ## Effort Spent
 
