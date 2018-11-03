@@ -42,6 +42,37 @@ Final users can be divided in two groups: runners and spectators, they both acce
 All of this is done by relying on the service **Data4Help** offers and the data it collects from the active users.
 
 
+## Definitions
+
+- Individuals: users subscribed and monitored by Data4Help
+- Third parties: users subscribed to Data4Help that request data from it
+- Organizers: users subscribed to Track4Run that create run
+- Runners: users subscribed to Data4Help that partecipate a run of Track4Run
+- Spectators: user logged as guest in Track4Run that spectate the progress of a run 
+- Location: the position of a user in a specific time
+- Path: a route or track between one place and another
+- Wearable device:  is a technology that is worn on the human body, that include tracking information related to health status and location of the user
+- Threshold: it is a level on a scale, indicates the maximum or the minimum value of a parameter
+- Starting time: the data and the hour of the beginning of the run
+- Guest: user that access the application without a log in
+- Critical parameters: the parameters indicated by the user that have to respect the thresholds 
+- Filters: categories on which the data are sorted on every request
+
+## Acronyms
+
+- SSN-social security number
+- VAT-valued added tax
+- BPM-beats per minute
+- API-application programming interface
+- GPS-global positioning system
+- GDPR-general data protection regulation
+
+## Abbreviations
+
+[Gn]: n-goal
+[Dn]: n-domain assumption
+[Rn]: n-functional requirement
+
 ## Goals: Data4Help
 
 * **[G1]**  The user must be able to register on the platform as an individual or third party.
@@ -245,7 +276,7 @@ A user interested in this kind of service has as a first step to specify the par
 ##### Creation and enrollment to a run   
     //gab
 
-An organizer through Track4Run can create a run specifying the title, the path, a description and the starting time, inserting it into the list of competitions accessible by the users which upon selecting one of the listed runs and visualized the relative information can enroll to it until it has started. Similarly a user can decide to spectate the selected run following the progress of the runners on the track.
+An organizer through Track4Run can create a run specifying the title, the path, a description (such as the motivation of the run, the sponsors..) and the starting time, inserting it into the list of competitions accessible by the users which upon selecting one of the listed runs and visualized the relative information can enroll to it until it has started (if the run is ongoing the user is notified that he can't enroll it). Similarly a user can decide to spectate the selected run following the progress of the runners on the track, users can't spectate a run that hasn't started yet.
 
 
 ## Scenarios
