@@ -485,7 +485,9 @@ These services offer downloadable applications for individual users on their sma
 |Use Case Diagram                      | 2H
 |Sequence Diagram                      | 4H
 |Class Diagram                         | 1H
-
+|Software System Attributes            | 1H
+|User interfaces                       | 1H
+|Hardware-Software Interfaces          | 2H
 
 
 
@@ -502,7 +504,9 @@ These services offer downloadable applications for individual users on their sma
 |Use Case Diagram                      | 2H
 |Sequence Diagram                      | 4H
 |Class Diagram                         | 1H
-
+|Software System Attributes            | 1H
+|User interfaces                       | 1H
+|Hardware-Software Interfaces          | 2H
 
 
 
@@ -518,4 +522,6 @@ These services offer downloadable applications for individual users on their sma
 |Use Case Diagram                      | 2H
 |Sequence Diagram                      | 4H
 |Class Diagram                         | 1H
-
+|Software System Attributes            | 1H
+|User interfaces                       | 2H
+|Hardware-Software Interfaces          | 2H
