@@ -285,16 +285,20 @@ An organizer through Track4Run can create a run specifying the title, the path, 
 ## External interface requirement
 
 #### User interfaces
-|<img src="../Diagrams/MockupsExport/LoginData4Help.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>|<img src="../Diagrams/MockupsExport/Data4Help.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>|<img src="../Diagrams/MockupsExport/AutomatedSOS.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+|<img src="../Diagrams/MockupsExport/LoginData4Help.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/Data4Help.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/AutomatedSOS.png" style="display:inline-block"/>
 |:-:|:-:|:-:
 |Login to Data4Help|Filter Creation for Third Parties|AutomatedSOS Parameters Setting
 
 
-<img src="../Diagrams/MockupsExport/LoginData4Help.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/> <img src="../Diagrams/MockupsExport/Data4Help.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/> <img src="../Diagrams/MockupsExport/AutomatedSOS.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+|<img src="../Diagrams/MockupsExport/Login.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/Creationofarun.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/CreationofaRunpt.2.png" style="display:inline-block"/>
+|:-:|:-:|:-:
+|Login to Track4Run|Creation of a Run pt. 1|Creation of a Run pt. 2
 
-<img src="../Diagrams/MockupsExport/Login.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/> <img src="../Diagrams/MockupsExport/Creationofarun.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/> <img src="../Diagrams/MockupsExport/CreationofaRunpt.2.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
 
-<img src="../Diagrams/MockupsExport/Track4RunRuns.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/> <img src="../Diagrams/MockupsExport/RunSpecs.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/> <img src="../Diagrams/MockupsExport/RunEnrollment.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+|<img src="../Diagrams/MockupsExport/Track4RunRuns.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/RunSpecs.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/RunEnrollment.png" style="display:inline-block"/>
+|:-:|:-:|:-:
+|Available Runs|Details of a Run|Enrolling to a Run
+
 
 #### Hardware Interfaces
 
