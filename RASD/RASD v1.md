@@ -467,7 +467,7 @@ According with the domain assumption D13 that runs in Track4Run are no-profit ev
 
 #### Compatibility
 
-These services are downloadable as application on the smartphone in order to be able to be always connected with the monitoring device and record data, moreover it is compatible with all the devices which are capable to monitoring the healt status of the individual. The services are also accessible by web pages in order to complete the request from the users. 
+These services offer downloadable applications for individual users on their smartphone in order to connect with their monitoring device and record data anytime, moreover they are compatible with any monitoring device which are capable of monitoring the healt status of the individual. The services can be also accessed via web pages both for individuals and third parties to make use of the functions offered. 
 
 ## Performance requirements
 
