@@ -285,9 +285,14 @@ An organizer through Track4Run can create a run specifying the title, the path, 
 ## External interface requirement
 
 #### User interfaces
+
+
 |<img src="../Diagrams/MockupsExport/LoginData4Help.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/Data4Help.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/AutomatedSOS.png" style="display:inline-block"/>
 |:-:|:-:|:-:
 |Login to Data4Help|Filter Creation for Third Parties|AutomatedSOS Parameters Setting
+
+
+
 
 
 |<img src="../Diagrams/MockupsExport/Login.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/Creationofarun.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/CreationofaRunpt.2.png" style="display:inline-block"/>
@@ -295,9 +300,15 @@ An organizer through Track4Run can create a run specifying the title, the path, 
 |Login to Track4Run|Creation of a Run pt. 1|Creation of a Run pt. 2
 
 
+
+
+
 |<img src="../Diagrams/MockupsExport/Track4RunRuns.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/RunSpecs.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/RunEnrollment.png" style="display:inline-block"/>
 |:-:|:-:|:-:
 |Available Runs|Details of a Run|Enrolling to a Run
+
+
+
 
 
 #### Hardware Interfaces
@@ -472,6 +483,11 @@ Working correctly at any time (limited by future infrastructure choices) is a co
 #### Safety
 
 According with the domain assumption D13 that runs in Track4Run are no-profit events and that in the entire system there aren't any type of payment information exchanged between parties, the security implemented at the application level can be satisfying for the purpose of the application. The anonymisation of data operated by the system at the highest level (not considering any encryption at the HTTP level) is implemented by the application itself and so it's not necessary any further requirement about this scope of interest.
+
+#### Mantainability
+
+since the nature of these three whole services is heavily binded (two of them directly rely on the main one for most of their functions), the system should be flexible and easy to mantain, as long as certain external constraints, such as the communication with monitoring devices or other services' APIs are respected. Certainly following the design patterns will play a fundamental role on the application mantainability.  
+Having a good documentation will be of key importance for the developers to achieve a good level of mantainability and clarifying the patterns to adopt on each case.
 
 #### Compatibility
 
