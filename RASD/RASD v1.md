@@ -454,19 +454,18 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 
 #### Reliability
 
-AutomatedSOS has to guarantee to be online 24/7, according to its function of monitoring periodically the data collected and sending notification to external entities. Track4Run systems hasn't this type of constraints concerning reliability, because of its nature that is unrelated from an emergency application domain, it is acceptable that the service has some (short) period of time of unreachability, clearly guaranteeing that almost part of an entire run progress will be covered. 
-Assuming that Data4Help represents the collecting service on which AutomatedSOS is based and condisering what is said above about it, Data4Help has to be 24/7 connected with the users' devices, ready to receive monitoring data
+AutomatedSOS has to guarantee to be online 24/7, accordingly to its function of monitoring periodically the data collected and sending notification to external entities. Track4Run systems hasn't this type of constraints concerning reliability, because of its nature that is unrelated from an emergency application domain, it is acceptable that the service has some (short) period of time of unreachability, clearly guaranteeing that almost part of an entire run progress will be covered. 
+Assuming that Data4Help represents the collecting service on which AutomatedSOS is based and condisering what is said above about it, Data4Help has to be 24/7 connected with the users' devices, ready to receive monitoring data.
 
 #### Availability
 
-Working correctly at any time (limited by future infrastructure choices) is a constraint for AutomatedSOS and Data4Help, in fact if the failure time is overlapped with the time in which an health anomaly occurs, the emergency won't be catched by the system and the function of the application won't be. On the opposite side with Track4Run is possible to relax this requests because the goals of the system  don't implicate that every time it has to work correctly.
+Working correctly at any time (limited by future infrastructure choices) is a constraint for AutomatedSOS and Data4Help, in fact if the failure time is overlapped with the time in which an health anomaly occurs, the emergency won't be catched by the system and the function of the application won't be accomplished. On the opposite side with Track4Run is possible to relax this requests because the goals of the system  don't implicate that it has to work correctly every time.
 
 #### Safety
 
-According with the domain assumption that runs in Track4Run are no-profit events and that in the entire system there aren't any type of payment information exchanged between parties, the security implemented at the application level can be satisfying for the purpose of the application. The anonymisation of data operated by the system at the highest level (not considering any encryption at the HTTP level) is implemented by the application itself and so it's not necessary any further requirement about this scope of interest.
+According with the domain assumption D13 that runs in Track4Run are no-profit events and that in the entire system there aren't any type of payment information exchanged between parties, the security implemented at the application level can be satisfying for the purpose of the application. The anonymisation of data operated by the system at the highest level (not considering any encryption at the HTTP level) is implemented by the application itself and so it's not necessary any further requirement about this scope of interest.
 
 ## Performance requirements
-
 
 ## Effort Spent
 
