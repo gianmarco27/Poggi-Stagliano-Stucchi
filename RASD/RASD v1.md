@@ -465,6 +465,10 @@ Working correctly at any time (limited by future infrastructure choices) is a co
 
 According with the domain assumption D13 that runs in Track4Run are no-profit events and that in the entire system there aren't any type of payment information exchanged between parties, the security implemented at the application level can be satisfying for the purpose of the application. The anonymisation of data operated by the system at the highest level (not considering any encryption at the HTTP level) is implemented by the application itself and so it's not necessary any further requirement about this scope of interest.
 
+#### Compatibility
+
+These services are downloadable as application on the smartphone in order to be able to be always connected with the monitoring device and record data, moreover it is compatible with all the devices which are capable to monitoring the healt status of the individual. The services are also accessible by web pages in order to complete the request from the users. 
+
 ## Performance requirements
 
 ## Effort Spent
