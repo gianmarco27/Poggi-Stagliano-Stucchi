@@ -288,6 +288,8 @@ An organizer through Track4Run can create a run specifying the title, the path, 
 |<img src="../Diagrams/MockupsExport/LoginData4Help.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>|<img src="../Diagrams/MockupsExport/Data4Help.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>|<img src="../Diagrams/MockupsExport/AutomatedSOS.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
 |:-:|:-:|:-:
 |Login to Data4Help|Filter Creation for Third Parties|AutomatedSOS Parameters Setting
+
+
 <img src="../Diagrams/MockupsExport/LoginData4Help.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/> <img src="../Diagrams/MockupsExport/Data4Help.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/> <img src="../Diagrams/MockupsExport/AutomatedSOS.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
 
 <img src="../Diagrams/MockupsExport/Login.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/> <img src="../Diagrams/MockupsExport/Creationofarun.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/> <img src="../Diagrams/MockupsExport/CreationofaRunpt.2.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
