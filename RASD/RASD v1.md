@@ -286,6 +286,16 @@ An organizer through Track4Run can create a run specifying the title, the path, 
 
 #### User interfaces
 
+<img src="../Diagrams/MockupsExport/LoginData4Help.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+<img src="../Diagrams/MockupsExport/Data4Help.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+<img src="../Diagrams/MockupsExport/AutomatedSOS.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+<img src="../Diagrams/MockupsExport/Login.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+<img src="../Diagrams/MockupsExport/Creationofarun.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+<img src="../Diagrams/MockupsExport/CreationofaRunpt.2.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+<img src="../Diagrams/MockupsExport/Track4RunRuns.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+<img src="../Diagrams/MockupsExport/RunSpecs.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+<img src="../Diagrams/MockupsExport/RunEnrollment.png" style="display:inline-block; margin-left:1%; margin-right:1%; margin-top:20px;" width="30%"/>
+
 #### Hardware Interfaces
 
 The system to be able to execute its functionalities needs the following hardware interfaces: monitoring device provided with GPS and Bluetooth technologies, smartphone with an internet connection and software device that can support the web browsing funcionalities.
