@@ -1,6 +1,6 @@
 open util/boolean
 open util/integer
-open util/string
+
 
 sig Identifier{}
 
@@ -9,7 +9,7 @@ abstract sig Data{}
 
 //Inserire values in UML class diagram.
 sig MonitoredData extends Data{
-	values: set Integer;
+	values: set Int 
 }
 
 sig MandatoryField extends Data{
@@ -18,79 +18,95 @@ sig MandatoryField extends Data{
 
 //fact: SSN e id devono coincidere
 sig PersonalData extends Data{
- 	SSN: one Identifier;
-	mandatoryFields: 5 MandatoryField;  //Sex, age, height, weight, home address.
+ 	SSN: one Identifier,
+	mandatoryFields: some MandatoryField, //Sex, age, height, weight, home address.
 }
 
 //fact: un id è relativo a un solo user.
 abstract sig User {
-	id: one Identifier;
+	id: one Identifier,
 }
 
 sig Individual extends User{
-	bio: one PersonalData;
-	tracking: set MonitoredData;
+	bio: one PersonalData,
+	tracking: set MonitoredData
 }
 
 sig ThirdParty extends User{
-	categories: some Filter;
+	categories: some Filter
 }
 //eliminare attributo mandatoryFields da PersonalData
 sig Filter{
-	subscribed: one Bool;
-	uses: some MandatoryField;
+	subscribed: one Bool,
+	uses: some MandatoryField,
 	//se utilizziamo set ricordare di inserire molteplicità 0 nella relazione tra filtri e monitored data. Lasciare uguale se si utilizza some.
-	returns: set MonitoredData;
+	returns: set MonitoredData
 }
 
 // --- AutomatedSOS ---
 
 sig AutomatedSOSUser extends Individual{
 
-	constrainst: some MonitoringConstraint;
+	constrainst: some MonitoringConstraint,
 
 }
 
 //UML class diagram: modificare MonitoringConstraint con i due attributi.
 sig MonitoringConstraint {
-	upperBound: lone Int;
-	lowerBound: lone Int;
+	upperBound: lone Int,
+	lowerBound: lone Int
 }
 
 sig Emergency{
-	violatedConstraint: one MonitoringConstraint;
-	user: one AutomatedSOSUser;
+	violatedConstraint: one MonitoringConstraint,
+	user: one AutomatedSOSUser,
 }
 
 // --- Track4Run ---
 
 sig Runner extends Individual{
 
-	subs: some Subscription;
+	subs: some Subscription,
 
 }
 
 sig Subscription {
 
-	subscriptionTime: one Timestamp;
-	runEnrolled: one Run;
+	subscriptionTime: one Timestamp,
+	runEnrolled: one Run,
 
 }
 
 sig Timestamp{
-
-	minute: one Int;
+	prevs: set Timestamp,
+	nexts: set Timestamp,
 }
 
 sig Run {
 	
-	title: one String;
-	startTime: one Timestamp;
-	runners: some Runner;
+	title: one String,
+	startTime: one Timestamp,
+	runners: some Runner
 
 }
 
+// le relazioni tra timestamp valgono anche all'inverso
+fact  TimeFlowConnection {all disj t1, t2: Timestamp |  (t2 in t1.nexts implies t1 in t2.prevs) and ( t1 in t2.prevs implies t2 in t1.nexts)}
 
+//nessun timestamp è in relazione con se stesso
+fact NoTimestampIsBeforeOrAfterItself {no t1 : Timestamp | ((t1 in t1.nexts) or (t1 in t1.prevs))}
+
+// nessun timestamp è fuori dalla linea temporale (sono tutti in relazione)
+fact TimeIsAllOrdered {no disj t1, t2 : Timestamp | ((t2 not in t1.nexts) and (t2 not in t1.prevs))}
+
+//nessun timestamp è sia prima che dopo
+fact BeforeIsAnExclusiveRelation {no disj t1, t2 : Timestamp | ((t2 in t1.nexts) and (t2 in t1.prevs))}
+
+// i timestamp sono in ordine sequenziale e vale la proprietà transitiva
+fact TimeIsSequential {no disj t1, t2, t3 : Timestamp | ((t2 in t1.nexts) and (t2 in t3.prevs) and (t3 in t1.prevs))}
+
+pred show(){}
+run show for 4
 
 
 
