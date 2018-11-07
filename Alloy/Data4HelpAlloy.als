@@ -45,8 +45,8 @@ sig Filter{
 
 // --- AutomatedSOS ---
 
-sig AutomatedSOSUser extends Individual{
-
+sig AutomatedSOSUser{
+	data4HelpAccount: one Individual,
 	constraints: some MonitoringConstraint,
 
 }
@@ -64,7 +64,8 @@ sig Emergency{
 
 // --- Track4Run ---
 
-sig Runner extends Individual{
+sig Runner {
+	data4HelpAccount: one Individual,
 	subs: some Subscription,
 }
 
@@ -104,15 +105,15 @@ fact TimeIsSequential {no disj t1, t2, t3 : Timestamp | ((t2 in t1.nexts) and (t
 
 //---------------------------------------------------------------------------------------------------
 
-fact ExclusivePaternityOfData {all pd1, md1 : Data |  no disj i1, i2 : Individual | (pd1 in i1.bio and pd1 in i2.bio) or (md1 in i1.tracking and md1 in i2.tracking) }
+fact ExclusivePaternityOfData {all pd1, md1 : Data |  no disj i1, i2 : Individual | (pd1 in i1.bio and pd1 in i2.bio) or (md1 in i1.tracking and md1 in i2.tracking)  }
 
-fact UnicityOfIdentifiers {all id1 : Identifier |no disj u1, u2 : User | (id1 in u1.id and id1 in u2.id)}
+fact UnicityOfIdentifiers{ all id1 : Identifier | all disj u1, u2 : User | not (id1 in u1.id and id1 in u2.id) }
 
 fact IdentifierConsistency {all i : Individual | (i.id = i.bio.SSN) }
 
 fact PersonalDataUnicity {no disj p1, p2 : PersonalData | (p1.SSN = p2.SSN)}
 
-fact UnicityOfMandatoryField {no mf : MandatoryField | all p1, p2 : PersonalData | (mf in p1.mandatoryFields and mf in p2.mandatoryFields)}
+fact UnicityOfMandatoryField {no mf : MandatoryField | some disj p1, p2 : PersonalData | (mf in p1.mandatoryFields and mf in p2.mandatoryFields)}
 
 fact MonitoredDataBelongToSomeone {no d : MonitoredData | all i : Individual | d not in i.tracking}
 
@@ -125,21 +126,52 @@ fact MonitoringConstraintsHaveBounds {all mc : MonitoringConstraint | #mc.upperB
 fact MonitoringConstraintsBelongToSomeone {no mc : MonitoringConstraint | all u : AutomatedSOSUser | mc not in u.constraints}
 
 fact EmergencyDetected {all u : AutomatedSOSUser | all mc : MonitoringConstraint | all md : MonitoredData | all v : MonitoredData.values | all e : Emergency |
-						(mc in u.constraints and md in u.tracking and mc.category = md.category and 
+						(mc in u.constraints and md in u.data4HelpAccount.tracking and mc.category = md.category and 
 								(v > mc.upperBound or v < mc.lowerBound)) iff (e.user = u and e.violatedConstraint=mc)}
 
+fact UnicityOfAutomatesSOSUser {no disj u1, u2 : AutomatedSOSUser | some i : Individual | i in u1.data4HelpAccount and i in u2.data4HelpAccount }
 
+fact  UnicityOfRunner {no disj r1, r2 : Runner | some i : Individual | i in r1.data4HelpAccount  and i in r2.data4HelpAccount }
 
+//-----------------------------------Track4Run--------------------------------
 
+fact UnicityOfTitle {no disj r1, r2 : Run | r1.title = r2.title}
 
+fact SubscriptionMustHappenBeforeStart { all s : Subscription | s.subscriptionTime in s.runEnrolled.startTime.prevs }
 
-fact si {#Individual = 3}
-fact si2volte {#MonitoredData= 5}
+fact TimestampsBelongToSomething {all t : Timestamp | all r : Run | all s : Subscription | t in s.subscriptionTime or t in r.startTime}
+
+fact RunnersInRunHaveSubscriptionToIt {all r : Run | all ru : Runner | (ru in r.runners iff (one s : Subscription | (s in ru.subs and s.runEnrolled = r)))}
+
+fact RunnersOnlySubscibeOnce {no disj s1, s2 : Subscription | some r : Runner | s1 in r.subs and s2 in r.subs and s1.runEnrolled = s2.runEnrolled}
+
+fact PaternityOfSubscription{all s : Subscription | all disj r1, r2 : Runner | not (s in r1.subs and s in r2.subs)}
+
+assert pippo {all disj s1, s2 : Subscription | not (s1.subscriptionTime = s2.subscriptionTime and s1.runEnrolled = s2.runEnrolled)}
+
+fact PaternityRuntitle {no r : RunTitle | all runs : Run | r not in runs.title}
+
+fact PaternityIdentifier {no i : Identifier | all u : User | i not in u.id}
+
+fact PaternitySub {no s : Subscription | all r : Runner | s not in r.subs}
+
+fact PaternityTypeofData {no t : TypeOfData | all md : MonitoredData | all mc : MonitoringConstraint | t not in md.category and t not in mc.category}
+
+fact PaternityMandatoryField {no mf : MandatoryField | all p : PersonalData | mf not in p.mandatoryFields}
+
+fact MonitoringConstraintUseDataFromMonitoredData {all t : TypeOfData | all mc : MonitoringConstraint | some md : MonitoredData | t in mc.category implies t in md.category}
+
+fact si {#Runner = 1}
+fact {#Runner.subs = 2}
+fact {#Run > 1}
+//fact si2volte {#MonitoredData= 5}
 pred show(){}
+//check pippo
 run show for 10
 
-
-
+//se subscribed true non può esistere un altro filtro della stessa third party
+// editare class diagram con relazione direct not extend
+////ma un runner può isciriversi a 2 gare che iniziano contemporaneamente/overlapping
 
 
 
