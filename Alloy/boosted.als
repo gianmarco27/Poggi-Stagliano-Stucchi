@@ -21,7 +21,7 @@ sig MandatoryField extends Data{
 sig PersonalData extends Data{
  	SSN: one Identifier,
 	mandatoryFields: some MandatoryField, //Sex, age, height, weight, home address...
-}{#mandatoryFields = 5}
+}//{#mandatoryFields = 5}
 
 
 abstract sig User {
@@ -48,8 +48,8 @@ sig Filter{
 
 // --- AutomatedSOS ---
 
-sig AutomatedSOSUser{
-	data4HelpAccount: one Individual,
+sig AutomatedSOSUser in Individual {
+
 	constraints: some MonitoringConstraint,
 
 }
@@ -67,8 +67,7 @@ sig Emergency{
 
 // --- Track4Run ---
 
-sig Runner {
-	data4HelpAccount: one Individual,
+sig Runner in Individual {
 	subs: some Subscription,
 }
 
@@ -77,7 +76,7 @@ sig Subscription {
 	runEnrolled: one Run,
 }
 
-sig Timestamp{
+sig Timestamp {
 	prevs: set Timestamp,
 	nexts: set Timestamp,
 }
@@ -110,9 +109,13 @@ fact TimeIsSequential {no disj t1, t2, t3 : Timestamp | ((t2 in t1.nexts) and (t
 
 fact ExclusivePaternityOfData {all pd1, md1 : Data |  no disj i1, i2 : Individual | (pd1 in i1.bio and pd1 in i2.bio) or (md1 in i1.tracking and md1 in i2.tracking)  }
 
-fact UnicityOfIdentifiers{ all id1 : Identifier | all disj u1, u2 : User | not (id1 in u1.id and id1 in u2.id) }
-
 fact IdentifierConsistency {all i : Individual | (i.id = i.bio.SSN) }
+
+fact ThirdPartyHaveOtherIdentifiers {no i : Identifier | some u : Individual | some t : ThirdParty | i in u.id and i in t.id}
+
+fact UnicityOfThirdPartyIdentifier {no i : Identifier | some disj t1 , t2 : ThirdParty | i in t1.id and i in t2.id}
+
+fact UnicityOfData4HelpAccount {no disj i1 , i2 : Individual |   i1.id = i2.id}
 
 fact PersonalDataUnicity {no disj p1, p2 : PersonalData | (p1.SSN = p2.SSN)}
 
@@ -128,19 +131,20 @@ fact MonitoringConstraintsHaveBounds {all mc : MonitoringConstraint | #mc.upperB
 
 fact MonitoringConstraintsBelongToSomeone {no mc : MonitoringConstraint | all u : AutomatedSOSUser | mc not in u.constraints}
 
-fact EmergencyDetected {no u : AutomatedSOSUser | all mc : MonitoringConstraint | all md : MonitoredData | all v : MonitoredData.values | all e : Emergency |
-						(mc in u.constraints and md in u.data4HelpAccount.tracking and mc.category = md.category and v in md.values and
-								((v < mc.upperBound and #mc.upperBound = 1) and (v > mc.lowerBound and #mc.lowerBound = 1)) and e.user = u and e.violatedConstraint=mc)}
+//fact EmergencyDetected {no u : AutomatedSOSUser | all mc : MonitoringConstraint | all md : MonitoredData | all v : MonitoredData.values | all e : Emergency |
+//						(mc in u.constraints and md in u.data4HelpAccount.tracking and mc.category = md.category and v in md.values and
+//								((v < mc.upperBound and #mc.upperBound = 1) and (v > mc.lowerBound and #mc.lowerBound = 1)) and e.user = u and e.violatedConstraint=mc)}
 
-fact UnicityOfAutomatesSOSUser {no disj u1, u2 : AutomatedSOSUser | some i : Individual | i in u1.data4HelpAccount and i in u2.data4HelpAccount }
+fact EmergencyIsTriggeredOnlyIfNecessary {all u : AutomatedSOSUser | some mc : MonitoringConstraint |
+											(one e : Emergency | mc in u.constraints and e.user = u and e.violatedConstraint = mc) iff
+											(some md : MonitoredData | some v : md.values | md in u.tracking and md.category = mc.category and 
+												((v > mc.upperBound and #mc.upperBound = 1) or (v < mc.lowerBound and #mc.lowerBound = 1))) }
 
-fact ExclusivityOfMonitoringConstraint {all disj mc1, mc2 : MonitoringConstraint | some u : AutomatedSOSUser | not (mc1 in u.constraints and mc2 in u.constraints and mc1.category = mc2.category)}
-
+fact UnicityOfMonitoringConstraint {all disj mc1, mc2 : MonitoringConstraint | some u : AutomatedSOSUser | not (mc1 in u.constraints and mc2 in u.constraints and mc1.category = mc2.category)}
+fact ExclusivityOfMonitoringConstraint {no disj u1 , u2 : AutomatedSOSUser | some mc : MonitoringConstraint | mc in u1.constraints and mc in u2.constraints}
 //-----------------------------------Track4Run--------------------------------
 
 fact UnicityOfTitle {no disj r1, r2 : Run | r1.title = r2.title}
-
-fact  UnicityOfRunner {no disj r1, r2 : Runner | some i : Individual | i in r1.data4HelpAccount  and i in r2.data4HelpAccount }
 
 fact SubscriptionMustHappenBeforeStart { all s : Subscription | s.subscriptionTime in s.runEnrolled.startTime.prevs }
 
@@ -151,7 +155,6 @@ fact RunnersInRunHaveSubscriptionToIt {all r : Run | all ru : Runner | (ru in r.
 fact RunnersOnlySubscibeOnce {no disj s1, s2 : Subscription | some r : Runner | s1 in r.subs and s2 in r.subs and s1.runEnrolled = s2.runEnrolled}
 
 fact PaternityOfSubscription{all s : Subscription | all disj r1, r2 : Runner | not (s in r1.subs and s in r2.subs)}
-
 
 fact PaternityRuntitle {no r : RunTitle | all runs : Run | r not in runs.title}
 
@@ -173,13 +176,18 @@ fact FiltersAcceptedReturnData{all f :Filter | all i : Individual | some mf : Ma
 //fact si {#Runner = 1}
 //fact {#Runner.subs = 2}
 fact {#AutomatedSOSUser > 0}
+fact {#MandatoryField > #Individual}
+fact {#Individual > 1}
+fact {#Identifier > 0}
+//fact {#ThirdParty > 0}
 //fact {#Emergency = 0}
-//fact {#MonitoringConstraint > 0} 
-//fact {#MonitoredData > 0}
-fact {#Run = 0}
+fact {#MonitoringConstraint > 0} 
+fact {#MonitoredData > 0}
+//fact {#Run = 0}
 //fact {#Filter = 2 and Filter.subscribed = True and #ThirdParty = 2 and #ThirdParty.categories = 2}
 //fact{#MonitoredData.values > 1}
-//fact si2volte {#MonitoredData= 5}
+fact si2volte {#MonitoredData= 5}
+fact si3volte {#TypeOfData= 2}
 pred show(){}
 
 run show for 10
