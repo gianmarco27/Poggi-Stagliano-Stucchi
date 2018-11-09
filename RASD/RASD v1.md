@@ -1,17 +1,58 @@
 <link rel="stylesheet" type="text/css" media="all" href="./main.css" />
 
 # RASD
+1.   INTRODUCTION
+   A.  Purpose
+    A.1 Goals
+   B.  Scope
+   C.  Definitions, Acronyms, Abbreviations
+   D.  Revision history (?)
+   D.  Reference Documents	(?)
+   E.  Document Structure (?)
+   
+2.   OVERALL DESCRIPTION
+  A.   Product perspective: class diagram.
+  B.   Product functions
+   B.1 Data monitoring and managing 
+   B.2 Real time emergency notification
+   B.3 Creation and enrollment to a run
+  C.   User characteristics
+  D.   Assumptions, dependencies and constraints
+  
+3.   SPECIFIC REQUIREMENTS
+  A.   External Interface Requirements	
+   A.1	 User Interfaces	
+   A.2	 Hardware Interfaces	
+   A.3	 Software Interfaces	
+   A.4	 Communication Interfaces	
+  B.   Functional Requirements: scenarios, goals in specific, use case diagrams, sequence diagrams
+   B.1 Functional Requirements: Data4Help (?)
+   B.2 Scenarios
+   B.3 Use cases
+  C.   Performance Requirements	(?)
+  D.   Design Constraints	(?)
+   D.1	 Standards compliance	
+   D.2	 Hardware limitations	
+   D.3	 Any other constraint	
+  C.   Software	System Attributes	
+   C.1   Reliability	
+   C.2   Availability	
+   C.3   Safety	
+   C.4	 Maintainability	
+   C.5	 Compatibility	
+   
+4.   FORMAL ANALYSIS USING ALLOY
 
-        //TODO: sequence diagrams, scope description*, introduction*, Alloy, interface and constraints*.
-        //leo: purpose
-        //gab: scope, 1.3
-        //gian: scope, mockup
+5.   EFFORT	SPENT
+
+6.   REFERENCES
+
         
-## Introduction
+##   1.  Introduction
 
-## Purpose
 
-        //TODO [Gianmarco]: sistemare formattazione del testo, con indentazione e grossettatura
+### A. Purpose
+
 
 The purpose of the following document is to provide an overview of what are the requirements and goals of the system that the company, called TrackMe, wants to develop. The subject of the document is made up by three macro-functionalities that together concurr to give to the company customers a complete tracking, managing and share services of their personal data that nowadays are easily collectable with common  wearable devices.
 
@@ -24,7 +65,38 @@ The First, Data4Help is the most general-purpose one, it is addressed to any typ
 **Data4Help** is the base layer of all the complex system, active users of **Track4Run** or **AutomatedSOS** are, in fact, previously registered to it, this is possible because of the general purpose of this component, though which specializing higher level functionalities and being open to new one is even simpler.
 
 
-## Scope
+### A.1 Goals
+
+#### Goals: Data4Help
+
+* **[G1]**  The user must be able to register on the platform as an individual or third party.
+
+* **[G2]**  The individual has to be monitored constantly.
+
+* **[G3]**  Third party users must be able to access both individual's and group's data safely.
+
+* **[G4]**  Third party users can subscribe to groups of data to be updated as soon as new data are available.
+
+
+#### Goals: AutomatedSOS
+
+* **[G5]** The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
+
+
+#### Goals: Track4Run
+
+* **[G6]**  Users can register as organizers.
+
+* **[G7]**  Organizers can create runs.
+
+* **[G8]**  Any user can access Track4Run as a Guest (Spectator).
+
+* **[G9]**  Users can enroll to a run.
+
+* **[G10]**  Spectators can follow the progress of a run.
+
+
+### B. Scope
 
 **Data4Help** is a service with the purpose of providing its users with two different tipe of services, people can sign up to Data4Help via their **SSN** in order to have their health parameters monitored along with their current position, meanwhile Third Parties can subscribe utilizing their **VAT** in order to request and retrieve both individuals' and groups' data.  
 **Data4Help** handles groups' data requests having care of not disclosing informations that would compromise the anonimity of single individuals.  
@@ -41,8 +113,9 @@ Organizers subscribe via their **VAT** and can use **Track4Run** to organize com
 Final users can be divided in two groups: runners and spectators, they both access the same section of the service as guest users, once they have selected a run from the available's list they can have two type of interactions: Either they enroll to the run, by accessing with their **Data4Help** account, for tracking purposes, or they choose to spectate the run, visualizing on a map the position of the runners on the track and their proceding.  
 All of this is done by relying on the service **Data4Help** offers and the data it collects from the active users.
 
+### C.  Definitions, Acronyms, Abbreviations
 
-## Definitions
+####  Definitions
 
 - Location: the position of a user in a specific time
 - Path: a route or track between one place and another
@@ -53,7 +126,7 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 - Critical parameters: the parameters indicated by the user that have to respect the thresholds 
 - Filters: categories on which the data are sorted on every request
 
-## Acronyms
+#### Acronyms
 
 - SSN-social security number
 - VAT-valued added tax
@@ -62,42 +135,55 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 - GPS-global positioning system
 - GDPR-general data protection regulation
 
-## Abbreviations
+#### Abbreviations
 
 [Gn]: n-goal
 [Dn]: n-domain assumption
 [Rn]: n-functional requirement
 
-## Goals: Data4Help
 
-* **[G1]**  The user must be able to register on the platform as an individual or third party.
-
-* **[G2]**  The individual has to be monitored constantly.
-
-* **[G3]**  Third party users must be able to access both individual's and group's data safely.
-
-* **[G4]**  Third party users can subscribe to groups of data to be updated as soon as new data are available.
+### D. Reference documents
 
 
-## Goals: AutomatedSOS
 
-* **[G5]** The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
-
-
-## Goals: Track4Run
-
-* **[G6]**  Users can register as organizers.
-
-* **[G7]**  Organizers can create runs.
-
-* **[G8]**  Any user can access Track4Run as a Guest (Spectator).
-
-* **[G9]**  Users can enroll to a run.
-
-* **[G10]**  Spectators can follow the progress of a run.
+### E. Document structure
 
 
-## Domain Assumptions: Data4Help
+##   2.  Overall description
+
+
+### A. Product perspective
+
+The system described in this document is based on Data4Help, an underlying service that tracks and monitors its users providing also the possibility to retrieve data by third party users. AutomatedSOS  and Track4Run are two other functionalities that lay on top of this low applicational and service level, the first guarantees the notification of an emergency to the appropriate authorities and the second offers a platform on which users can create, enroll or spectate running competitions.
+
+#### UML Class Diagram
+
+<img src="../Diagrams/DiagramExport/UMLclassDiagram.JPG"/>
+
+### B. Product functions
+
+#### B.1 Data monitoring and managing    
+Monitoring devices, like activity trackers and smart-watches, are used by the system to collect data regarding individuals' activities. This data are stored to fulfill future requests by third parties concerning categories of individuals or a specific individual, guaranteeing to handle them safely according to the privacy constraints, not disclosing any data belonging to categories of too few individuals or that a specific individual didn't grant the access to.
+
+#### B.2 Real time emergency notification  
+A user interested in this kind of service has as a first step to specify the parameters which he needs to be monitored with their relative thresholds, AutomatedSOS upon recording those parameters begins to periodically check the health status of the user according to the request. When the monitoring contraints are violated an appropriate service is contacted by the application exploiting the communication services it offers.
+
+#### B.3 Creation and enrollment to a run   
+An organizer through Track4Run can create a run specifying the title, the path, a description (such as the motivation of the run, the sponsors..) and the starting time, inserting it into the list of competitions accessible by the users which upon selecting one of the listed runs and visualized the relative info-rmation can enroll to it until it has started (if the run is ongoing the user is notified that he can't enroll it). Similarly a user can decide to spectate the selected run following the progress of the runners on the track, users can't spectate a run that hasn't started yet.
+
+### C. User characteristics
+
+- Individuals: users subscribed and monitored by Data4Help
+- Third parties: users subscribed to Data4Help that request data from it
+- Organizers: users subscribed to Track4Run that create runs
+- Runners: users subscribed to Data4Help that partecipate to a run of Track4Run
+- Spectators: user logged as guest in Track4Run that spectate the progress of a run 
+
+
+### D. Assumptions, dependecies and constrains
+
+
+#### Domain Assumptions: Data4Help
 
 * **[D1]**  Monitoring devices are always connected to the network.
 
@@ -115,7 +201,7 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 
 * **[D8]**  Registering users must have accepted the service GDPR.
 
-## Domain Assumptions: AutomatedSOS
+#### Domain Assumptions: AutomatedSOS
 
 * **[D9]**  The users' local emergency services offer APIs to communicate emergencies.
 
@@ -126,7 +212,7 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 * **[D12]** AutomatedSOS users are arleady registered to Data4Help as individuals.
 
 
-## Domain Assumptions: Track4Run
+#### Domain Assumptions: Track4Run
 
 * **[D13]**  Track4Run is to organize No-Profit run so the system doesn't support payments.
 
@@ -139,16 +225,56 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 * **[D17]**  Paths specified in runs must be feasible paths, not including obstacles of any genre.
 
 
-## Functional Requirements: Data4Help
+##  3.  Specific Requirements
+
+
+### A. External Interface Requirements
+
+
+#### A.1 User interfaces
+
+
+|<img src="../Diagrams/MockupsExport/LoginData4Help.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/Data4Help.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/AutomatedSOS.png" style="display:inline-block"/>
+|:-:|:-:|:-:
+|Login to Data4Help|Filter Creation for Third Parties|AutomatedSOS Parameters Setting
+
+
+
+|<img src="../Diagrams/MockupsExport/Login.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/Creationofarun.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/CreationofaRunpt.2.png" style="display:inline-block"/>
+|:-:|:-:|:-:
+|Login to Track4Run|Creation of a Run pt. 1|Creation of a Run pt. 2
+
+
+
+|<img src="../Diagrams/MockupsExport/Track4RunRuns.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/RunSpecs.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/RunEnrollment.png" style="display:inline-block"/>
+|:-:|:-:|:-:
+|Available Runs|Details of a Run|Enrolling to a Run
+
+#### A.2 Hardware Interfaces
+
+The system to be able to execute its functionalities needs the following hardware interfaces: monitoring device provided with GPS and Bluetooth technologies, smartphone with an internet connection and software device that can support the web browsing funcionalities.
+
+#### A.3 Software and Communication Interfaces 
+
+Software requirements for the correct execution of the services are:
+- Route maps: 
+  - Google maps for the web-side application;
+  - The default map service for the smartphone-side. 
+- Local emergency service must provide an API to allow other servers to send an emergency notification affecting its emergency dispatching. 
+- Communication interface: HTTP protocol used between the service and the user's hardware interfaces.  
+
+### B. Functional Requirements
+
+#### B.1 Functional Requirements: Data4Help   (maaaaa dividiamo per paragrafi i tre servizi o facciamo uno generico?)
  
-#### [G1] - The user must be able to register on the platform as an individual or third party.
+##### [G1] - The user must be able to register on the platform as an individual or third party.
 
 * **[R1]**  Users can register to the platform through his/her SSN and password.
 
 * **[R2]**  The application has to allow the registering user to sign up as an individual or as a third party.
 
 
-#### [G2] - The individual has to be monitored constantly.
+##### [G2] - The individual has to be monitored constantly.
 
 * **[D1]**  Monitoring devices are always connected to the network.
 
@@ -161,7 +287,7 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 * **[R3]**  The application has to keep a log of each data registered by the monitoring devices.
   
   
-#### [G3] - Third party users must be able to access both individual's and group's data safely.
+##### [G3] - Third party users must be able to access both individual's and group's data safely.
 
 * **[D5]**  All third parties are capable of elaborate requests according to the types of data collected by the system.
 
@@ -177,7 +303,7 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 * **[R7]**  The System allows the third party to obtain a specific individual data only if he/she grants the acces to them.
    
    
-#### [G4] - Third party users can choose to be notified about previous researches to be updated as soon as new data are available.
+##### [G4] - Third party users can choose to be notified about previous researches to be updated as soon as new data are available.
 
 * **[D6]**  Third party users are always available to receive data.
 
@@ -188,7 +314,7 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 * **[R10]**  The System periodically checks if new data belonging to the subscribed filter are available and sends a proper update.
 
 
-#### [G5] - The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
+##### [G5] - The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
 
 * **[D9]**  The users' local emergency services offer APIs to communicate emergencies.
 
@@ -203,28 +329,28 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 * **[R13]**  The application notifies the user's local emergency services when his parameters fall below specified thresholds.
 
 
-#### [G6] - Users can register as organizers.
+##### [G6] - Users can register as organizers.
 
 * **[D16]**  Track4Run organizers cannot be Data4Help individuals.
 
 * **[R14]**  On first login users can provide their VAT number to obtain access to the system as organizers of runs.
 
 
-#### [G7] - Organizers can create runs.
+##### [G7] - Organizers can create runs.
 
 * **[D17]**  Paths specified in runs must be feasible paths, not including obstacles of any genre.
 
 * **[R15]**  Organizers can specify the path, the title, the date, the start time and a brief description of the run they are creating.
 
 
-#### [G8]  Any user can access Track4Run as a Guest (Spectator).
+##### [G8]  Any user can access Track4Run as a Guest (Spectator).
 
 * **[R16]**  Guest users can access Track4Run data on a specific run without any credential.
 
 * **[R17]**  Users can visualize title, description, date, start time and path of available runs.
 
 
-#### [G9] - Users can enroll to a run.
+##### [G9] - Users can enroll to a run.
 
 * **[D14]**  Track4Run users that enroll a run also own a Data4Help account.
 
@@ -233,7 +359,7 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 * **[R18]**  Users can subscribe to a selected run using his/her Data4Help account.
 
 
-#### [G10] - Spectators can follow the progress of an ongoing run.
+##### [G10] - Spectators can follow the progress of an ongoing run.
 
 * **[D14]**  Track4Run users that enroll a run also own a Data4Help account.
 
@@ -243,117 +369,37 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 
 * **[R18]**  Spectator can visualize the location of each participant to a selected run.
 
-## UML Class Diagram
 
-<img src="../Diagrams/DiagramExport/UMLclassDiagram.JPG"/>
+#### B.2 Scenarios
 
-
-## Overall description
-
-#### Product perspective
-
-The system described in this document is based on Data4Help, an underlying service that tracks and monitors its users providing also the possibility to retrieve data by third party users. AutomatedSOS  and Track4Run are two other functionalities that lay on top of this low applicational and service level, the first guarantees the notification of an emergency to the appropriate authorities and the second offers a platform on which users can create, enroll or spectate running competitions.
-
-#### Product functions
-
-     
-
-##### Data monitoring and managing    
-     //gian
-
-Monitoring devices, like activity trackers and smart-watches, are used by the system to collect data regarding individuals' activities. This data are stored to fulfill future requests by third parties concerning categories of individuals or a specific individual, guaranteeing to handle them safely according to the privacy constraints, not disclosing any data belonging to categories of too few individuals or that a specific individual didn't grant the access to.
-
-##### Real time emergency notification   
-    //leonardo
-
-A user interested in this kind of service has as a first step to specify the parameters which he needs to be monitored with their relative thresholds, AutomatedSOS upon recording those parameters begins to periodically check the health status of the user according to the request. When the monitoring contraints are violated an appropriate service is contacted by the application exploiting the communication services it offers.
-
-##### Creation and enrollment to a run   
-    //gab
-
-An organizer through Track4Run can create a run specifying the title, the path, a description (such as the motivation of the run, the sponsors..) and the starting time, inserting it into the list of competitions accessible by the users which upon selecting one of the listed runs and visualized the relative info-rmation can enroll to it until it has started (if the run is ongoing the user is notified that he can't enroll it). Similarly a user can decide to spectate the selected run following the progress of the runners on the track, users can't spectate a run that hasn't started yet.
-
-## User characteristics
-
-- Individuals: users subscribed and monitored by Data4Help
-- Third parties: users subscribed to Data4Help that request data from it
-- Organizers: users subscribed to Track4Run that create runs
-- Runners: users subscribed to Data4Help that partecipate to a run of Track4Run
-- Spectators: user logged as guest in Track4Run that spectate the progress of a run 
-
-
-## External interface requirement
-
-#### User interfaces
-
-
-|<img src="../Diagrams/MockupsExport/LoginData4Help.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/Data4Help.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/AutomatedSOS.png" style="display:inline-block"/>
-|:-:|:-:|:-:
-|Login to Data4Help|Filter Creation for Third Parties|AutomatedSOS Parameters Setting
-
-
-
-
-
-|<img src="../Diagrams/MockupsExport/Login.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/Creationofarun.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/CreationofaRunpt.2.png" style="display:inline-block"/>
-|:-:|:-:|:-:
-|Login to Track4Run|Creation of a Run pt. 1|Creation of a Run pt. 2
-
-
-
-
-
-|<img src="../Diagrams/MockupsExport/Track4RunRuns.png" style="display:inline-block;"/>|<img src="../Diagrams/MockupsExport/RunSpecs.png" style="display:inline-block"/>|<img src="../Diagrams/MockupsExport/RunEnrollment.png" style="display:inline-block"/>
-|:-:|:-:|:-:
-|Available Runs|Details of a Run|Enrolling to a Run
-
-
-
-
-
-#### Hardware Interfaces
-
-The system to be able to execute its functionalities needs the following hardware interfaces: monitoring device provided with GPS and Bluetooth technologies, smartphone with an internet connection and software device that can support the web browsing funcionalities.
-
-#### Software Interfaces 
-
-Software requirements for the correct execution of the services are:
-- Route maps: 
-  - Google maps for the web-side application;
-  - The default map service for the smartphone-side. 
-- Local emergency service must provide an API to allow other servers to send an emergency notification affecting its emergency dispatching. 
-- Communication interface: HTTP protocol used between the service and the user's hardware interfaces.  
-
-## Scenarios
-
-#### Scenario 1
+##### Scenario 1
 
 A basketball team coach wants to adopt a new training method that requires him to monitor constantly the players, so he asks them to subscribe to **Data4Help** and allow him to access their data.
 The players subscribes to Data4Help inserting their SSN, a password and filling the mandatory fields, such as Name, Surname, Age, Residency and so on and so forth.
 He proceeds to register himself as a **third party**, then he requests via SSN the players' data. Data4Help forwards the requests to the **specified users**, and as previously agreed, they accept, and so from now on the coach can track his team.
 
-#### Scenario 2
+##### Scenario 2
 
 A statistic institute wants to conduct a research on the health status of **people aged 25** in Romano di Lombardia, in order to collect the nedeed data they decide to exploit the service offered by Data4Help, so they specify their data preferences on Data4Help portal. 
 Since the request doesn't fit the privacy constraints of the service, the acces to the data is denied, the institute sends a new request widening the search to people between 24 and 26 years old. Now the request fits the privacy constraints and Data4Help sends the specified data to the institute.
 
-#### Scenario 3
+##### Scenario 3
 
 Giovanni is 80 years old and suffers of a heart disease, since he lives alone he decided to register to **AutomatedSOS**.  
 On first access to the service he specified the **thresholds** of his heartbeat outside of which he wants to be assisted by his local **emergency service**. One morning, while working in his backyard, he has a tachycardia attack, as soon as it is decteded my his monitoring device, **AutomatedSOS** alerts his local first aid specifying Giovanni's location.
 
-#### Scenario 4
+##### Scenario 4
 
 Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help is offering a new service to allow runners to patecipate to organized competitions. He decides to exploit this opportunity and accesses to Track4Run as a guest. He visualizes all the available runs and selects the closest to his position and enrolls inserting his Data4Help credentials. Luca can now attend the competition 
 
 
-# Use cases
+#### B.3 Use cases
 
-### Use Case Diagram
+##### Use Case Diagram
 
 <img src="../Diagrams/DiagramExport/UseCaseDiagram1.jpg"/>
 
-### Data4Help - use cases
+##### Data4Help - use cases
 
 
 | Name                                                               |Sign up
@@ -403,7 +449,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Exceptions                                                         |<ol><li>The request doesn't fit the privacy constraints of Data4Help</li></ol></br> The exception is handled notifying that the requested data are not accessible and requesting to select new filters
 
 
-### AutomatedSOS - use cases
+##### AutomatedSOS - use cases
 
 | Name                                                               |Parameters setting
 |:-------------------------------------------------------------------|:-
@@ -423,7 +469,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Exceptions                                                         |</br>
 
 
-### Track4run - use cases
+##### Track4run - use cases
 
 | Name                                                               |Organizer registration
 |:-------------------------------------------------------------------|:-
@@ -461,7 +507,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Exceptions                                                         |<ol><li>The selected run has not started yet, Track4Run notifies it to the user</li></ol>
 
 
-### Use case sequence diagram - Data4Help
+#### Use case sequence diagram - Data4Help
 
 <img src="../Diagrams/DiagramExport/RequestofaGroup.JPG"/>
 <img src="../Diagrams/DiagramExport/RequestofanIndividual.JPG"/>
@@ -469,33 +515,35 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 <img src="../Diagrams/DiagramExport/CreationOfaRun.JPG"/>
 <img src="../Diagrams/DiagramExport/RunEnrollment.JPG"/>
 
-### Software system attributes
+	
+### C. Software system attributes
 
-#### Reliability
+#### C.1 Reliability
 
 AutomatedSOS has to guarantee to be online 24/7, accordingly to its function of monitoring periodically the data collected and sending notification to external entities. Track4Run systems hasn't this type of constraints concerning reliability, because of its nature that is unrelated from an emergency application domain, it is acceptable that the service has some (short) period of time of unreachability, clearly guaranteeing that almost part of an entire run progress will be covered. 
 Assuming that Data4Help represents the collecting service on which AutomatedSOS is based and condisering what is said above about it, Data4Help has to be 24/7 connected with the users' devices, ready to receive monitoring data.
 
-#### Availability
+#### C.2 Availability
 
 Working correctly at any time (limited by future infrastructure choices) is a constraint for AutomatedSOS and Data4Help, in fact if the failure time is overlapped with the time in which an health anomaly occurs, the emergency won't be catched by the system and the function of the application won't be accomplished. On the opposite side with Track4Run is possible to relax this requests because the goals of the system  don't implicate that it has to work correctly every time.
 
-#### Safety
+#### C.3 Safety
 
 According with the domain assumption D13 that runs in Track4Run are no-profit events and that in the entire system there aren't any type of payment information exchanged between parties, the security implemented at the application level can be satisfying for the purpose of the application. The anonymisation of data operated by the system at the highest level (not considering any encryption at the HTTP level) is implemented by the application itself and so it's not necessary any further requirement about this scope of interest.
 
-#### Mantainability
+#### C.4 Mantainability
 
 since the nature of these three whole services is heavily binded (two of them directly rely on the main one for most of their functions), the system should be flexible and easy to mantain, as long as certain external constraints, such as the communication with monitoring devices or other services' APIs are respected. Certainly following the design patterns will play a fundamental role on the application mantainability.  
 Having a good documentation will be of key importance for the developers to achieve a good level of mantainability and clarifying the patterns to adopt on each case.
 
-#### Compatibility
+#### C.5 Compatibility
 
 These services offer downloadable applications for individual users on their smartphone in order to connect with their monitoring device and record data anytime, moreover they are compatible with any monitoring device which are capable of monitoring the healt status of the individual. The services can be also accessed via web pages both for individuals and third parties to make use of the functions offered. 
 
-## Performance requirements
 
-## Effort Spent
+##   4.  Formal analysis using alloy
+
+##   5.  Effort spent
 
 #### Leonardo
 
