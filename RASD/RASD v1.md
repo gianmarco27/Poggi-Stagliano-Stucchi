@@ -2,50 +2,50 @@
 
 # RASD
 1.   INTRODUCTION
-   A.  Purpose
-    A.1 Goals
-   B.  Scope
-   C.  Definitions, Acronyms, Abbreviations
-   D.  Revision history (?)
-   D.  Reference Documents	(?)
-   E.  Document Structure (?)
+   A.  Purpose  
+    A.1 Goals  
+   B.  Scope  
+   C.  Definitions, Acronyms, Abbreviations  
+   D.  Revision history (?)  
+   D.  Reference Documents	(da fare)  
+   E.  Document Structure (da fare)  
    
-2.   OVERALL DESCRIPTION
-  A.   Product perspective: class diagram.
-  B.   Product functions
-   B.1 Data monitoring and managing 
-   B.2 Real time emergency notification
-   B.3 Creation and enrollment to a run
-  C.   User characteristics
-  D.   Assumptions, dependencies and constraints
+2.   OVERALL DESCRIPTION  
+  A.   Product perspective: class diagram.  
+  B.   Product functions  
+   B.1 Data monitoring and managing   
+   B.2 Real time emergency notification  
+   B.3 Creation and enrollment to a run  
+  C.   User characteristics  
+  D.   Assumptions, dependencies and constraints  
   
-3.   SPECIFIC REQUIREMENTS
-  A.   External Interface Requirements	
-   A.1	 User Interfaces	
-   A.2	 Hardware Interfaces	
-   A.3	 Software Interfaces	
-   A.4	 Communication Interfaces	
-  B.   Functional Requirements: scenarios, goals in specific, use case diagrams, sequence diagrams
-   B.1 Functional Requirements: Data4Help (?)
-   B.2 Scenarios
-   B.3 Use cases
-  C.   Performance Requirements	(?)
-  D.   Design Constraints	(?)
-   D.1	 Standards compliance	
-   D.2	 Hardware limitations	
-   D.3	 Any other constraint	
-  C.   Software	System Attributes	
-   C.1   Reliability	
-   C.2   Availability	
-   C.3   Safety	
-   C.4	 Maintainability	
-   C.5	 Compatibility	
+3.   SPECIFIC REQUIREMENTS  
+  A.   External Interface Requirements  	
+    A.1	 User Interfaces	  
+    A.2	 Hardware Interfaces  	
+    A.3	 Software Interfaces	  
+    A.4	 Communication Interfaces  	
+  B.   Functional Requirements: scenarios, goals in specific, use case diagrams, sequence diagrams  
+    B.1 Functional Requirements: Data4Help (?)  
+    B.2 Scenarios  
+    B.3 Use cases  
+  C.   Performance Requirements	(?)  
+  D.   Design Constraints	(?)  
+    D.1	 Standards compliance	  
+    D.2	 Hardware limitations	  
+    D.3	 Any other constraint	  
+  C.   Software	System Attributes  	
+    C.1   Reliability	   
+    C.2   Availability	  
+    C.3   Safety	  
+    C.4	 Maintainability  	
+    C.5	 Compatibility	  
    
-4.   FORMAL ANALYSIS USING ALLOY
+4.   FORMAL ANALYSIS USING ALLOY  
 
-5.   EFFORT	SPENT
+5.   EFFORT	SPENT   
 
-6.   REFERENCES
+6.   REFERENCES  
 
         
 ##   1.  Introduction
