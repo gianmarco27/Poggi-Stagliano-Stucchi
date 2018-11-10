@@ -106,6 +106,7 @@ fact TimeIsSequential {no disj t1, t2, t3 : Timestamp | ((t2 in t1.nexts) and (t
 
 //---------------------------------------------------------------------------------------------------
 
+
 fact ExclusivePaternityOfData {all pd1, md1 : Data |  no disj i1, i2 : Individual | (pd1 in i1.bio and pd1 in i2.bio) or (md1 in i1.tracking and md1 in i2.tracking)  }
 
 fact IdentifierConsistency {all i : Individual | (i.id = i.bio.SSN) }
@@ -138,7 +139,7 @@ fact MonitoringConstraintsBelongToSomeone {no mc : MonitoringConstraint | all u 
 //											(mc in u.constraints and e.user = u and e in u.emergencies and e.violatedConstraint = mc ) iff
 //											(all v : md.values | md in u.tracking and md.category = mc.category and ((v > mc.upperBound and #mc.upperBound = 1) or (v < mc.lowerBound and #mc.lowerBound = 1)))}
 
-fact UnicityOfMonitoringConstraint {all disj mc1, mc2 : MonitoringConstraint | some u : AutomatedSOSUser | not (mc1 in u.constraints and mc2 in u.constraints and mc1.category = mc2.category)}
+fact UnicityOfMonitoringConstraint {no disj mc1, mc2 : MonitoringConstraint | some u : AutomatedSOSUser | mc1 in u.constraints and mc2 in u.constraints and mc1.category = mc2.category}
 
 fact ExclusivityOfMonitoringConstraint {no disj u1 , u2 : AutomatedSOSUser | some mc : MonitoringConstraint | mc in u1.constraints and mc in u2.constraints}
 //-----------------------------------Track4Run--------------------------------
@@ -178,10 +179,12 @@ fact FiltersAcceptedReturnData{all f :Filter | all i : Individual | some mf : Ma
 
 fact EmergencyRelationIsBijective{all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff e.user = u}
 
+fact UnicityOfEmergency { no disj e1, e2 : Emergency | some au : AutomatedSOSUser | e1 in au.emergencies and e2 in au.emergencies and e1.violatedConstraint=e2.violatedConstraint}
+
 fact EmergencyTriggersOnConstraintBelongingToUser {all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff e.violatedConstraint in u.constraints}
 
 fact EmergencyOnlyOnConstraintViolation {all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff
-									 (some md : MonitoredData | md in u.tracking and e.violatedConstraint.category = md.category and 
+									 (some md : u.tracking |  e.violatedConstraint.category = md.category and 
 									  (all v : md.values | ((v > e.violatedConstraint.upperBound and #e.violatedConstraint.upperBound = 1) or
 																	(v < e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1))))}
 
