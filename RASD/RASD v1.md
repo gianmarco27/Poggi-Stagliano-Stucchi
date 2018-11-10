@@ -1,14 +1,18 @@
 <link rel="stylesheet" type="text/css" media="all" href="./main.css" />
 
-# RASD
-1.   INTRODUCTION
+# RASD  
+
+
+## Table of Contents  
+
+
+1.   INTRODUCTION  
    A.  Purpose  
     A.1 Goals  
    B.  Scope  
    C.  Definitions, Acronyms, Abbreviations  
-   D.  Revision history (?)  
-   D.  Reference Documents	(da fare)  
-   E.  Document Structure (da fare)  
+   D.  Revision history (?)   
+   D.  Document Structure  
    
 2.   OVERALL DESCRIPTION  
   A.   Product perspective: class diagram.  
@@ -26,7 +30,7 @@
     A.3	 Software Interfaces	  
     A.4	 Communication Interfaces  	
   B.   Functional Requirements: scenarios, goals in specific, use case diagrams, sequence diagrams  
-    B.1 Functional Requirements: Data4Help (?)  
+    B.1 Functional Requirements 
     B.2 Scenarios  
     B.3 Use cases  
   C.   Performance Requirements	(?)  
@@ -142,11 +146,20 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 [Rn]: n-functional requirement
 
 
-### D. Reference documents
 
+### D. Document structure
 
+Chapter 1 is an introduction to the problem describing the purpose and the scope of the application. In order to describe fully the scope we have specified the goals of the application.  
 
-### E. Document structure
+Chapter 2 is an overall description of the project. The product perspective together with the class diagram describe the domain model of the system. The product functions describes the required functions of the system according with the goals. The possible actors are described in the user characteristics section. At the end there is a list of the taken domain assumption.
+
+Chapter 3 gives a description of the external interface requirements such as user interfaces, software interfaces and communication interfaces. After this section there are the functional requirements that relate the goals with the domain assumptions and the requirements. After that the scenarios describe specific situation which are defined better via use case tables and sequence diagrams. Following this section there are the software system attributes.
+
+Chapter 4 is dedicated to the alloy model genereting a possibile world.
+
+Chapter 5 shows the effort spent by each group member on the various section of the project.
+
+Chapter 6 includes the reference documents.
 
 
 ##   2.  Overall description
@@ -265,7 +278,6 @@ Software requirements for the correct execution of the services are:
 
 ### B. Functional Requirements
 
-#### B.1 Functional Requirements: Data4Help   (maaaaa dividiamo per paragrafi i tre servizi o facciamo uno generico?)
  
 ##### [G1] - The user must be able to register on the platform as an individual or third party.
 
@@ -596,4 +608,10 @@ These services offer downloadable applications for individual users on their sma
 |Class Diagram                         | 1H
 |Software System Attributes            | 1H
 |User interfaces                       | 2H
-|Hardware-Software Interfaces          | 2H
+|Hardware-Software Interfaces          | 2H  
+
+
+
+## 6. References
+
+<ul><li>Specification document "A.Y.2018-2019 Software Engineering 2 Mandatory Project</li><li>Slides-"Requirements engineering part I and II"</li><li>Alloy documentation - http://alloy.mit.edu/alloy/documentation.html </li><li>Slides-"Alloy"</li></ul>
