@@ -10,9 +10,8 @@
    A.  Purpose  
     A.1 Goals  
    B.  Scope  
-   C.  Definitions, Acronyms, Abbreviations  
-   D.  Revision history (?)   
-   D.  Document Structure  
+   C.  Definitions, Acronyms, Abbreviations   
+   D.  Document Structure  (da rileggere)
    
 2.   OVERALL DESCRIPTION  
   A.   Product perspective: class diagram.  
@@ -35,11 +34,6 @@
     B.3 Functional Requirements Track4Run  
     B.4 Scenarios  
     B.5 Use cases  
-  C.   Performance Requirements	(?)  
-  D.   Design Constraints	(?)  
-    D.1	 Standards compliance	  
-    D.2	 Hardware limitations	  
-    D.3	 Any other constraint	  
   C.   Software	System Attributes  	
     C.1   Reliability	   
     C.2   Availability	  
@@ -173,13 +167,13 @@ Chapter 6 includes the reference documents.
 The system described in this document is based on Data4Help, an underlying service that tracks and monitors its users providing also the possibility to retrieve data by third party users. AutomatedSOS  and Track4Run are two other functionalities that lay on top of this low applicational and service level, the first guarantees the notification of an emergency to the appropriate authorities and the second offers a platform on which users can create, enroll or spectate running competitions.
 
 #### A.1 World and shared phenomena
-##### World
-<ol><li>Individuals own a SSN identifier</li><li>The third parties and the organizers owns a VAT identifier</li><li>Every individual owns a smartphone and a monitoring device</li><li>The monitoring device is always wear by the individual</li></ol>  
 
-    magari il fatto dell'ssn è un shared phenomena perchè è legato all'accesso?
+##### World
+<ul><li>Every individual owns a smartphone and a monitoring device</li><li>The monitoring device is always wear by the individual</li><li>Track4Run user running during a competition</li><li>An individual has an health disease</li></ul>  
+
 
 ##### Shared
-<ol><li>Each data is monitored throught the individual's monitoring device</li><li>An individual goes below thresholds and aid is provided (controlled by the world and observed by the machine)</li><li>A spectator visualize the location of the runner in a run. (controlled by the machine an observed by the world)</li></ol>
+<ul><li>Individuals own an SSN identifier</li><li>The third parties and the organizers own a VAT identifier</li><li>User data monitoring</li><li>An individual goes below thresholds and aid is provided (controlled by the world and observed by the machine)</li><li>Update of the location of the runner in a run. (controlled by the world and observed by the machine)</li></ul>
 
 #### UML Class Diagram
 
