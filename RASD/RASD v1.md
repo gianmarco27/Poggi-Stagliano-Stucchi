@@ -30,9 +30,11 @@
     A.3	 Software Interfaces	  
     A.4	 Communication Interfaces  	
   B.   Functional Requirements: scenarios, goals in specific, use case diagrams, sequence diagrams  
-    B.1 Functional Requirements 
-    B.2 Scenarios  
-    B.3 Use cases  
+    B.1 Functional Requirements Data4Help  
+    B.2 Functional Requirements AutomatedSOS  
+    B.3 Functional Requirements Track4Run  
+    B.4 Scenarios  
+    B.5 Use cases  
   C.   Performance Requirements	(?)  
   D.   Design Constraints	(?)  
     D.1	 Standards compliance	  
@@ -139,11 +141,12 @@ All of this is done by relying on the service **Data4Help** offers and the data 
 - GPS-global positioning system
 - GDPR-general data protection regulation
 
-#### Abbreviations
+#### Abbreviations  
 
-[Gn]: n-goal
-[Dn]: n-domain assumption
-[Rn]: n-functional requirement
+
+[Gn]: n-th Goal  
+[Dn]: n-th Domain assumption  
+[Rn]: n-th Functional requirement
 
 
 
@@ -168,6 +171,15 @@ Chapter 6 includes the reference documents.
 ### A. Product perspective
 
 The system described in this document is based on Data4Help, an underlying service that tracks and monitors its users providing also the possibility to retrieve data by third party users. AutomatedSOS  and Track4Run are two other functionalities that lay on top of this low applicational and service level, the first guarantees the notification of an emergency to the appropriate authorities and the second offers a platform on which users can create, enroll or spectate running competitions.
+
+#### A.1 World and shared phenomena
+##### World
+<ol><li>Individuals own a SSN identifier</li><li>The third parties and the organizers owns a VAT identifier</li><li>Every individual owns a smartphone and a monitoring device</li><li>The monitoring device is always wear by the individual</li></ol>  
+
+    magari il fatto dell'ssn è un shared phenomena perchè è legato all'accesso?
+
+##### Shared
+<ol><li>Each data is monitored throught the individual's monitoring device</li><li>An individual goes below thresholds and aid is provided (controlled by the world and observed by the machine)</li><li>A spectator visualize the location of the runner in a run. (controlled by the machine an observed by the world)</li></ol>
 
 #### UML Class Diagram
 
@@ -276,8 +288,11 @@ Software requirements for the correct execution of the services are:
 - Local emergency service must provide an API to allow other servers to send an emergency notification affecting its emergency dispatching. 
 - Communication interface: HTTP protocol used between the service and the user's hardware interfaces.  
 
-### B. Functional Requirements
+###   B.  Functional Requirements
 
+
+####   B.1  Functional Requirements Data4Help  
+ 
  
 ##### [G1] - The user must be able to register on the platform as an individual or third party.
 
@@ -326,6 +341,9 @@ Software requirements for the correct execution of the services are:
 * **[R10]**  The System periodically checks if new data belonging to the subscribed filter are available and sends a proper update.
 
 
+####   B.2  Functional Requirements AutomatedSOS 
+
+
 ##### [G5] - The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
 
 * **[D9]**  The users' local emergency services offer APIs to communicate emergencies.
@@ -339,6 +357,9 @@ Software requirements for the correct execution of the services are:
 * **[R12]**  The application monitors periodically the individual data with respect to the previously specified parameters.
 
 * **[R13]**  The application notifies the user's local emergency services when his parameters fall below specified thresholds.
+
+
+####   B.3  Functional Requirements Track4Run  
 
 
 ##### [G6] - Users can register as organizers.
@@ -382,7 +403,7 @@ Software requirements for the correct execution of the services are:
 * **[R18]**  Spectator can visualize the location of each participant to a selected run.
 
 
-#### B.2 Scenarios
+#### B.4 Scenarios
 
 ##### Scenario 1
 
@@ -405,7 +426,7 @@ On first access to the service he specified the **thresholds** of his heartbeat 
 Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help is offering a new service to allow runners to patecipate to organized competitions. He decides to exploit this opportunity and accesses to Track4Run as a guest. He visualizes all the available runs and selects the closest to his position and enrolls inserting his Data4Help credentials. Luca can now attend the competition 
 
 
-#### B.3 Use cases
+#### B.5 Use cases
 
 ##### Use Case Diagram
 
@@ -481,7 +502,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Exceptions                                                         |</br>
 
 
-##### Track4run - use cases
+##### Track4Run - use cases
 
 | Name                                                               |Organizer registration
 |:-------------------------------------------------------------------|:-
@@ -523,7 +544,13 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 
 <img src="../Diagrams/DiagramExport/RequestofaGroup.JPG"/>
 <img src="../Diagrams/DiagramExport/RequestofanIndividual.JPG"/>
+
+#### Use case sequence diagram - AutomatedSOS
+
 <img src="../Diagrams/DiagramExport/NotifyEmergency.JPG"/>
+
+#### Use case sequence diagram - Track4Run
+
 <img src="../Diagrams/DiagramExport/CreationOfaRun.JPG"/>
 <img src="../Diagrams/DiagramExport/RunEnrollment.JPG"/>
 
