@@ -1,8 +1,8 @@
-table tr td:nth-child(2) {
+.table tr td:nth-child(2) {
     width: 70%;
 }
 
-table tr td:nth-child(1) {
+.table tr td:nth-child(1) {
     width: 30%;
 }
 
@@ -12,4 +12,8 @@ ul {
 
 p {
     padding-left: 1em;
+}
+body{
+    width: 900px;
+    margin: auto;
 }
