@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Neon">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="boolean/False"/>
+   <type name="boolean/True"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Black">
+   <type name="Run"/>
+</node>
+
+<node color="Blue">
+   <type name="Timestamp"/>
+</node>
+
+<node color="Gray">
+   <type name="Data"/>
+</node>
+
+<node color="Green">
+   <type name="Subscription"/>
+</node>
+
+<node color="Red">
+   <type name="TypeOfData"/>
+   <type name="User"/>
+</node>
+
+<node color="Yellow">
+   <type name="RunTitle"/>
+</node>
+
+<node shape="Box" color="Blue">
+   <type name="Identifier"/>
+</node>
+
+<node shape="Ellipse" color="Yellow">
+   <type name="Emergency"/>
+</node>
+
+<node shape="Hexagon" color="White">
+   <type name="MonitoringConstraint"/>
+</node>
+
+<node shape="Inv House">
+   <type name="ThirdParty"/>
+</node>
+
+<node shape="Inv Triangle">
+   <type name="Individual"/>
+</node>
+
+<node shape="Lined Circle">
+   <type name="PersonalData"/>
+</node>
+
+<node shape="Lined Diamond">
+   <type name="MandatoryField"/>
+</node>
+
+<node shape="Lined Square">
+   <type name="MonitoredData"/>
+</node>
+
+<node shape="Parallelogram" color="Green">
+   <type name="Filter"/>
+</node>
+
+<node style="Bold">
+   <set name="this/AutomatedSOSUser" type="Individual"/>
+   <set name="this/Runner" type="Individual"/>
+</node>
+
+<node visible="no">
+   <type name="boolean/Bool"/>
+</node>
+
+<edge color="Gray" visible="no" attribute="yes" constraint="no">
+   <relation name="subscribed"> <type name="Filter"/> <type name="boolean/Bool"/> </relation>
+</edge>
+
+<edge visible="no" constraint="no">
+   <relation name="$show_i"> <type name="MonitoredData"/> <type name="Individual"/> </relation>
+   <relation name="$show_mc"> <type name="TypeOfData"/> <type name="MonitoringConstraint"/> </relation>
+   <relation name="$show_md"> <type name="TypeOfData"/> <type name="MonitoredData"/> </relation>
+   <relation name="$show_p"> <type name="MandatoryField"/> <type name="PersonalData"/> </relation>
+   <relation name="$show_r"> <type name="Subscription"/> <type name="Individual"/> </relation>
+   <relation name="$show_runs"> <type name="RunTitle"/> <type name="Run"/> </relation>
+   <relation name="$show_t"> <type name="Filter"/> <type name="ThirdParty"/> </relation>
+   <relation name="$show_u"> <type name="MonitoringConstraint"/> <type name="Individual"/> </relation>
+   <relation name="$show_u&apos;"> <type name="Identifier"/> <type name="User"/> </relation>
+   <relation name="$show_u&apos;&apos;"> <type name="Emergency"/> <type name="Individual"/> </relation>
+   <relation name="$show_u1"> <type name="Emergency"/> <type name="Individual"/> </relation>
+   <relation name="$show_u2"> <type name="Emergency"/> <type name="Individual"/> </relation>
+</edge>
+
+</view>
+
+</alloy>
