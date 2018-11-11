@@ -7,12 +7,12 @@
 
 
 [1. INTRODUCTION](#1-introduction)  
-   A.  Purpose  
-    A.1 Goals  
-   B.  Scope  
-   C.  Definitions, Acronyms, Abbreviations   
-   D.  Document Structure  (da rileggere)
-   
+   [A.  Purpose](#a-purpose)  
+      [A.1 Goals](#a1-goals)  
+   [B.  Scope](#b-scope)  
+   [C.  Definitions, Acronyms, Abbreviations](#c-definitions-acronyms-abbreviations)  
+   [D.  Document Structure](#d-document-structure)  
+            //da rileggere
 2.   OVERALL DESCRIPTION  
   A.   Product perspective: class diagram.  
   B.   Product functions  
