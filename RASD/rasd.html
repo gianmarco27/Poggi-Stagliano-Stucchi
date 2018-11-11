@@ -1404,7 +1404,7 @@ On first access to the service he specified the <strong>thresholds</strong> of h
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <h4 id="use-case-sequence-diagram---automatedsos">Use case sequence diagram - AutomatedSOS</h4>
 <img src="../Diagrams/DiagramExport/NotifyEmergency.JPG"/>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <h4 id="use-case-sequence-diagram---track4run">Use case sequence diagram - Track4Run</h4>
 <img src="../Diagrams/DiagramExport/CreationOfaRun.JPG"/>
@@ -1649,8 +1649,12 @@ fact PaternityRuntitle {no r : RunTitle | all runs : Run | r not in runs.title}
 fact PaternitySub {no s : Subscription | all r : Runner | s not in r.subs}
 
 
-//---------------PREDICATES
 
+
+
+
+
+//---------------PREDICATES
 
 
 pred RunnerNotSubscribed [ru : Runner, r : Run, t : Timestamp] {
@@ -1696,7 +1700,7 @@ run show for 9 but 2 Filter, 3 MonitoredData, 2 Run, 2 Emergency, 5 int
 <p>The following images are the result output od the predicates runs</p>
 <pre class="alloy"><code>run EmergencyTrigger for 5
 </code></pre>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <img src="../Alloy/RunEmergencyTriggerfor5.png"/>
 
 <pre class="alloy"><code>run RunEnrollment for 3 but 1 Run 
