@@ -11,6 +11,7 @@ abstract sig Data{}
 sig MonitoredData extends Data{
 	values: some Int,
 	category: one TypeOfData,
+	dataTime : one Timestamp,
 }
 
 sig MandatoryField extends Data{
@@ -63,6 +64,7 @@ sig MonitoringConstraint {
 sig Emergency{
 	violatedConstraint: one MonitoringConstraint,
 	user: one AutomatedSOSUser,
+	emergencyTime : one Timestamp,
 }
 
 // --- Track4Run ---
@@ -144,7 +146,8 @@ fact UnicityOfTitle {no disj r1, r2 : Run | r1.title = r2.title}
 
 fact SubscriptionMustHappenBeforeStart { all s : Subscription | s.subscriptionTime in s.runEnrolled.startTime.prevs }
 
-fact TimestampsBelongToSomething {no t : Timestamp | all r : Run | all s : Subscription | not (t in s.subscriptionTime or t in r.startTime)}
+//fact TimestampsBelongToSomething {no t : Timestamp | all r : Run | all s : Subscription | not (t in s.subscriptionTime or t in r.startTime)}
+//per i predicate probabilmente non serve perchè i timestamp possono pure non appartenere a corse o iscrizioni
 
 fact RunnersInRunHaveSubscriptionToIt {all r : Run | all ru : Runner | (ru in r.runners iff (one s : Subscription | (s in ru.subs and s.runEnrolled = r)))}
 
@@ -180,56 +183,54 @@ fact UnicityOfEmergency {all disj e1, e2 : Emergency | all u : AutomatedSOSUser 
 fact EmergencyTriggersOnConstraintBelongingToUser {all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff e.violatedConstraint in u.constraints}
 
 fact EmergencyOnlyOnConstraintViolation {all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff
-									 (some md : u.tracking |  e.violatedConstraint.category = md.category and 
+									 (some md : u.tracking |  e.violatedConstraint.category = md.category and e.emergencyTime in md.dataTime.nexts and  
 									  (all v1 , v2 : md.values | ((v1 > e.violatedConstraint.upperBound and #e.violatedConstraint.upperBound = 1) or
 																	(v1 < e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
 																		(v2 < e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
 																			(v2 < e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1))))}
 
+//pre condizioni: runner non iscrito a quella gara
+// post condizione runner con iscrizione e timestamp successivo
 
-pred RunEnrollment [ru : Runner, r : Run, s : Subscription, p : PersonalData, t1 , t2 : Timestamp] {
+pred RunnerNotSubscribed [ru : Runner, r : Run, t : Timestamp]{
+	no  s : Subscription | s in ru.subs and s.runEnrolled = r and s.subscriptionTime in t.prevs
+}
+
+pred RunEnrollment [ru : Runner, r : Run, s : Subscription,t : Timestamp] {
+//precondition
+	RunnerNotSubscribed[ru,r,t]
+//postcondition
+	s in ru.subs 
 	s.runEnrolled = r
-	r.runners = ru
-	s in ru.subs
-	r.startTime = t1
-	s.subscriptionTime = t2 
-	ru.bio = p 
+	s.subscriptionTime in t.nexts
+	r.startTime in s.subscriptionTime.nexts
 }
 
-pred EmergencyTrigger [u : AutomatedSOSUser, e : Emergency, md : MonitoredData, t : TypeOfData, v1 , v2 : Int] {
-	e in u.emergencies
+pred NoUserEmergency [u:AutomatedSOSUser, t : Timestamp]{
+	no e : Emergency | e.user = u and e.emergencyTime in t.prevs
+}
+
+pred EmergencyTrigger [u : AutomatedSOSUser, e : Emergency, t : Timestamp] {
+//precondition
+	NoUserEmergency[u,t]
+//postcondition
 	e.user = u
-	e.violatedConstraint in u.constraints 
-	e.violatedConstraint.category = t
-	md.category = t
-	md.category = t
-	v1 in md.values
-	e.violatedConstraint.upperBound = v2
-	v1 > v2
+	e.emergencyTime in t.nexts
 }
 
-pred ThirdPartyFilterRequest [t : ThirdParty, f : Filter, md : MonitoredData , i : Individual, mf : MandatoryField] {
-	f in t.categories
-	mf in f.uses
-	mf in i.bio.mandatoryFields
-	md in i.tracking
-	md in f.returns
-}
-fact {#Emergency=0}
-fact {#Run = 0}
-fact {#Filter > 5}
-fact {#MonitoredData > 5}
-fact {#ThirdParty = 2}
+fact {#Emergency>0}
+//fact {#Run = 0}
+//fact {#Filter > 5}
+//fact {#MonitoredData > 5}
+//fact {#ThirdParty = 2}
 
-//run RunEnrollment
-//run EmergencyTrigger
-//run ThirdPartyFilterRequest
+
+//run RunEnrollment for 5 but 1 Run 
+//run EmergencyTrigger for 5 
 pred show(){}
 
 run show for 10
 
-// editare class diagram con relazione direct not extend
-////ma un runner può isciriversi a 2 gare che iniziano contemporaneamente/overlapping   per noi si, scemo lui
 
 
 
