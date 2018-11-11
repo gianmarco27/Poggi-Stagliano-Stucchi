@@ -1652,6 +1652,7 @@ fact PaternitySub {no s : Subscription | all r : Runner | s not in r.subs}
 //---------------PREDICATES
 
 
+
 pred RunnerNotSubscribed [ru : Runner, r : Run, t : Timestamp] {
     no  s : Subscription | s in ru.subs and s.runEnrolled = r and s.subscriptionTime in t.prevs
 }
