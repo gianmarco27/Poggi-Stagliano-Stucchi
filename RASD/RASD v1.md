@@ -8,11 +8,11 @@
 <ol>
     <li><a href="#1-introduction">1. INTRODUCTION</a></li>
     <ul>
-        <li><a href="#a-purpose">A. Purpose</a></li>
+        <a href="#a-purpose">A. Purpose</a>
         <ul><a href="#a1-goals">A.1 Goals</a></ul>
-        <li><a href="#b-scope">B. Scope</a></li>
-        <li><a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a></li>
-        <li><a href="#d-document-structure">D.  Document Structure</a></li>
+        <a href="#b-scope">B. Scope</a>
+        <a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a>
+        <a href="#d-document-structure">D.  Document Structure</a>
     </ul>
     <li><a href="#overall-description">2. OVERALL DESCRIPTION</a></li>
 </ol>
