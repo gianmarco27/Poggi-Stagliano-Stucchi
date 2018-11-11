@@ -40,7 +40,8 @@ sig ThirdParty extends User{
 sig Filter{
 	subscribed: one Bool,
 	uses: some MandatoryField,
-	returns: some MonitoredData, // If the filters gets created it means it had valid mandatoryFields and respects privacy constraints, else exception in use cases
+	returns: some MonitoredData, 
+// If the filters gets created it means it had valid mandatoryFields and respects privacy constraints, else exception in use cases
 // As specified in the use cases filters cannot be created if privacy constraints are not met
 }
 
@@ -107,7 +108,9 @@ fact TimeIsSequential {no disj t1, t2, t3 : Timestamp | ((t2 in t1.nexts) and (t
 //---------------------------------------------------------------------------------------------------
 
 
-fact ExclusivePaternityOfData {all pd1, md1 : Data |  no disj i1, i2 : Individual | (pd1 in i1.bio and pd1 in i2.bio) or (md1 in i1.tracking and md1 in i2.tracking)  }
+fact ExclusivePaternityOfPersonalData {all pd : PersonalData |  no disj i1, i2 : Individual | (pd in i1.bio <=> pd in i2.bio) }
+
+fact  ExclusivePaternityOfMonitoredData {all md : MonitoredData |  no disj i1, i2 : Individual | (md in i1.tracking <=> md in i2.tracking)  }
 
 fact IdentifierConsistency {all i : Individual | (i.id = i.bio.SSN) }
 
@@ -131,17 +134,10 @@ fact MonitoringConstraintsHaveBounds {all mc : MonitoringConstraint | #mc.upperB
 
 fact MonitoringConstraintsBelongToSomeone {no mc : MonitoringConstraint | all u : AutomatedSOSUser | mc not in u.constraints}
 
-//fact EmergencyDetected {no u : AutomatedSOSUser | all mc : MonitoringConstraint | all md : MonitoredData | all v : MonitoredData.values | all e : Emergency |
-//						(mc in u.constraints and md in u.data4HelpAccount.tracking and mc.category = md.category and v in md.values and
-//								((v < mc.upperBound and #mc.upperBound = 1) and (v > mc.lowerBound and #mc.lowerBound = 1)) and e.user = u and e.violatedConstraint=mc)}
-
-//fact EmergencyIsTriggeredOnlyIfNecessary {all u : AutomatedSOSUser | some mc : MonitoringConstraint | some md : MonitoredData | some e : Emergency |
-//											(mc in u.constraints and e.user = u and e in u.emergencies and e.violatedConstraint = mc ) iff
-//											(all v : md.values | md in u.tracking and md.category = mc.category and ((v > mc.upperBound and #mc.upperBound = 1) or (v < mc.lowerBound and #mc.lowerBound = 1)))}
-
 fact UnicityOfMonitoringConstraint {no disj mc1, mc2 : MonitoringConstraint | some u : AutomatedSOSUser | mc1 in u.constraints and mc2 in u.constraints and mc1.category = mc2.category}
 
 fact ExclusivityOfMonitoringConstraint {no disj u1 , u2 : AutomatedSOSUser | some mc : MonitoringConstraint | mc in u1.constraints and mc in u2.constraints}
+
 //-----------------------------------Track4Run--------------------------------
 
 fact UnicityOfTitle {no disj r1, r2 : Run | r1.title = r2.title}
@@ -174,36 +170,60 @@ fact MonitoringConstraintUseDataFromMonitoredData {all t : TypeOfData | all mc :
 
 fact ExclusivityOfSubscribedFilter {all disj f1, f2 : Filter | some t : ThirdParty | not (f1 in t.categories and f2 in t.categories and (f1.subscribed = True and f2.subscribed = True) and f1.uses = f2.uses)}
 
-fact FiltersAcceptedReturnData{all f :Filter | all i : Individual | some mf : MandatoryField | all md : MonitoredData | 
-										(md in i.tracking and mf in i.bio.mandatoryFields and mf in f.uses) iff md in f.returns}
+fact FiltersAcceptedReturnData{all f :Filter | all i : Individual | some mf : i.bio.mandatoryFields | mf in f.uses iff (all md : i.tracking | md in f.returns)}
 
 fact EmergencyRelationIsBijective{all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff e.user = u}
 
-fact UnicityOfEmergency { no disj e1, e2 : Emergency | some au : AutomatedSOSUser | e1 in au.emergencies and e2 in au.emergencies and e1.violatedConstraint=e2.violatedConstraint}
+fact UnicityOfEmergency {all disj e1, e2 : Emergency | all u : AutomatedSOSUser | (e1 in u.emergencies and e2 in u.emergencies and e1.violatedConstraint=e2.violatedConstraint) implies
+															(some disj md1 , md2 : u.tracking | md1.category = md2.category and md1.category = e1.violatedConstraint.category)}
 
 fact EmergencyTriggersOnConstraintBelongingToUser {all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff e.violatedConstraint in u.constraints}
 
 fact EmergencyOnlyOnConstraintViolation {all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff
 									 (some md : u.tracking |  e.violatedConstraint.category = md.category and 
-									  (all v : md.values | ((v > e.violatedConstraint.upperBound and #e.violatedConstraint.upperBound = 1) or
-																	(v < e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1))))}
+									  (all v1 , v2 : md.values | ((v1 > e.violatedConstraint.upperBound and #e.violatedConstraint.upperBound = 1) or
+																	(v1 < e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
+																		(v2 < e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
+																			(v2 < e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1))))}
 
 
-//fact si {#Runner = 1}
-//fact {#Runner.subs = 2}
-//fact {#AutomatedSOSUser > 0}
-//fact {#MandatoryField > #Individual}
-//fact {#Individual > 1}
-//fact {#Identifier > 0}
-//fact {#ThirdParty > 0}
-fact {#Emergency > 1}
-//fact {#MonitoringConstraint > 0} 
-//fact {#MonitoredData > 0}
+pred RunEnrollment [ru : Runner, r : Run, s : Subscription, p : PersonalData, t1 , t2 : Timestamp] {
+	s.runEnrolled = r
+	r.runners = ru
+	s in ru.subs
+	r.startTime = t1
+	s.subscriptionTime = t2 
+	ru.bio = p 
+}
+
+pred EmergencyTrigger [u : AutomatedSOSUser, e : Emergency, md : MonitoredData, t : TypeOfData, v1 , v2 : Int] {
+	e in u.emergencies
+	e.user = u
+	e.violatedConstraint in u.constraints 
+	e.violatedConstraint.category = t
+	md.category = t
+	md.category = t
+	v1 in md.values
+	e.violatedConstraint.upperBound = v2
+	v1 > v2
+}
+
+pred ThirdPartyFilterRequest [t : ThirdParty, f : Filter, md : MonitoredData , i : Individual, mf : MandatoryField] {
+	f in t.categories
+	mf in f.uses
+	mf in i.bio.mandatoryFields
+	md in i.tracking
+	md in f.returns
+}
+fact {#Emergency=0}
 fact {#Run = 0}
-//fact {#Filter = 2 and Filter.subscribed = True and #ThirdParty = 2 and #ThirdParty.categories = 2}
-//fact{#MonitoredData.values > 1}
-//fact si2volte {#MonitoredData= 5}
-//fact si3volte {#TypeOfData= 2}
+fact {#Filter > 5}
+fact {#MonitoredData > 5}
+fact {#ThirdParty = 2}
+
+//run RunEnrollment
+//run EmergencyTrigger
+//run ThirdPartyFilterRequest
 pred show(){}
 
 run show for 10
