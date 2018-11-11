@@ -32,8 +32,7 @@
         <ul style="list-style: none;">
             <a href="#a1-user-interfaces">A.1 User Interfaces</a><br>
             <a href="#a2-hardware-interfaces">A.2 Hardware Interfaces</a><br>
-            <a href="#a3-software-interfaces">A.3 Software Interfaces</a><br>
-            <a href="#a4-communications-interfaces">A.4 Communications Interfaces</a>
+            <a href="#a3-software-and-communication-interfaces">A.3 Software and Communication Interfaces</a><br>
         </ul>
         <a href="#b-functional-requirements">B. Functional Requirements</a>
         <ul style="list-style: none;">
