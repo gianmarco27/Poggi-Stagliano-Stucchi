@@ -8,22 +8,26 @@
 <ol>
     <a href="#1-introduction"><li>INTRODUCTION</li></a>
     <ul style="list-style: none;">
-        <a href="#a-purpose">A. Purpose</a>
+        <li><a href="#a-purpose">A. Purpose</a></li>
         <ul><a href="#a1-goals">A.1 Goals</a></ul>
-        <a href="#b-scope">B. Scope</a><br>
-        <a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a><br>
-        <a href="#d-document-structure">D.  Document Structure</a><br>
+        <li><a href="#b-scope">B. Scope</a></li>
+        <li><a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a></li>
+        <li><a href="#d-document-structure">D.  Document Structure</a></li>
     </ul>
-    <a href="#overall-description"><li>OVERALL DESCRIPTION</li></a>
+    <a href="#2--overall-description"><li>OVERALL DESCRIPTION</li></a>
+    <ul style="list-style: none;">
+        <li><a href="#a-product-perspective">A. Product perspective</a></li>
+        <li><a href="#b-scope">B. Scope</a></li>
+        <ul>
+            <li><a href="#b1-data-monitoring-and-managing">B.1 Data monitoring and managing</a></li>
+            <li><a href="#b2-real-time-emergency-notification">B.2 Real time emergency notification</a></li>
+            <li><a href="#b3-creation-and-enrollment-to-a-run">B.3 Creation and enrollment to a run</a></li>
+        </ul>
+        <li><a href="#c-user-characteristics">C. User characteristics</a></li>
+        <li><a href="#d-assumptions-dependecies-and-constrains">D. Assumptions, dependecies and constrains</a></li>
+    </ul>
 </ol>
-  A.   Product perspective: class diagram.  
-  B.   Product functions  
-   B.1 Data monitoring and managing   
-   B.2 Real time emergency notification  
-   B.3 Creation and enrollment to a run  
-  C.   User characteristics  
-  D.   Assumptions, dependencies and constraints  
-  
+
 3.   SPECIFIC REQUIREMENTS  
   A.   External Interface Requirements  	
     A.1	 User Interfaces	  
