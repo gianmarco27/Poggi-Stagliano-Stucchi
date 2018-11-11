@@ -865,7 +865,7 @@ run show for 9 but 2 Filter, 3 MonitoredData, 2 Run, 2 Emergency, 5 int
 |Software System Attributes            | 1H
 |User interfaces                       | 1H
 |Hardware-Software Interfaces          | 2H
-|Alloy Modelling                       | 10H  
+|Alloy Modelling                       | 12H  
 
 
 
@@ -885,7 +885,7 @@ run show for 9 but 2 Filter, 3 MonitoredData, 2 Run, 2 Emergency, 5 int
 |Software System Attributes            | 1H
 |User interfaces                       | 1H
 |Hardware-Software Interfaces          | 2H
-|Alloy Modelling                       | 12H  
+|Alloy Modelling                       | 14H  
 
 
 
@@ -904,7 +904,7 @@ run show for 9 but 2 Filter, 3 MonitoredData, 2 Run, 2 Emergency, 5 int
 |Software System Attributes            | 1H
 |User interfaces                       | 2H
 |Hardware-Software Interfaces          | 2H  
-|Alloy Modelling                       | 14H  
+|Alloy Modelling                       | 18H  
 
 
 
