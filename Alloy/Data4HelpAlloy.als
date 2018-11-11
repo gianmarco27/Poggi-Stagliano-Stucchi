@@ -22,8 +22,7 @@ sig MandatoryField extends Data{
 sig PersonalData extends Data{
  	SSN: one Identifier,
 	mandatoryFields: some MandatoryField, //Sex, age, height, weight, home address...
-}//{#mandatoryFields = 5}
-
+}
 
 abstract sig User {
 	id: one Identifier,
