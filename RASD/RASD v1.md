@@ -9,7 +9,7 @@
     <a href="#1-introduction"><li>INTRODUCTION</li></a><br>
     <ul style="list-style: none;">
         <a href="#a-purpose">A. Purpose</a><br>
-        <ul style="list-style: none;"><a href="#a1-goals">A.1 Goals</a></ul>
+        <ul style="list-style: none;"><a href="#a1-goals">A.1 Goals</a></ul><br>
         <a href="#b-scope">B. Scope</a><br>
         <a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a><br>
         <a href="#d-document-structure">D.  Document Structure</a><br>
@@ -22,7 +22,7 @@
             <a href="#b1-data-monitoring-and-managing">B.1 Data monitoring and managing</a><br>
             <a href="#b2-real-time-emergency-notification">B.2 Real time emergency notification</a><br>
             <a href="#b3-creation-and-enrollment-to-a-run">B.3 Creation and enrollment to a run</a>
-        </ul>
+        </ul><br>
         <a href="#c-user-characteristics">C. User characteristics</a><br>
         <a href="#d-assumptions-dependecies-and-constrains">D. Assumptions, dependecies and constrains</a><br>
     </ul><br>
@@ -34,7 +34,7 @@
             <a href="#a2-hardware-interfaces">A.2 Hardware Interfaces</a><br>
             <a href="#a3-software-interfaces">A.3 Software Interfaces</a><br>
             <a href="#a4-communications-interfaces">A.4 Communications Interfaces</a>
-        </ul>
+        </ul><br>
         <a href="#b-functional-requirements">B. Functional Requirements</a>
         <ul style="list-style: none;">
             <a href="#b1--functional-requirements-data4help">B.1 Functional Requirements Data4Help</a><br>
@@ -42,7 +42,7 @@
             <a href="#b3--functional-requirements-track4run">B.3 Functional Requirements Track4Run</a><br>
             <a href="#b4-scenarios">B.4 Scenarios</a><br>
             <a href="#b5-use-cases">B.5 Use cases</a>
-        </ul>
+        </ul><br>
         <a href="#c-software-system-attributes">C. Software System Attributes</a>
         <ul style="list-style: none;">
             <a href="#c1-relaiability">C.1 Relaiability</a><br>
