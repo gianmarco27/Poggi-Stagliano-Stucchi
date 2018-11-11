@@ -6,18 +6,18 @@
 ## Table of Contents  
 
 <ol>
-    <a href="#1-introduction"><li>INTRODUCTION</li></a><br>
+    <a href="#1-introduction"><li>INTRODUCTION</li></a>
     <ul style="list-style: none;">
         <a href="#a-purpose">A. Purpose</a><br>
         <ul style="list-style: none;"><a href="#a1-goals">A.1 Goals</a></ul>
         <a href="#b-scope">B. Scope</a><br>
         <a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a><br>
-        <a href="#d-document-structure">D.  Document Structure</a>
-    </ul>
-    <a href="#2--overall-description"><li>OVERALL DESCRIPTION</li></a><br>
+        <a href="#d-document-structure">D.  Document Structure</a><br>
+    </ul><br>
+    <a href="#2--overall-description"><li>OVERALL DESCRIPTION</li></a>
     <ul style="list-style: none;">
         <a href="#a-product-perspective">A. Product perspective</a><br>
-        <a href="#b-scope">B. Scope</a><br>
+        <a href="#b-scope">B. Scope</a>
         <ul style="list-style: none;">
             <a href="#b1-data-monitoring-and-managing">B.1 Data monitoring and managing</a><br>
             <a href="#b2-real-time-emergency-notification">B.2 Real time emergency notification</a><br>
@@ -26,6 +26,7 @@
         <a href="#c-user-characteristics">C. User characteristics</a><br>
         <a href="#d-assumptions-dependecies-and-constrains">D. Assumptions, dependecies and constrains</a><br>
     </ul>
+    
 </ol>
 
 3.   SPECIFIC REQUIREMENTS  
