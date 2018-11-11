@@ -784,7 +784,7 @@
     <a href="#5.-effort-spent"><li>EFFORT SPENT</li></a><br>
     <a href="#6.-references"><li>REFERENCES</li></a><br>
 </ol>
-<br><br><br>
+<br><br><br><br><br>
 <h2 id="1.-introduction">1. Introduction</h2>
 <h3 id="a.-purpose">A. Purpose</h3>
 <p>The purpose of the following document is to provide an overview of what are the requirements and goals of the system that the company, called TrackMe, wants to develop. The subject of the document is made up by three macro-functionalities that together concurr to give to the company customers a complete tracking, managing and share services of their personal data that nowadays are easily collectable with common wearable devices.</p>
@@ -1568,30 +1568,32 @@ fact FiltersBelongToSomeone {no f : Filter | all t : ThirdParty | f not in t.cat
 fact ExclusivePaternityOfFilter { all f : Filter | no disj t1, t2 : ThirdParty | 
                                                                 (f in t1.categories and f in t2.categories)}
 
-fact ExclusivityOfSubscribedFilter {all disj f1, f2 : Filter | some t : ThirdParty | not (f1 in t.categories and
-                    f2 in t.categories and (f1.subscribed = True and f2.subscribed = True) and f1.uses = f2.uses)}
+fact ExclusivityOfSubscribedFilter {all disj f1, f2 : Filter | some t : ThirdParty |
+                                                        not (f1 in t.categories and f2 in t.categories and
+                                     (f1.subscribed = True and f2.subscribed = True) and f1.uses = f2.uses)}
 
 fact FiltersAcceptedReturnData{all f :Filter | all i : Individual | some mf : i.bio.mandatoryFields |
-                                                    (mf in f.uses and (all md : i.tracking | md in f.returns)) or 
-                                                    (mf not in f.uses and (no md : i.tracking | md in f.returns))}
+                                            (mf in f.uses and (all md : i.tracking | md in f.returns)) or 
+                                            (mf not in f.uses and (no md : i.tracking | md in f.returns))}
 
 
 //FACTS------------------------AUTOMATEDSOS--------------------------------
 
 
 fact PaternityTypeofData {no t : TypeOfData | all md : MonitoredData | all mc : MonitoringConstraint |
-                                                                    t not in md.category and t not in mc.category}
+                                                            t not in md.category and t not in mc.category}
 
-fact MonitoringConstraintsHaveBounds {all mc : MonitoringConstraint | #mc.upperBound &gt; 0 or #mc.lowerBound &gt; 0}
+fact MonitoringConstraintsHaveBounds {all mc : MonitoringConstraint |
+                                                            #mc.upperBound &gt; 0 or #mc.lowerBound &gt; 0}
 
 fact MonitoringConstraintsBelongToSomeone {no mc : MonitoringConstraint | all u : AutomatedSOSUser |
-                                                                                        mc not in u.constraints}
+                                                                                mc not in u.constraints}
 
 fact UnicityOfMonitoringConstraint {no disj mc1, mc2 : MonitoringConstraint | some u : AutomatedSOSUser |  
-                                    mc1 in u.constraints and mc2 in u.constraints and mc1.category = mc2.category}
+                            mc1 in u.constraints and mc2 in u.constraints and mc1.category = mc2.category}
 
 fact ExclusivityOfMonitoringConstraint {no disj u1 , u2 : AutomatedSOSUser | some mc : MonitoringConstraint |
-                                                                    mc in u1.constraints and mc in u2.constraints}
+                                                            mc in u1.constraints and mc in u2.constraints}
 
 fact PaternityOfEmergency {no e : Emergency | all u : AutomatedSOSUser | e not in u.emergencies}
 
@@ -1599,25 +1601,26 @@ fact ExclusivePaternityOfEmergency {no e : Emergency | all disj u1 , u2 : Automa
                                                                 e in u1.emergencies and e in u2.emergencies}
 
 fact MonitoringConstraintUseDataFromMonitoredData {all t : TypeOfData | all mc : MonitoringConstraint |
-                                                some md : MonitoredData | t in mc.category implies t in md.category}
+                                        some md : MonitoredData | t in mc.category implies t in md.category}
 
-fact EmergencyRelationIsBijective{all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff e.user = u}
+fact EmergencyRelationIsBijective{all e : Emergency | all u : AutomatedSOSUser |
+                                                                        e in u.emergencies iff e.user = u}
 
 fact UnicityOfEmergency {all disj e1, e2 : Emergency | all u : AutomatedSOSUser | 
-                (e1 in u.emergencies and e2 in u.emergencies and e1.violatedConstraint=e2.violatedConstraint) implies
-                                (some disj md1 , md2 : u.tracking |
-                                        md1.category = md2.category and md1.category = e1.violatedConstraint.category)}
+                                                            (e1 in u.emergencies and e2 in u.emergencies and
+                    e1.violatedConstraint=e2.violatedConstraint) implies (some disj md1 , md2 : u.tracking |
+                            md1.category = md2.category and md1.category = e1.violatedConstraint.category)}
 
 fact EmergencyTriggersOnConstraintBelongingToUser {all e : Emergency | all u : AutomatedSOSUser |
                                                 e in u.emergencies iff e.violatedConstraint in u.constraints}
 
 fact EmergencyOnlyOnConstraintViolation {all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff
-                                 (some md : u.tracking |  e.violatedConstraint.category = md.category and
-                                 e.emergencyTime in md.dataTime.nexts and (all v1 , v2 : md.values |
-                                 ((v1 &gt; e.violatedConstraint.upperBound and #e.violatedConstraint.upperBound = 1) or
-                                 (v1 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
-                                 (v2 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
-                                 (v2 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1))))}
+                         (some md : u.tracking |  e.violatedConstraint.category = md.category and
+                         e.emergencyTime in md.dataTime.nexts and (all v1 , v2 : md.values |
+                         ((v1 &gt; e.violatedConstraint.upperBound and #e.violatedConstraint.upperBound = 1) or
+                         (v1 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
+                         (v2 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
+                         (v2 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1))))}
 
 
 //FACTS---------------------------TRACK4RUN--------------------------------
@@ -1625,15 +1628,17 @@ fact EmergencyOnlyOnConstraintViolation {all e : Emergency | all u : AutomatedSO
 
 fact UnicityOfTitle {no disj r1, r2 : Run | r1.title = r2.title}
 
-fact SubscriptionMustHappenBeforeStart { all s : Subscription | s.subscriptionTime in s.runEnrolled.startTime.prevs }
+fact SubscriptionMustHappenBeforeStart { all s : Subscription |
+                                                            s.subscriptionTime in s.runEnrolled.startTime.prevs }
 
-fact RunnersInRunHaveSubscriptionToIt {all r : Run | all ru : Runner | (ru in r.runners iff (one s : Subscription |
-                                                                                (s in ru.subs and s.runEnrolled = r)))}
+fact RunnersInRunHaveSubscriptionToIt {all r : Run | all ru : Runner | (ru in r.runners iff 
+                                                 (one s : Subscription | (s in ru.subs and s.runEnrolled = r)))}
 
 fact RunnersOnlySubscibeOnce {no disj s1, s2 : Subscription | some r : Runner |
-                                                        s1 in r.subs and s2 in r.subs and s1.runEnrolled = s2.runEnrolled}
+                                                s1 in r.subs and s2 in r.subs and s1.runEnrolled = s2.runEnrolled}
 
-fact PaternityOfSubscription{all s : Subscription | all disj r1, r2 : Runner | not (s in r1.subs and s in r2.subs)}
+fact PaternityOfSubscription{all s : Subscription | all disj r1, r2 : Runner |
+                                                                        not (s in r1.subs and s in r2.subs)}
 
 fact PaternityRuntitle {no r : RunTitle | all runs : Run | r not in runs.title}
 
