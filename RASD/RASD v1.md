@@ -830,6 +830,24 @@ run EmergencyTrigger for 5
 run show for 9 but 2 Filter, 3 MonitoredData, 2 Run, 2 Emergency, 5 int
 ```
 
+
+The following images are the result output od the predicates runs
+
+```alloy
+run EmergencyTrigger for 5
+```
+<img src="../Alloy/RunEmergencyTriggerfor5.png"/>
+
+```alloy
+run RunEnrollment for 3 but 1 Run 
+```
+<img src="../Alloy/RunEnrollmentfor3but1.png"/>
+```alloy
+run show for 9 but 2 Filter, 3 MonitoredData, 2 Run, 2 Emergency, 5 int
+```
+<img src="../Alloy/RunShow.png"/>
+
+
 ##   5.  Effort spent
 
 #### Leonardo

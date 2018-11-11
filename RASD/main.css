@@ -9,3 +9,7 @@ table tr td:nth-child(1) {
 ul {
   list-style-type: none;
 }
+
+p {
+    padding-left: 1em;
+}
