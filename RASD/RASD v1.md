@@ -5,15 +5,17 @@
 
 ## Table of Contents  
 
-
-[1. INTRODUCTION](#1-introduction)  
-   [A.  Purpose](#a-purpose)  
-   <ul>[A.1 Goals](#a1-goals)</ul>  
-   [B.  Scope](#b-scope)  
-   [C.  Definitions, Acronyms, Abbreviations](#c-definitions-acronyms-abbreviations)  
-   [D.  Document Structure](#d-document-structure)  
-            //da rileggere
-[2. OVERALL DESCRIPTION](#overall-description)  
+<ol>
+    <li><a href="#1-introduction">1. INTRODUCTION</a></li>
+    <ul>
+        <li><a href="#a-purpose">A. Purpose</a></li>
+        <ul><a href="#a1-goals">A.1 Goals</a></ul>
+        <li><a href="#b-scope">B. Scope</a></li>
+        <li><a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a></li>
+        <li><a href="#d-document-structure">D.  Document Structure</a></li>
+    </ul>
+    <li><a href="#overall-description">2. OVERALL DESCRIPTION</a></li>
+</ol>
   A.   Product perspective: class diagram.  
   B.   Product functions  
    B.1 Data monitoring and managing   
@@ -593,6 +595,7 @@ These services offer downloadable applications for individual users on their sma
 |Software System Attributes            | 1H
 |User interfaces                       | 1H
 |Hardware-Software Interfaces          | 2H
+|Alloy Modelling                       | 10H  
 
 
 
@@ -612,6 +615,7 @@ These services offer downloadable applications for individual users on their sma
 |Software System Attributes            | 1H
 |User interfaces                       | 1H
 |Hardware-Software Interfaces          | 2H
+|Alloy Modelling                       | 12H  
 
 
 
@@ -630,6 +634,7 @@ These services offer downloadable applications for individual users on their sma
 |Software System Attributes            | 1H
 |User interfaces                       | 2H
 |Hardware-Software Interfaces          | 2H  
+|Alloy Modelling                       | 14H  
 
 
 
