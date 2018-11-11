@@ -32,23 +32,23 @@
         <ul style="list-style: none;">
             <a href="#a1-user-interfaces">A.1 User Interfaces</a><br>
             <a href="#a2-hardware-interfaces">A.2 Hardware Interfaces</a><br>
-            <a href="#a3-software-interfaces">A.3 Software Interfaces</a>
+            <a href="#a3-software-interfaces">A.3 Software Interfaces</a><br>
             <a href="#a4-communications-interfaces">A.4 Communications Interfaces</a>
         </ul>
         <a href="#b-functional-requirements">B. Functional Requirements</a>
         <ul style="list-style: none;">
             <a href="#b1--functional-requirements-data4help">B.1 Functional Requirements Data4Help</a><br>
             <a href="#b2--functional-requirements-automatedsos">B.2 Functional Requirements AutomatedSOS</a><br>
-            <a href="#b3--functional-requirements-track4run">B.3 Functional Requirements Track4Run</a>
-            <a href="#b4-scenarios">B.4 Scenarios</a>
+            <a href="#b3--functional-requirements-track4run">B.3 Functional Requirements Track4Run</a><br>
+            <a href="#b4-scenarios">B.4 Scenarios</a><br>
             <a href="#b5-use-cases">B.5 Use cases</a>
         </ul>
         <a href="#c-software-system-attributes">C. Software System Attributes</a>
         <ul style="list-style: none;">
             <a href="#c1-relaiability">C.1 Relaiability</a><br>
             <a href="#c2-availability">C.2 Availability</a><br>
-            <a href="#c3-safety">C.3 Safety</a>
-            <a href="#c4-maintainability">C.4 Maintainability</a>
+            <a href="#c3-safety">C.3 Safety</a><br>
+            <a href="#c4-maintainability">C.4 Maintainability</a><br>
             <a href="#c5-compatibility">C.5 Compatibility</a>
         </ul>
     </ul>
