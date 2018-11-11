@@ -589,7 +589,7 @@ In this section using alloy we describe the model specifying the constraints and
 This is possible because every timestamp has a set of precedent timestamps and a set of successive timestamps, so if an instance has a timestamp we could tell if another istance happened before of after by looking up the timestamp in the set of previous and subsequents of the other. 
 We have defined the signatures "AutomatedSOSUser" and "Track4Run" from the signature Individual using "in", by doing so we define them as non disjointed subsets of "Individual" and therefore taking into account the possibility that there could be an Individual that is both an AutomatedSOSUser, a Runner at the same time.
 
-
+```alloy
         open util/boolean
         open util/integer
 
@@ -828,7 +828,7 @@ We have defined the signatures "AutomatedSOSUser" and "Track4Run" from the signa
         run EmergencyTrigger for 5
 
         run show for 9 but 2 Filter, 3 MonitoredData, 2 Run, 2 Emergency, 5 int
-
+```
 
 ##   5.  Effort spent
 
