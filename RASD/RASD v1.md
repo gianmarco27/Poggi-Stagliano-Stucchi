@@ -6,15 +6,15 @@
 ## Table of Contents  
 
 <ol>
-    <li><a href="#1-introduction">1. INTRODUCTION</a></li>
-    <ul>
+    <li><a href="#1-introduction">INTRODUCTION</a></li>
+    <ul style="list-style: none;">
         <a href="#a-purpose">A. Purpose</a>
         <ul><a href="#a1-goals">A.1 Goals</a></ul>
         <a href="#b-scope">B. Scope</a>
         <a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a>
         <a href="#d-document-structure">D.  Document Structure</a>
     </ul>
-    <li><a href="#overall-description">2. OVERALL DESCRIPTION</a></li>
+    <li><a href="#overall-description">OVERALL DESCRIPTION</a></li>
 </ol>
   A.   Product perspective: class diagram.  
   B.   Product functions  
