@@ -10,9 +10,9 @@
     <ul style="list-style: none;">
         <a href="#a-purpose">A. Purpose</a>
         <ul><a href="#a1-goals">A.1 Goals</a></ul>
-        <a href="#b-scope">B. Scope</a>
-        <a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a>
-        <a href="#d-document-structure">D.  Document Structure</a>
+        <a href="#b-scope">B. Scope</a><br>
+        <a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a><br>
+        <a href="#d-document-structure">D.  Document Structure</a><br>
     </ul>
     <li><a href="#overall-description">OVERALL DESCRIPTION</a></li>
 </ol>
