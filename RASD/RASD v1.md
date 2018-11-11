@@ -51,35 +51,12 @@
             <a href="#c4-maintainability">C.4 Maintainability</a><br>
             <a href="#c5-compatibility">C.5 Compatibility</a>
         </ul>
-    </ul>
+    </ul><br>
+    <a href="#4-formal-analysis-using-alloy"><li>FORMAL ANALYSIS USING ALLOY</li></a><br>
+    <a href="#5-effort-spent"><li>EFFORT SPENT</li></a><br>
+    <a href="#6-references"><li>REFERENCES</li></a><br>
 </ol>
 
-3.   SPECIFIC REQUIREMENTS  
-  A.   External Interface Requirements  	
-    A.1	 User Interfaces	  
-    A.2	 Hardware Interfaces  	
-    A.3	 Software Interfaces	  
-    A.4	 Communication Interfaces  	
-  B.   Functional Requirements: scenarios, goals in specific, use case diagrams, sequence diagrams  
-    B.1 Functional Requirements Data4Help  
-    B.2 Functional Requirements AutomatedSOS  
-    B.3 Functional Requirements Track4Run  
-    B.4 Scenarios  
-    B.5 Use cases  
-  C.   Software	System Attributes  	
-    C.1   Reliability	   
-    C.2   Availability	  
-    C.3   Safety	  
-    C.4	 Maintainability  	
-    C.5	 Compatibility	  
-   
-4.   FORMAL ANALYSIS USING ALLOY  
-
-5.   EFFORT	SPENT   
-
-6.   REFERENCES  
-
-        
 ##   1. Introduction
 
 
