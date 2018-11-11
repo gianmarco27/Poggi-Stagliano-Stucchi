@@ -8,12 +8,12 @@
 
 [1. INTRODUCTION](#1-introduction)  
    [A.  Purpose](#a-purpose)  
-      [A.1 Goals](#a1-goals)  
+   <ul>[A.1 Goals](#a1-goals)</ul>  
    [B.  Scope](#b-scope)  
    [C.  Definitions, Acronyms, Abbreviations](#c-definitions-acronyms-abbreviations)  
-   [D.  Document Structure](#d-document-structure)  
+   [D.  Document Structure](#d-document-structure)  
             //da rileggere
-2.   OVERALL DESCRIPTION  
+[2. OVERALL DESCRIPTION](#overall-description)  
   A.   Product perspective: class diagram.  
   B.   Product functions  
    B.1 Data monitoring and managing   
