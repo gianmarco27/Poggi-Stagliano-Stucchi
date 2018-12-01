@@ -14,7 +14,7 @@ Upon new data arrival the server has the task to check if any of it matches filt
     
 <img src="./ArchitectureDiagrams/Architecture.JPG"/>
 
-### 2.2 High Level Architecture
+### 2.2 High Level Architecture and deployment
 
 Below are described via a High Level Architechture graph the main components of our system and their main processes.  
 The main core of our system is rapresented by the Router and Dispatcher processes in the TrackMe System, toghether with the DBMS that is accessed by them to read and store collected data.
@@ -24,6 +24,12 @@ The different Users of the services are provided with different Point Of Access 
 <img src="./ArchitectureDiagrams/HighLevelArchitecture.png"/>
 
 ### 2.3 Component View
+
+In the following diagram we have depicted more accurately the services, the links between them and how they are interfaced with each other. Notice the DBMS interface is generalized because it depends on the choiche of the DBMS technology and in order to mantain things more general we didn't want to rule out any option.  
+As for DBMS here the External Services are not specifically charachterized to allow a consequent choiche of the most appropriate service basing on the needs of the application.  
+
+<img src="./ArchitectureDiagrams/ComponentVIew.JPG"/>
+
 
 
 - **LoginService** - Provides authentication and registration services including eventual parameters setting depending on the type of user (i.e. The insertion of AutomatedSOSUser's monitoring constraints are handled here).
@@ -35,3 +41,23 @@ The different Users of the services are provided with different Point Of Access 
 - **DispatchingService** - Is responsible of forwarding Data matching subscriptions and filtering requests to Third Parties.
 - **RoutingService** - This services takes care of handling various types of request received from users forwarding each of them to the appropriate service.
 - **RunManagementService** - Is responsible for Subscription, Insertion and Spectating requests for the Track4Run Service.
+
+
+
+The diagram below describes the data model of the entire application, more specifically the data rapresentation in memory used by software components to achieve their objective.  
+The dispatching functionality implemented by the dispatching service is built on top of the architecture described below:
+
+<img src="./ArchitectureDiagrams/MessageQueueing.JPG"/>
+
+
+Data management is operated by most of the services previously listed in their implementation such as FilteringService, SubscriptionService and PrivatizationService.  
+The architecture is supposed to resemble the publish/subscribe paradigm, in order to achieve this type of communication, the data model includes information to reach the subscribed client everytime an appropriate update about the subscribed topic is performed.  
+Information about where to send the subscription updates are collected upon registration from the Third Party.
+
+
+Subscriptions are stored into the Database, on first boot the system loads in an appropriate data structure the tuples stored, extracting from the relational database couples of subscription topic and subscriber, thus strongly reducing the response time on each update to be performed.
+
+<img src="./ArchitectureDiagrams/UMLClassDiagram.JPG"/>
+
+
+<img src="./ArchitectureDiagrams/InterfaceImplementation.JPG"/>
