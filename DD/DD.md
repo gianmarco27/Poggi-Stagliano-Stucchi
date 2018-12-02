@@ -31,7 +31,6 @@ As for DBMS here the External Services are not specifically charachterized to al
 <img src="./ArchitectureDiagrams/ComponentVIew.JPG"/>
 
 
-
 - **LoginService** - Provides authentication and registration services including eventual parameters setting depending on the type of user (i.e. The insertion of AutomatedSOSUser's monitoring constraints are handled here).
 - **DataCollectionService** - It is responsible for collecting and persistently storing in the Database the data received by the clients and sends them to: DataMonitoringService and SubscriptionService.
 - **DataMonitoringService** - Receives data from the DataCollectionService and performs controls based on users imposed constraints previously stored in the DBMS.
@@ -42,6 +41,7 @@ As for DBMS here the External Services are not specifically charachterized to al
 - **RoutingService** - This services takes care of handling various types of request received from users forwarding each of them to the appropriate service.
 - **RunManagementService** - Is responsible for Subscription, Insertion and Spectating requests for the Track4Run Service.
 
+We assume that the routing functionality is responsible of forwarding messages to the directly interested services depending on the client that has performed the request. 
 
 
 The diagram below describes the data model of the entire application, more specifically the data rapresentation in memory used by software components to achieve their objective.  
