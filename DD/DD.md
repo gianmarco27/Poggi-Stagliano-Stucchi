@@ -61,3 +61,16 @@ Subscriptions are stored into the Database, on first boot the system loads in an
 
 
 <img src="./ArchitectureDiagrams/InterfaceImplementation.JPG"/>
+
+## 2.4 Runtime View
+
+### 2.4.1 Data4Help
+
+#### Filtering Request
+
+<img src="./ArchitectureDiagrams/FilteringRequestSequenceDiagram.JPG"/>
+
+#### New Data Collection
+
+<img src="./ArchitectureDiagrams/NewDataCollectionSequenceDiagram.JPG"/>
+
