@@ -2204,7 +2204,7 @@
 												"$ref": "AAAAAAFnb5m1LD9FBvo="
 											},
 											"edgePosition": 1,
-											"text": "10 : DispatchData(ThirdParty,PrivatizedData)"
+											"text": "10 : DispatchData(ThirdParty,Data)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -2700,7 +2700,7 @@
 								"$ref": "AAAAAAFnb5If+j6Am3s="
 							},
 							"messageSort": "asynchCall",
-							"arguments": "ThirdParty,PrivatizedData"
+							"arguments": "ThirdParty,Data"
 						},
 						{
 							"_type": "UMLMessage",
