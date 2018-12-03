@@ -75,4 +75,11 @@ Subscriptions are stored into the Database, on first boot the system loads in an
 <img src="./ArchitectureDiagrams/NewDataCollectionSequenceDiagram.JPG"/>
 
         remember to describe the motivation why whe use async messages
-        
+#### Emergency Notification
+
+<img src="./ArchitectureDiagrams/NotifyEmergency.JPG"/>
+
+#### Run Enrollment
+
+<img src="./ArchitectureDiagrams/runEnrollment.JPG"/>
+

@@ -87,7 +87,7 @@
 									"left": 16,
 									"top": 8,
 									"width": 953,
-									"height": 713,
+									"height": 705,
 									"nameLabel": {
 										"$ref": "AAAAAAFndDqb5xuM14M="
 									},
@@ -3221,7 +3221,8 @@
 					"_parent": {
 						"$ref": "AAAAAAFndDqb5huId6k="
 					},
-					"name": "Role5"
+					"name": "Role5",
+					"type": ""
 				}
 			]
 		}
