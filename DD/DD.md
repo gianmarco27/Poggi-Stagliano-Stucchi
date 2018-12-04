@@ -96,7 +96,7 @@ It has been adopted to be able to manage the inherent transient nature of commun
 This type of paradigm is used anyway on a different level in order to handle users' interactions via the provided interfaces, as for registration, run enrollment and other operations that can be performed in a single connection instance.
 
 
-<img src="./ArchitectureDiagrams/SubscribingClients.JPG"/>
+<img width=150/><img src="./ArchitectureDiagrams/SubscribingClients.JPG" width=600/>
 
 
 As described in the picture above, a part of the Database is devoted to store topics and subsricptions of Third Parties along with the pure application data.  
@@ -106,7 +106,7 @@ The basical structure relies on a message queueing middleware (implemented by JM
 
 <img src="./ArchitectureDiagrams/JMQSspecific.JPG"/>
 
-The address lookup database figured above, is stored in the system along with other data as described in the **<a href="#23-component-view" style="color:black">Component View Class Diagram</a>** : each record contains the EndPoint reference (Transport Level Address [IP, Port]) of the receivers of the service.
+The address lookup database figured above, is stored in the system along with other data as described in the **<a href="#23-component-view">Component View Class Diagram</a>** : each record contains the EndPoint reference (Transport Level Address [IP, Port]) of the receivers of the service.
 
 The system is designed to allow future scalability improvements on need i.e. by means of a routing application layer on top of which could be applied the current implementation to improve the delivery time by the usage of a routing algorithm and spreading the communication overhead on different nodes.
 
