@@ -83,3 +83,33 @@ Subscriptions are stored into the Database, on first boot the system loads in an
 
 <img src="./ArchitectureDiagrams/runEnrollment.JPG"/>
 
+## 2.5 Component Intefaces
+
+The aim of the following diagram is to highlight the relationships between services implemented on the server of the entire system, in particular the interfaces exposing their public methods and the use relation between them.
+
+<img src="./ArchitectureDiagrams/ComponentInterfaces.JPG"/>
+
+## 2.6 Selected architectural styles and patterns
+
+The main architectural style adopted, on which the communication with third party relies, is the Publisher/Subscriber paradigm.  
+It has been adopted to be able to manage the inherent transient nature of communication and asynchronicity of the services offered by the system. At the opposite the classical client-server architectural style doesn't fit with the purpose of queueing and dispatching of messages, as it would have made necessary establishing a new connection everytime the system had to send new data.  
+This type of paradigm is used anyway on a different level in order to handle users' interactions via the provided interfaces, as for registration, run enrollment and other operations that can be performed in a single connection instance.
+
+
+<img src="./ArchitectureDiagrams/SubscribingClients.JPG"/>
+
+
+As described in the picture above, a part of the Database is devoted to store topics and subsricptions of Third Parties along with the pure application data.  
+Upon receiving a new data the system performs a check on the subrsciptions and relative topics and eventually dispatches, after an optional further elaboration of the data operated by internal services, new information to the interested Third Parties.
+
+The basical structure relies on a message queueing middleware (implemented by JMQS in our choiche) that ensures message ordering at receiver side and also recovery on message loss.
+
+<img src="./ArchitectureDiagrams/JMQSspecific.JPG"/>
+
+The address lookup database figured above, is stored in the system along with other data as described in the **<a href="#23-component-view" style="color:black">Component View Class Diagram</a>** : each record contains the EndPoint reference (Transport Level Address [IP, Port]) of the receivers of the service.
+
+The system is designed to allow future scalability improvements on need i.e. by means of a routing application layer on top of which could be applied the current implementation to improve the delivery time by the usage of a routing algorithm and spreading the communication overhead on different nodes.
+
+
+Notice that in order to model the server-side data context we adopted an objective memory representation, performing a one to one mapping with the relational model of the Database to obtain a faster access intermediate representation of the queried data, making them available to processes for elaboration.  
+This type of rapresentation could be compared with the model part of the MVC pattern.
