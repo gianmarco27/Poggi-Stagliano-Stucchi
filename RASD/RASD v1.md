@@ -46,11 +46,11 @@
         <ul style="list-style: none;">
             <a href="#c1-relaiability">C.1 Relaiability</a><br/>
             <a href="#c2-availability">C.2 Availability</a><br/>
-            <a href="#c3-safety">C.3 Safety</a><br>
+            <a href="#c3-safety">C.3 Safety</a><br/>
             <a href="#c4-maintainability">C.4 Maintainability</a><br/>
             <a href="#c5-compatibility">C.5 Compatibility</a>
         </ul>
-    </ul><br>
+    </ul><br/>
     <a href="#4-formal-analysis-using-alloy"><li>FORMAL ANALYSIS USING ALLOY</li></a><br/>
     <a href="#5-effort-spent"><li>EFFORT SPENT</li></a><br/>
     <a href="#6-references"><li>REFERENCES</li></a><br/>
