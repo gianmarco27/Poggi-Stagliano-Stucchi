@@ -1,5 +1,38 @@
 # Design Document
 
+## 1.1 Purpose
+
+The purpose of this document is to provide a more technical description over the 
+architecture of the TrackMe application system. With the DD document we aim to
+describes the architecture paradigm on wich the system should be based and 
+the components service of the system (how they are connected to each other,
+their main purpose and their runtime view). We also describe the implementation,
+integration and testing plans.
+
+## 1.2 Scope
+
+
+## 1.3 acronyms
+
+API: Application programming interface
+DB : Database
+DBMS: Database Management System
+DD: Design Document
+JMQS: Java Message Queue Service.
+
+
+
+## 1.4 Document Structure
+
+The first chapter gives an introduction to the DD explaining what is the aim of 
+this document.
+
+The second chapter illustrates via text description and graphs the
+architecture and the components of the system underliening the connection between
+them and their principal operations. Here there are also the sequence diagram that
+we have used to described the runtime view of the components.
+At the end of the chapter there is a description of the selected architectural styles and patterns.
+
 ## 2. Overall Architecture
 
 ### 2.1 Overview
