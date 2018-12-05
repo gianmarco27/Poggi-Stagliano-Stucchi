@@ -7,14 +7,11 @@
   </title>
   <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
   <style type="text/css">
-  </style>
- </head>
- <body>
-  <p>
-   <link href="./github-markdown.css" media="all" rel="stylesheet" type="text/css"/>
+     </style>
+    <link href="./github-markdown.css" media="all" rel="stylesheet" type="text/css"/>
    <link href="./main.css" media="all" rel="stylesheet" type="text/css"/>
-
-  </p>
+ </head>
+ <body class="markdown-body">
   <h1 id="rasd">
    RASD
   </h1>
@@ -182,6 +179,11 @@
    </li>
   </a>
   <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
   <h2 id="1-introduction">
    1. Introduction
   </h2>
@@ -765,6 +767,21 @@
     </p>
    </li>
   </ul>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+
   <h2 id="3-specific-requirements">
    3.  Specific Requirements
   </h2>
@@ -1297,6 +1314,16 @@
   <p>
    Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help is offering a new service to allow runners to patecipate to organized competitions. He decides to exploit this opportunity and accesses to Track4Run as a guest. He visualizes all the available runs and selects the closest to his position and enrolls inserting his Data4Help credentials. Luca can now attend the competition
   </p>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+
   <h4 id="b5-use-cases">
    B.5 Use cases
   </h4>
@@ -1306,6 +1333,9 @@
   <p>
    <img src="../Diagrams/DiagramExport/UseCaseDiagram1.jpg"/>
   </p>
+   <br/>
+   <br/>
+
   <h5 id="data4help-use-cases">
    Data4Help - use cases
   </h5>
@@ -1519,6 +1549,7 @@
     </tr>
    </tbody>
   </table>
+
   <table>
    <thead>
     <tr>
@@ -1595,6 +1626,13 @@
     </tr>
    </tbody>
   </table>
+         <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+
   <table>
    <thead>
     <tr>
@@ -1803,6 +1841,10 @@
     </tr>
    </tbody>
   </table>
+    <br/>
+   <br/>
+   <br/>
+
   <h5 id="track4run-use-cases">
    Track4Run - use cases
   </h5>
@@ -2126,28 +2168,117 @@
     </tr>
    </tbody>
   </table>
+         <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+
   <h4 id="use-case-sequence-diagram-data4help">
    Use case sequence diagram - Data4Help
   </h4>
-  <p>
    <img src="../Diagrams/DiagramExport/RequestofaGroup.JPG"/>
+   
+      <br/>
    <br/>
+   <br/>
+
+      
    <img src="../Diagrams/DiagramExport/RequestofanIndividual.JPG"/>
-  </p>
+         <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+<br/>
+   <br/>
+
   <h4 id="use-case-sequence-diagram-automatedsos">
    Use case sequence diagram - AutomatedSOS
   </h4>
-  <p>
    <img src="../Diagrams/DiagramExport/NotifyEmergency.JPG"/>
-  </p>
+        <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    <br/>
+   <br/>
+<br/>
+   <br/>
   <h4 id="use-case-sequence-diagram-track4run">
    Use case sequence diagram - Track4Run
   </h4>
-  <p>
    <img src="../Diagrams/DiagramExport/CreationOfaRun.JPG"/>
+     
    <br/>
+   <br/>
+     
    <img src="../Diagrams/DiagramExport/RunEnrollment.JPG"/>
-  </p>
   <h3 id="c-software-system-attributes">
    C. Software system attributes
   </h3>
@@ -2289,7 +2420,8 @@ sig Run {
 
 //---------------------- Fact to define temporal order of timestamps---------------------------
 // le relazioni tra timestamp valgono anche all'inverso
-fact  TimeFlowConnection {all disj t1, t2: Timestamp |  (t2 in t1.nexts implies t1 in t2.prevs) and ( t1 in t2.prevs implies t2 in t1.nexts)}
+fact  TimeFlowConnection {all disj t1, t2: Timestamp |  (t2 in t1.nexts implies t1 in t2.prevs) and 
+                                                                        ( t1 in t2.prevs implies t2 in t1.nexts)}
 
 //nessun timestamp è in relazione con se stesso
 fact NoTimestampIsBeforeOrAfterItself {no t1 : Timestamp | ((t1 in t1.nexts) or (t1 in t1.prevs))}
@@ -2307,9 +2439,11 @@ fact TimeIsSequential {no disj t1, t2, t3 : Timestamp | ((t2 in t1.nexts) and (t
 //FACTS--------------------------DATA4HELP------------------------------------------
 
 
-fact ExclusivePaternityOfPersonalData {all pd : PersonalData |  no disj i1, i2 : Individual | (pd in i1.bio &lt;=&gt; pd in i2.bio) }
+fact ExclusivePaternityOfPersonalData {all pd : PersonalData |  no disj i1, i2 : Individual | 
+                                                                            (pd in i1.bio &lt;=&gt; pd in i2.bio) }
 
-fact  ExclusivePaternityOfMonitoredData {all md : MonitoredData |  no disj i1, i2 : Individual | (md in i1.tracking &lt;=&gt; md in i2.tracking)  }
+fact  ExclusivePaternityOfMonitoredData {all md : MonitoredData |  no disj i1, i2 : Individual |
+                                                                (md in i1.tracking &lt;=&gt; md in i2.tracking)  }
 
 fact PaternityMandatoryField {no mf : MandatoryField | all p : PersonalData | mf not in p.mandatoryFields}
 
@@ -2317,7 +2451,8 @@ fact PaternityIdentifier {no i : Identifier | all u : User | i not in u.id}
 
 fact IdentifierConsistency {all i : Individual | (i.id = i.bio.SSN) }
 
-fact ThirdPartyHaveOtherIdentifiers {no i : Identifier | some u : Individual | some t : ThirdParty | i in u.id and i in t.id}
+fact ThirdPartyHaveOtherIdentifiers {no i : Identifier | some u : Individual | some t : ThirdParty |    
+                                                                                            i in u.id and i in t.id}
 
 fact UnicityOfThirdPartyIdentifier {no i : Identifier | some disj t1 , t2 : ThirdParty | i in t1.id and i in t2.id}
 
@@ -2325,52 +2460,66 @@ fact UnicityOfData4HelpAccount {no disj i1 , i2 : Individual |   i1.id = i2.id}
 
 fact PersonalDataUnicity {no disj p1, p2 : PersonalData | (p1.SSN = p2.SSN)}
 
-fact UnicityOfMandatoryField {no mf : MandatoryField | some disj p1, p2 : PersonalData | (mf in p1.mandatoryFields and mf in p2.mandatoryFields)}
+fact UnicityOfMandatoryField {no mf : MandatoryField | some disj p1, p2 : PersonalData | 
+                                                            (mf in p1.mandatoryFields and mf in p2.mandatoryFields)}
 
 fact MonitoredDataBelongToSomeone {no d : MonitoredData | all i : Individual | d not in i.tracking}
 
 fact FiltersBelongToSomeone {no f : Filter | all t : ThirdParty | f not in t.categories}
 
-fact ExclusivePaternityOfFilter { all f : Filter | no disj t1, t2 : ThirdParty | (f in t1.categories and f in t2.categories)}
+fact ExclusivePaternityOfFilter { all f : Filter | no disj t1, t2 : ThirdParty | (f in t1.categories and
+                                                                                                f in t2.categories)}
 
-fact ExclusivityOfSubscribedFilter {all disj f1, f2 : Filter | some t : ThirdParty | not (f1 in t.categories and f2 in t.categories and (f1.subscribed = True and f2.subscribed = True) and f1.uses = f2.uses)}
+fact ExclusivityOfSubscribedFilter {all disj f1, f2 : Filter | some t : ThirdParty | not (f1 in t.categories and 
+                                            f2 in t.categories and (f1.subscribed = True and f2.subscribed = True)
+                                                                                            and f1.uses = f2.uses)}
 
-fact FiltersAcceptedReturnData{all f :Filter | all i : Individual | some mf : i.bio.mandatoryFields | (mf in f.uses and (all md : i.tracking | md in f.returns)) or (mf not in f.uses and (no md : i.tracking | md in f.returns))}
+fact FiltersAcceptedReturnData{all f :Filter | all i : Individual | some mf : i.bio.mandatoryFields | 
+                                                    (mf in f.uses and (all md : i.tracking | md in f.returns)) or
+                                                    (mf not in f.uses and (no md : i.tracking | md in f.returns))}
 
 
 //FACTS------------------------AUTOMATEDSOS--------------------------------
 
 
-fact PaternityTypeofData {no t : TypeOfData | all md : MonitoredData | all mc : MonitoringConstraint | t not in md.category and t not in mc.category}
+fact PaternityTypeofData {no t : TypeOfData | all md : MonitoredData | all mc : MonitoringConstraint | 
+                                                                    t not in md.category and t not in mc.category}
 
 fact MonitoringConstraintsHaveBounds {all mc : MonitoringConstraint | #mc.upperBound &gt; 0 or #mc.lowerBound &gt; 0}
 
-fact MonitoringConstraintsBelongToSomeone {no mc : MonitoringConstraint | all u : AutomatedSOSUser | mc not in u.constraints}
+fact MonitoringConstraintsBelongToSomeone {no mc : MonitoringConstraint | all u : AutomatedSOSUser |
+                                                                                        mc not in u.constraints}
 
-fact UnicityOfMonitoringConstraint {no disj mc1, mc2 : MonitoringConstraint | some u : AutomatedSOSUser | mc1 in u.constraints and mc2 in u.constraints and mc1.category = mc2.category}
+fact UnicityOfMonitoringConstraint {no disj mc1, mc2 : MonitoringConstraint | some u : AutomatedSOSUser |
+                                    mc1 in u.constraints and mc2 in u.constraints and mc1.category = mc2.category}
 
-fact ExclusivityOfMonitoringConstraint {no disj u1 , u2 : AutomatedSOSUser | some mc : MonitoringConstraint | mc in u1.constraints and mc in u2.constraints}
+fact ExclusivityOfMonitoringConstraint {no disj u1 , u2 : AutomatedSOSUser | some mc : MonitoringConstraint |
+                                                                    mc in u1.constraints and mc in u2.constraints}
 
 fact PaternityOfEmergency {no e : Emergency | all u : AutomatedSOSUser | e not in u.emergencies}
 
-fact ExclusivePaternityOfEmergency {no e : Emergency | all disj u1 , u2 : AutomatedSOSUser | e in u1.emergencies and e in u2.emergencies}
+fact ExclusivePaternityOfEmergency {no e : Emergency | all disj u1 , u2 : AutomatedSOSUser | e in u1.emergencies and
+                                                                                                e in u2.emergencies}
 
-fact MonitoringConstraintUseDataFromMonitoredData {all t : TypeOfData | all mc : MonitoringConstraint | some md : MonitoredData | 
-                                                                                                    t in mc.category implies t in md.category}
+fact MonitoringConstraintUseDataFromMonitoredData {all t : TypeOfData | all mc : MonitoringConstraint |
+                                                    some md : MonitoredData | t in mc.category implies t in md.category}
 
 fact EmergencyRelationIsBijective{all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff e.user = u}
 
-fact UnicityOfEmergency {all disj e1, e2 : Emergency | all u : AutomatedSOSUser | (e1 in u.emergencies and e2 in u.emergencies and e1.violatedConstraint=e2.violatedConstraint) implies
-                                                            (some disj md1 , md2 : u.tracking | md1.category = md2.category and md1.category = e1.violatedConstraint.category)}
+fact UnicityOfEmergency {all disj e1, e2 : Emergency | all u : AutomatedSOSUser | (e1 in u.emergencies and 
+                                        e2 in u.emergencies and e1.violatedConstraint=e2.violatedConstraint) implies
+                                        (some disj md1 , md2 : u.tracking | md1.category = md2.category and
+                                                                    md1.category = e1.violatedConstraint.category)}
 
-fact EmergencyTriggersOnConstraintBelongingToUser {all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff e.violatedConstraint in u.constraints}
+fact EmergencyTriggersOnConstraintBelongingToUser {all e : Emergency | all u : AutomatedSOSUser | 
+                                                        e in u.emergencies iff e.violatedConstraint in u.constraints}
 
 fact EmergencyOnlyOnConstraintViolation {all e : Emergency | all u : AutomatedSOSUser | e in u.emergencies iff
-                                     (some md : u.tracking |  e.violatedConstraint.category = md.category and e.emergencyTime in md.dataTime.nexts and  
-                                      (all v1 , v2 : md.values | ((v1 &gt; e.violatedConstraint.upperBound and #e.violatedConstraint.upperBound = 1) or
-                                                                    (v1 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
-                                                                        (v2 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
-                                                                            (v2 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1))))}
+     (some md : u.tracking |  e.violatedConstraint.category = md.category and e.emergencyTime in md.dataTime.nexts and  
+      (all v1 , v2 : md.values | ((v1 &gt; e.violatedConstraint.upperBound and #e.violatedConstraint.upperBound = 1) or
+                                  (v1 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
+                                  (v2 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1) or
+                                  (v2 &lt; e.violatedConstraint.lowerBound and #e.violatedConstraint.lowerBound = 1))))}
 
 
 //FACTS---------------------------TRACK4RUN--------------------------------
@@ -2380,9 +2529,11 @@ fact UnicityOfTitle {no disj r1, r2 : Run | r1.title = r2.title}
 
 fact SubscriptionMustHappenBeforeStart { all s : Subscription | s.subscriptionTime in s.runEnrolled.startTime.prevs }
 
-fact RunnersInRunHaveSubscriptionToIt {all r : Run | all ru : Runner | (ru in r.runners iff (one s : Subscription | (s in ru.subs and s.runEnrolled = r)))}
+fact RunnersInRunHaveSubscriptionToIt {all r : Run | all ru : Runner | (ru in r.runners iff (one s : Subscription |
+                                                                                (s in ru.subs and s.runEnrolled = r)))}
 
-fact RunnersOnlySubscibeOnce {no disj s1, s2 : Subscription | some r : Runner | s1 in r.subs and s2 in r.subs and s1.runEnrolled = s2.runEnrolled}
+fact RunnersOnlySubscibeOnce {no disj s1, s2 : Subscription | some r : Runner | s1 in r.subs and s2 in r.subs and
+                                                                                    s1.runEnrolled = s2.runEnrolled}
 
 fact PaternityOfSubscription{all s : Subscription | all disj r1, r2 : Runner | not (s in r1.subs and s in r2.subs)}
 
@@ -2434,7 +2585,15 @@ run EmergencyTrigger for 5
 
 run show for 9 but 2 Filter, 3 MonitoredData, 2 Run, 2 Emergency, 5 int
 </code></pre>
-  <p>
+     <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+<p>
    The following images are the result output od the predicates runs
   </p>
   <pre><code class="alloy">run EmergencyTrigger for 5
@@ -2451,7 +2610,12 @@ run show for 9 but 2 Filter, 3 MonitoredData, 2 Run, 2 Emergency, 5 int
 </code></pre>
   <p>
    <img src="../Alloy/RunShow.png"/>
-  </p>
+  </p>   
+        <br/>
+     <br/>
+   <br/>
+   <br/>
+
   <h2 id="5-effort-spent">
    5.  Effort spent
   </h2>
