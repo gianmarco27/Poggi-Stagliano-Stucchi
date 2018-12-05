@@ -166,6 +166,14 @@ Chapter 5 shows the effort spent by each group member on the various section of 
 
 Chapter 6 includes the reference documents.
 
+### E. Revision History
+
+ <li>Version 1.0 (11/11/2018)</li>
+ <li>Version 1.1 (10/12/2018)  
+   - Mockups modification according to the decisions taken in the DD.  
+   - [R9] [R10] [R12] fixed according to the paradigm adopted in the DD and changed requiments enumeration.
+ </li>
+
 
 ##   2.  Overall description
 
@@ -338,9 +346,7 @@ Software requirements for the correct execution of the services are:
 
 * **[R8]**  The System keeps track of the last update sent to the third party.
 
-* **[R9]**  The System periodically checks if new data belonging to the subscribed filter are available and sends a proper update.
-
-* **[R10]**  The System periodically checks if new data belonging to the subscribed filter are available and sends a proper update.
+* **[R9]**  Upon new data arrival the System checks if they belong to some subscribed filter and optionally sends a proper update.
 
 
 ####   B.2  Functional Requirements AutomatedSOS 
@@ -354,11 +360,11 @@ Software requirements for the correct execution of the services are:
 
 * **[D11]**  The user knows the parameters he needs to have monitored and the thresholds of those parameters.
 
-* **[R11]**  The user can specify his/her own parameters and thresholds to be monitored into the application.
+* **[R10]**  The user can specify his/her own parameters and thresholds to be monitored into the application.
 
-* **[R12]**  The application monitors periodically the individual data with respect to the previously specified parameters.
+* **[R11]**  The application checks the new individual data with respect to the previously specified parameters.
 
-* **[R13]**  The application notifies the user's local emergency services when his parameters fall below specified thresholds.
+* **[R12]**  The application notifies the user's local emergency services when his parameters fall below specified thresholds.
 
 
 ####   B.3  Functional Requirements Track4Run  
@@ -368,30 +374,30 @@ Software requirements for the correct execution of the services are:
 
 * **[D16]**  Track4Run organizers cannot be Data4Help individuals.
 
-* **[R14]**  On first login users can provide their VAT number to obtain access to the system as organizers of runs.
+* **[R13]**  On first login users can provide their VAT number to obtain access to the system as organizers of runs.
 
 
 ##### [G7] - Organizers can create runs.
 
 * **[D17]**  Paths specified in runs must be feasible paths, not including obstacles of any genre.
 
-* **[R15]**  Organizers can specify the path, the title, the date, the start time and a brief description of the run they are creating.
+* **[R14]**  Organizers can specify the path, the title, the date, the start time and a brief description of the run they are creating.
 
 
 ##### [G8]  Any user can access Track4Run as a Guest (Spectator).
 
-* **[R16]**  Guest users can access Track4Run data on a specific run without any credential.
+* **[R15]**  Guest users can access Track4Run data on a specific run without any credential.
 
-* **[R17]**  Users can visualize title, description, date, start time and path of available runs.
+* **[R16]**  Users can visualize title, description, date, start time and path of available runs.
 
 
 ##### [G9] - Users can enroll to a run.
 
 * **[D14]**  Track4Run users that enroll a run also own a Data4Help account.
 
-* **[R17]**  Users can visualize title, description, date, start time and path of available runs.
+* **[R16]**  Users can visualize title, description, date, start time and path of available runs.
 
-* **[R18]**  Users can subscribe to a selected run using his/her Data4Help account.
+* **[R17]**  Users can subscribe to a selected run using his/her Data4Help account.
 
 
 ##### [G10] - Spectators can follow the progress of an ongoing run.
@@ -400,7 +406,7 @@ Software requirements for the correct execution of the services are:
 
 * **[D15]**  Users participating to a run must have their monitoring device equipped during the run.
 
-* **[R17]**  Users can visualize title, description, date, start time and path of available runs.
+* **[R16]**  Users can visualize title, description, date, start time and path of available runs.
 
 * **[R18]**  Spectator can visualize the location of each participant to a selected run.
 

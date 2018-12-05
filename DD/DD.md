@@ -1,24 +1,24 @@
 # Design Document
 
-## 1.1 Purpose
+## 1 Introduction
+
+### 1.1 Purpose
 
 The purpose of this document is to provide a more technical description over the 
-architecture of the TrackMe application system. With the DD document we aim to
-describes the architecture paradigm on wich the system should be based and 
-the components service of the system (how they are connected to each other,
-their main purpose and their runtime view). We also describe the implementation,
+architecture of the TrackMe application system. The Design Document aim is to describe the architecture paradigm on wich the system should be based and its services' components (how they are connected to each other,
+their main purpose and their runtime view). It also describes the implementation,
 integration and testing plans.
 
-## 1.2 Scope
+### 1.2 Scope
 
 
-## 1.3 acronyms
+### 1.3 Acronyms
 
-API: Application programming interface
-DB : Database
-DBMS: Database Management System
-DD: Design Document
-JMQS: Java Message Queue Service.
+API: Application programming interface  
+DB : Database  
+DBMS: Database Management System  
+DD: Design Document  
+JMQS: Java Message Queue Service.  
 
 
 
@@ -28,9 +28,9 @@ The first chapter gives an introduction to the DD explaining what is the aim of
 this document.
 
 The second chapter illustrates via text description and graphs the
-architecture and the components of the system underliening the connection between
-them and their principal operations. Here there are also the sequence diagram that
-we have used to described the runtime view of the components.
+architecture and the components of the system underlying the connection between
+them and their principal operations. Here there are also the sequence diagrams that
+are used to describe the runtime view of the components.
 At the end of the chapter there is a description of the selected architectural styles and patterns.
 
 ## 2. Overall Architecture
@@ -95,34 +95,34 @@ Subscriptions are stored into the Database, on first boot the system loads in an
 
 <img src="./ArchitectureDiagrams/InterfaceImplementation.JPG"/>
 
-## 2.4 Runtime View
+### 2.4 Runtime View
 
-### 2.4.1 Data4Help
+#### 2.4.1 Data4Help
 
-#### Filtering Request
+##### Filtering Request
 
 <img src="./ArchitectureDiagrams/FilteringRequestSequenceDiagram.JPG"/>
 
-#### New Data Collection
+##### New Data Collection
 
 <img src="./ArchitectureDiagrams/NewDataCollectionSequenceDiagram.JPG"/>
 
         remember to describe the motivation why whe use async messages
-#### Emergency Notification
+##### Emergency Notification
 
 <img src="./ArchitectureDiagrams/NotifyEmergency.JPG"/>
 
-#### Run Enrollment
+##### Run Enrollment
 
 <img src="./ArchitectureDiagrams/runEnrollment.JPG"/>
 
-## 2.5 Component Intefaces
+### 2.5 Component Intefaces
 
 The aim of the following diagram is to highlight the relationships between services implemented on the server of the entire system, in particular the interfaces exposing their public methods and the use relation between them.
 
 <img src="./ArchitectureDiagrams/ComponentInterfaces.JPG"/>
 
-## 2.6 Selected architectural styles and patterns
+### 2.6 Selected architectural styles and patterns
 
 The main architectural style adopted, on which the communication with third party relies, is the Publisher/Subscriber paradigm.  
 It has been adopted to be able to manage the inherent transient nature of communication and asynchronicity of the services offered by the system. At the opposite the classical client-server architectural style doesn't fit with the purpose of queueing and dispatching of messages, as it would have made necessary establishing a new connection everytime the system had to send new data.  
@@ -149,3 +149,55 @@ This type of rapresentation could be compared with the model part of the MVC pat
 
 Regarding the client level the Individual user is provided with an application deployed on his mobile, interfacing with his activity monitoring device APIs that takes care both of allowing the user to interact with the services offered by the server and to communicate monitored data to the appropriate service.  
 Third Parties for the Data4Help service and Organizers for Track4Run are provided with a web portal through which they can perform active interactions with the server such as sending Filtering Requests or creating a new Run for the Users, while passive interactions such as data-sending regarding subscriptions to certain topics are perfomed on a different channel, on the IP and port provided at the moment of registration and stored in the Database.
+
+## 3. Requirements Traceability
+
+##### [G1] - The user must be able to register on the platform as an individual or third party.
+
+* **[R1] [R2]**  The LoginService interface provides three methods for registration, they takes differents arguments by which they allows different types of user to specify their credential and basic information needed by the system.
+
+##### [G2] - The individual has to be monitored constantly.
+
+* **[R3]** The DataCollectionService interface accomplishes this requirement providing the method addUserData through which fresh data are stored in the database of the system.
+
+##### [G3] - Third party users must be able to access both individual's and group's data safely.
+
+* **[R5] [R6] [R7]** The FilteringService interface along with the PrivatizationService one are responsible to control the cardinality of the group of individuals on which the request is based and remove any reference of the owners of the data provided. The method called "filterRequest()" is also capable to handle requests based on the SSN of the individual of interest.
+
+##### [G4] - Third party users can choose to be notified about previous researches to be updated as soon as new data are available.
+
+* **[R8] **  The requirement is implicitly fullfilled through the architectural style adopted.
+* **[R9] ** DataCollectionService (notifyServices()), SubscriptionService (notifyNewData()) and DispatchingService (dispatchData()) together contribute to check subscription on arrival of new data and to (optionally) forward them to the subscribed users. 
+
+##### [G5] - The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
+
+* **[R10]**  The LoginService interface specifies a method registration() through which the AutomatedSOSUser is able to specify parameters and thresholds used to monitor his health status.
+
+* **[R10] [R11]** DataMonitoringService receives the new data from DataCollectionService, checks the user's thresholds and forwards the Emergency that has to be notified to the DispatchingService, which contacts the Local Emergency Service.
+
+##### [G6] - Users can register as organizers.
+
+* **[R13]** The requirement is fullfiled by the registration method provided by the LoginService interface.
+
+##### [G7] - Organizers can create runs.
+
+* **[R14]**  RunManagementService interface exports the method createRun() that allows the organizers to specify the required parameters in order to insert a new run into the System.
+
+##### [G8]  Any user can access Track4Run as a Guest (Spectator).
+
+* **[R15] [R16]** RunManagementService implements two methods called getRunList() and spectateRun() through which the spectator is able to visualize all availble runs and to follow the one he/she selects.  
+
+##### [G9] - Users can enroll to a run.
+
+* **[R16]** As above, the method getRunList() allows to fulfill this requirement.
+
+* **[R17]** RunManagementService allows a user to subscribe him/herself to a run via addRunSubscription method which exploits the LoginService interface to handle the login phase that is required in order to complete succesfully the registration.
+
+##### [G10] - Spectators can follow the progress of an ongoing run.
+
+    collegamento tra DataMonitoring e DispatchingServcie, togliere metodo privato da Component Interface diagram da DataMonitoringService, mettere collegamento tra RunManagement, DataCollectionService e DataDispatchingService. 
+
+* **[R18]**  Once the spectator starts to follow a run, the DispatchingService contacted by the RunManagementService, sends the runners location on their arrival through the dispatchData() method.
+
+
+
