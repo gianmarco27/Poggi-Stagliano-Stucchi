@@ -6,54 +6,54 @@
 ## Table of Contents  
 
 <ol>
-    <a href="#1-introduction"><li>INTRODUCTION</li></a><br>
+    <a href="#1-introduction"><li>INTRODUCTION</li></a><br/>
     <ul style="list-style: none;">
-        <a href="#a-purpose">A. Purpose</a><br>
+        <a href="#a-purpose">A. Purpose</a><br/>
         <ul style="list-style: none;"><a href="#a1-goals">A.1 Goals</a></ul>
-        <a href="#b-scope">B. Scope</a><br>
-        <a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a><br>
-        <a href="#d-document-structure">D.  Document Structure</a><br>
-    </ul><br>
-    <a href="#2--overall-description"><li>OVERALL DESCRIPTION</li></a><br>
+        <a href="#b-scope">B. Scope</a><br/>
+        <a href="#c-definitions-acronyms-abbreviations">C. Definitions, Acronyms, Abbreviations</a><br/>
+        <a href="#d-document-structure">D.  Document Structure</a><br/>
+    </ul><br/>
+    <a href="#2--overall-description"><li>OVERALL DESCRIPTION</li></a><br/>
     <ul style="list-style: none;">
-        <a href="#a-product-perspective">A. Product perspective</a><br>
+        <a href="#a-product-perspective">A. Product perspective</a><br/>
         <a href="#b-scope">B. Scope</a>
         <ul style="list-style: none;">
-            <a href="#b1-data-monitoring-and-managing">B.1 Data monitoring and managing</a><br>
-            <a href="#b2-real-time-emergency-notification">B.2 Real time emergency notification</a><br>
+            <a href="#b1-data-monitoring-and-managing">B.1 Data monitoring and managing</a><br/>
+            <a href="#b2-real-time-emergency-notification">B.2 Real time emergency notification</a><br/>
             <a href="#b3-creation-and-enrollment-to-a-run">B.3 Creation and enrollment to a run</a>
         </ul>
-        <a href="#c-user-characteristics">C. User characteristics</a><br>
-        <a href="#d-assumptions-dependecies-and-constrains">D. Assumptions, dependecies and constrains</a><br>
-    </ul><br>
-    <a href="#3-specific-requirements"><li>SPECIFIC REQUIREMENTS</li></a><br>
+        <a href="#c-user-characteristics">C. User characteristics</a><br/>
+        <a href="#d-assumptions-dependecies-and-constrains">D. Assumptions, dependecies and constrains</a><br/>
+    </ul><br/>
+    <a href="#3-specific-requirements"><li>SPECIFIC REQUIREMENTS</li></a><br/>
     <ul style="list-style: none;">
         <a href="#a-external-interface-requirements">A. External Interface Requirements</a>
         <ul style="list-style: none;">
-            <a href="#a1-user-interfaces">A.1 User Interfaces</a><br>
-            <a href="#a2-hardware-interfaces">A.2 Hardware Interfaces</a><br>
-            <a href="#a3-software-and-communication-interfaces">A.3 Software and Communication Interfaces</a><br>
+            <a href="#a1-user-interfaces">A.1 User Interfaces</a><br/>
+            <a href="#a2-hardware-interfaces">A.2 Hardware Interfaces</a><br/>
+            <a href="#a3-software-and-communication-interfaces">A.3 Software and Communication Interfaces</a><br/>
         </ul>
         <a href="#b-functional-requirements">B. Functional Requirements</a>
         <ul style="list-style: none;">
-            <a href="#b1--functional-requirements-data4help">B.1 Functional Requirements Data4Help</a><br>
-            <a href="#b2--functional-requirements-automatedsos">B.2 Functional Requirements AutomatedSOS</a><br>
-            <a href="#b3--functional-requirements-track4run">B.3 Functional Requirements Track4Run</a><br>
-            <a href="#b4-scenarios">B.4 Scenarios</a><br>
+            <a href="#b1--functional-requirements-data4help">B.1 Functional Requirements Data4Help</a><br/>
+            <a href="#b2--functional-requirements-automatedsos">B.2 Functional Requirements AutomatedSOS</a><br/>
+            <a href="#b3--functional-requirements-track4run">B.3 Functional Requirements Track4Run</a><br/>
+            <a href="#b4-scenarios">B.4 Scenarios</a><br/>
             <a href="#b5-use-cases">B.5 Use cases</a>
         </ul>
         <a href="#c-software-system-attributes">C. Software System Attributes</a>
         <ul style="list-style: none;">
-            <a href="#c1-relaiability">C.1 Relaiability</a><br>
-            <a href="#c2-availability">C.2 Availability</a><br>
+            <a href="#c1-relaiability">C.1 Relaiability</a><br/>
+            <a href="#c2-availability">C.2 Availability</a><br/>
             <a href="#c3-safety">C.3 Safety</a><br>
-            <a href="#c4-maintainability">C.4 Maintainability</a><br>
+            <a href="#c4-maintainability">C.4 Maintainability</a><br/>
             <a href="#c5-compatibility">C.5 Compatibility</a>
         </ul>
     </ul><br>
-    <a href="#4-formal-analysis-using-alloy"><li>FORMAL ANALYSIS USING ALLOY</li></a><br>
-    <a href="#5-effort-spent"><li>EFFORT SPENT</li></a><br>
-    <a href="#6-references"><li>REFERENCES</li></a><br>
+    <a href="#4-formal-analysis-using-alloy"><li>FORMAL ANALYSIS USING ALLOY</li></a><br/>
+    <a href="#5-effort-spent"><li>EFFORT SPENT</li></a><br/>
+    <a href="#6-references"><li>REFERENCES</li></a><br/>
 </ol>
 
 ##   1. Introduction
@@ -449,7 +449,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Entry conditions                                                   |The user has installed the application on his/her device
 | Events flows                                                       |<ol><li>The user click on "Sign up as individual" or "sign up as third party" button</li><li>The user provides the SSN for the individuals, or the VAT for the third party, a valid password and fills all the mandatory fields about his/her personal data </li><li>The user clicks on "Confirm" button</li><li>The system saves the data</li></ol>
 | Exit conditions                                                    |The user has successfully registered
-| Exceptions                                                         |<ol><li> The user is already signed up</li><li>The user didn't fill all of the mandatory fields with valid data</li></ol></br>All the excpetions are handled by notifying the user and taking him back to the sign up activity
+| Exceptions                                                         |<ol><li> The user is already signed up</li><li>The user didn't fill all of the mandatory fields with valid data</li></ol><br/>All the excpetions are handled by notifying the user and taking him back to the sign up activity
 
 
 | Name                                                               |Log in
@@ -458,7 +458,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Entry conditions                                                   |The third party is successfully submitted to the service
 | Events flows                                                       |<ol><li> The third party enters his credentials in the "VAT/SSN" and "PASSWORD" fields</li><li>The third party clicks on the "Log in" button  </li><li> The third party is successfully logged in Data4Help</li></ol>
 | Exit conditions                                                    |The third party is redirected to the select filters' interface
-| Exceptions                                                         |The third party enters invalid credentials</br></br> The exception is handled by notifying the third party and taking him back to the log in activity
+| Exceptions                                                         |The third party enters invalid credentials<br/><br/> The exception is handled by notifying the third party and taking him back to the log in activity
 
 
 | Name                                                               |Filter data
@@ -467,7 +467,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Entry conditions                                                   |The third party selected the functionality to request data from a group of individuals
 | Events flows                                                       |<ol><li> The third party specifies the filtering values accordingly with the previously data inserted by the individuals upon registration </li><li> The third party specify if he wants to be subscribed to the data </li></ol> 
 | Exit conditions                                                    |The request is correctly sent
-| Exceptions                                                         |<ol><li>The third party inserts a non valid value in the filtering fields</li></ol></br> The exception is handled by prompting the third party to replace the incorrect values
+| Exceptions                                                         |<ol><li>The third party inserts a non valid value in the filtering fields</li></ol><br/> The exception is handled by prompting the third party to replace the incorrect values
 
 
 
@@ -477,7 +477,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Entry conditions                                                   |The third party is logged in
 | Events flows                                                       |<ol><li>The third party selects the functionality to request data from an individual</li><li> The third party inserts the SSN of the individual of interest</li><li>Data4Help forwards the request to the specified individual</li><li>The individual accepts the request to access the data</li></ol>
 | Exit conditions                                                    |Data4Help provides the third party with the requested data
-| Exceptions                                                         |<ol><li>The individual refuses to grant the access to his/her data</li><li>The individual isn't registered to Data4Help</li></ol></br> Both exceptions are handled notifying that the requested data are not accessible
+| Exceptions                                                         |<ol><li>The individual refuses to grant the access to his/her data</li><li>The individual isn't registered to Data4Help</li></ol><br/> Both exceptions are handled notifying that the requested data are not accessible
 
 
 
@@ -487,7 +487,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Entry conditions                                                   |The third party is logged in
 | Events flows                                                       |<ol><li>  The third party selects the functionality to request data from a group of individuals</li><li> The third party enters in the "filter data" use case to properly select the categories to which the interest data belong</li></ol>
 | Exit conditions                                                    |Data4Help provides the third party with the requested data
-| Exceptions                                                         |<ol><li>The request doesn't fit the privacy constraints of Data4Help</li></ol></br> The exception is handled notifying that the requested data are not accessible and requesting to select new filters
+| Exceptions                                                         |<ol><li>The request doesn't fit the privacy constraints of Data4Help</li></ol><br/> The exception is handled notifying that the requested data are not accessible and requesting to select new filters
 
 
 ##### AutomatedSOS - use cases
@@ -498,7 +498,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Entry conditions                                                   |<ul><li>The individual is registered to Data4Help</li><li>The individual is accessing for the first time</li></ul>
 | Events flows                                                       |<ol><li> The individual logs in with the Data4Help account</li><li> AutomatedSOS asks the client to insert the threshold of the parameters on wich he wants to be monitored </li></ol>
 | Exit conditions                                                    |AutomatedSOS notifies the user that it started to monitor the specified parameters
-| Exceptions                                                         |<ol><li>The individual inserts a non valid value in the parameters fields</li></ol></br> The exception is handled requesting again the value
+| Exceptions                                                         |<ol><li>The individual inserts a non valid value in the parameters fields</li></ol><br/> The exception is handled requesting again the value
 
     
 | Name                                                               |Notify emergency
@@ -507,7 +507,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Entry conditions                                                   |The individual's parameters go outside the thresholds
 | Events flows                                                       |<ol><li> AutomatedSOS detects that certain parameters aren't in the specified thresholds</li><li>AutomatedSOS tracks down the location of the individual</li><li> AutomatedSOS signals to the local emergency service the user location and the type of the emergency </li></ol>
 | Exit conditions                                                    |The local emergency service replies to AutomatedSOS that the emergency has been correctly delivered 
-| Exceptions                                                         |</br>
+| Exceptions                                                         |<br/>
 
 
 ##### Track4Run - use cases
@@ -518,7 +518,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Entry conditions                                                   |The user has to organize a run
 | Events flows                                                       |<ol><li> The user registers as an organizer providing the VAT </li></ol>
 | Exit conditions                                                    |Track4Run notifies that the organizer is correctly subscribed to the service
-| Exceptions                                                         |<ol><li>The user was already subscribed</li></ol></br> The exception is handled by notifying the presence of the user
+| Exceptions                                                         |<ol><li>The user was already subscribed</li></ol><br/> The exception is handled by notifying the presence of the user
 
 
 | Name                                                               |Creation of a run
@@ -527,7 +527,7 @@ Luca is a user of Data4Help, he is a passionate runner, he heard that Data4Help 
 | Entry conditions                                                   |Organizer is registered to the service
 | Events flows                                                       |<ol><li>The organizer logs into the system with his credentials</li><li>The organizer chooses to create a new run</li><li>Track4Run asks the organizer the title of the run to create</li><li>The organizer inserts a title for the run</li><li>Track4Run prompts to fill-in the description and the start time fields of the run</li><li>The Organizer inserts description and start time</li><li> Track4Run validates the inserted details and prompts the user to draw the designed path on a map</li><li>The organizer draws the path</li></ol>
 | Exit conditions                                                    |Track4Run notifies the organizer that the run has been correctly inserted in the system
-| Exceptions                                                         |<ol><li>The credentials used to login are invalid</li><li>The title is already in the system</li><li>The start time isn't consistent</li></ol></br> The exception are handled by notifying the organizer to refill the wrong fields
+| Exceptions                                                         |<ol><li>The credentials used to login are invalid</li><li>The title is already in the system</li><li>The start time isn't consistent</li></ol><br/> The exception are handled by notifying the organizer to refill the wrong fields
 
 
 | Name                                                               |Enrolling to a run
