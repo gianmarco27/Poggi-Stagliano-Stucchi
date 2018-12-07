@@ -209,25 +209,50 @@ The way in which would be more appropriate to implement components and subsystem
 According to what is said above, is easy to imagine the order listed below:
 
 <ol> 
-    <li>MVC Model resembling data structures  
+    <li>**MVC Model resembling data structures**   
         It will be very important to well identify and characterize data on which the services are based, not only to clarify as early as possible all these aspects but also because the whole server-side system will deal with them.
     </li>
-    <li>DispatchingService  
+    <li>**DispatchingService**  
         Considering possible difficulties on its implementation, caused by the strong use of external services, components and interfaces, (for instance Emergency Services APIs) it would be reasonable to start the implementation of this service as second step of the plan. The duration of the implementation is also another aspect taken into account making this choice.
     </li>
-    <li>RunManagementService  
+    <li>**RunManagementService**  
         This service, as shown in the appriopriate diagrams, is very application specific and contains a large number of methods. Following the criteria of anticipating as much as possible the implementation of the largest classes it's simple to choose this class as the third to be implemented. 
     </li>
-    <li>DataCollectionService
+    <li>**DataCollectionService**  
         The main tasks of this service are the data managing, like the creation of appropriate and "real time needed" instances of the data structures, and the interaction with the DBMS, that results critical for the nature of the domain of the entire system; so the plan tackles all these aspects inserting this specific service just after the more critical services listed above. 
     </li>
-    <li>FilteringService  
+    <li>**FilteringService**  
         Considering the strong interaction with the Database of this component, concretized by the intensive execution of queries, along with what is said above about this type of criticities, is a good choice to put the implementation just after the DataCollectionService one.
     </li>
-    <li>All the others  
+    <li>**All the others**  
         The other services are in charge of executing actions that are not really application specific, for which a lot of consolidated algorithms have been already well known, so their implementation won't be as critical as for the previously listed services.
     </li>
 </ol>
 
 Notice that following this path it will be natural to follow a bottom up integration between components, avoiding the need of writing stubs that don't fit well with the development of this type of application. In fact, the injection of fake data, as a tecnique to write very specific drivers for many of the services (in the unit and integration testing as well), results therefore the best approach, also if we consider the fact that real data won't be available until the deployment of the system.
 
+
+### 4.2 Testing plan  
+
+Considering the different use cases of the System the most appropriate test sets are the systematic one, with this approach we can examine if the System actually fulfills the task that are stated in the requirements specification document. Using this test sets we could not be able to find minor bug in the System or verify the behaviour of the System in the case of several input which is a possibile scenario seeing the type of application we are developing.  
+
+In order to accomplish a good testing verification the testing plan should be as follow, first of all it would be useful for the developers to use unit tests to have feedback and make change easily.
+After that it is essential to plan an integration testing so that the integration between the components of the System is tested. Since for the integration we follow a bottom-up strategy we also approach this one for the integration testing, in doing so we are able to verify the integration part from the beginning and not only at the completion of the development. In this strategy testing takes place from the lowest level modules, then high level modules and at the end integrating the high level modules to the low level modules, drivers are used as temporary modules (simulate the behaviour of upper level modules).   
+Once the System is completly developed and the compontend are fully integrated and tested is important to use System testing, performed on the entire system evaluating the system's compliance with its specified requirements. Purpose of these final tests referring to our application are to evaluate its performance in differents scenarios such as:  
+- its behaviour in response a different and various inputs  
+- crash recovery and failure handling
+- resiliency to data and connection volumes (i.e. handling of simultaneous requests) 
+- reliability: the System has to be reliable with a ratio greater then 99,95% in order to comply with the request stated in the requirements document, mainly regarding the AutomatedSOS service to be able to detect and notify an emergency whenever irregolar data are sent to the server within a 5 seconds timespan
+- availability: the System has to offer a very high availability ratio (at leat 99,9%) for the application which is always operating in order to be able to receive new data and handle requests
+- efficiency: this parameter is relevant in the data management section since this service is thought to be receiving constant flows of data to store into memory and forward each of them to the appropriate component, therefore it is necessary to optimize the cost of the data handling and elaboration algorithms
+- scalability: the application has to be scalable depending on the current load in order to handle an always changing amount of connections and requests  
+
+
+
+
+
+
+
+
+## 5 Mockup
+..
