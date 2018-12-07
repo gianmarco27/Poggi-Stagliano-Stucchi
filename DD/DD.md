@@ -231,3 +231,41 @@ According to what is said above, is easy to imagine the order listed below:
 
 Notice that following this path it will be natural to follow a bottom up integration between components, avoiding the need of writing stubs that don't fit well with the development of this type of application. In fact, the injection of fake data, as a tecnique to write very specific drivers for many of the services (in the unit and integration testing as well), results therefore the best approach, also if we consider the fact that real data won't be available until the deployment of the system.
 
+### 4.2 Integration and Testing
+
+The Data4Help system, as mentioned in the previous section, is meant to be offering highly data-centered services, thus forcing a specific integration order of the services composing it.  
+The order and approach to be followed is described below.
+
+- Integration between components and the DBMS
+- Integration between the components of the system server
+- Integration between clients (web interface and mobile application) and the application server
+- Integration between the components and (other) external services
+
+
+** - Integration between components and the DBMS :** Following this section are listed the system services that interface and interact with the external DBMS to accomplish their tasks:
+   * LoginService, DBMS
+   * DataCollectionService, DBMS
+   * DataMonitoringService, DBMS
+   * SubscriptionService, DBMS
+   * FilteringService, DBMS
+   * RunManagementService, DBMS
+    
+** - Integration between the components of the system server :** This group is related to the inner links and interactions between system services, both regarding data management and requests handling:
+   * RunManagementService - DataCollectionService
+   * RunManagementService - LoginService
+   * RunManagementService - DispatchingService
+   * DataCollectionService - DataMonitoringService
+   * DataCollectionService - SubscriptionService
+   * SubscriptionService - DispatchingService
+   * SubscriptionService - PrivatizationService
+   * FilteringService - SubscriptionService
+   * FilteringService - PrivatizationService
+   * FilteringService - DispatchingService
+   * DataMonitoringService - DispatchingService
+   
+** - Integration between clients :** This kind of interactions should be allowed by system APIs and their configurations on respective clients 
+
+** - Integration between the components and (other) external services :** External services can be used for ease of use, like an external maps service, this integration should be implemented on the services that need it as :
+    * RunManagementService - ExternalMapsService
+    * Clients - ExternalMapsService
+
