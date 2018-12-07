@@ -1,28 +1,58 @@
 # Design Document
 
-## 1 Introduction
+## Table of Contents 
 
-### 1.1 Purpose
+1. INTRODUCTION  
+ A. Purpose  
+ B. Scope  
+ C. Acronyms, Abbreviations  
+ D. Document Structure  
+2. OVERALL ARCHITECTURE  
+ A. Overview  
+ B. High Level Architecture and deployment  
+ C. Component View    
+ D. Runtime View    
+    D.1 Data4Help  
+    D.2 AutomatedSOS  
+    D.3 Track4Run  
+    E. Component Intefaces  
+    F. Selected architectural styles and patterns  
+3. Requirements Traceability  
+4. Implementation, integration and testing plans   
+ A. Implementation plan  
+ B. Integration and Testing  
+ C. Testing plan  
+5. Mockup   
+6. Effort Tabel  
+
+## 1. Introduction
+
+### A. Purpose
 
 The purpose of this document is to provide a more technical description over the 
 architecture of the TrackMe application system. The Design Document aim is to describe the architecture paradigm on wich the system should be based and its services' components (how they are connected to each other,
 their main purpose and their runtime view). It also describes the implementation,
 integration and testing plans.
 
-### 1.2 Scope
+### B. Scope
 
 
-### 1.3 Acronyms
+### C.1 Acronyms
 
 API: Application programming interface  
 DB : Database  
 DBMS: Database Management System  
 DD: Design Document  
-JMQS: Java Message Queue Service.  
+JMQS: Java Message Queue Service  
+
+### C.2 Abbreviations  
 
 
+[Gn]: n-th Goal   
+[Rn]: n-th Functional requirement  
 
-## 1.4 Document Structure
+
+### D. Document Structure
 
 The first chapter gives an introduction to the DD explaining what is the aim of 
 this document.
@@ -31,11 +61,19 @@ The second chapter illustrates via text description and graphs the
 architecture and the components of the system underlying the connection between
 them and their principal operations. Here there are also the sequence diagrams that
 are used to describe the runtime view of the components.
-At the end of the chapter there is a description of the selected architectural styles and patterns.
+At the end of the chapter there is a description of the selected architectural styles and patterns.  
+
+The third chapter describes how the components of the system fulfill the requirements specified in the RASD document explaining which method of the components is used for every requirement.
+
+The fourth chapter gives instruction on how it could be the best way to proceed in the implementation, the integration and the testing. At the begin describes the most appropriate plan for the implementation, then gives a description of how the component should be intregate between themself and finally describes the testing plan and the approach that should be adopted.  
+
+The fifth chapter is about the mockup referring to the mockup presented in the RASD document.
+
+The sixth chapter shows the effort spent by each group member on the various section of the project.
 
 ## 2. Overall Architecture
 
-### 2.1 Overview
+### A. Overview
 
 Depending on the functionality the system software should rely on different types of architecture, traditional requests are served via a Client-Server paradigm implementation while the most active operations are performed following the Publisher-Subscriber paradigm.
 
@@ -47,7 +85,7 @@ Upon new data arrival the server has the task to check if any of it matches filt
     
 <img src="./ArchitectureDiagrams/Architecture.JPG"/>
 
-### 2.2 High Level Architecture and deployment
+### B. High Level Architecture and deployment
 
 Below are described via a High Level Architechture graph the main components of our system and their main processes.  
 The main core of our system is rapresented by the Router and Dispatcher processes in the TrackMe System, toghether with the DBMS that is accessed by them to read and store collected data.
@@ -56,7 +94,7 @@ The different Users of the services are provided with different Point Of Access 
 
 <img src="./ArchitectureDiagrams/HighLevelArchitecture.png"/>
 
-### 2.3 Component View
+### C. Component View
 
 In the following diagram we have depicted more accurately the services, the links between them and how they are interfaced with each other. Notice the DBMS interface is generalized because it depends on the choiche of the DBMS technology and in order to mantain things more general we didn't want to rule out any option.  
 As for DBMS here the External Services are not specifically charachterized to allow a consequent choiche of the most appropriate service basing on the needs of the application.  
@@ -95,9 +133,9 @@ Subscriptions are stored into the Database, on first boot the system loads in an
 
 <img src="./ArchitectureDiagrams/InterfaceImplementation.JPG"/>
 
-### 2.4 Runtime View
+### D. Runtime View
 
-#### 2.4.1 Data4Help
+#### D.1 Data4Help
 
 ##### Filtering Request
 
@@ -108,21 +146,26 @@ Subscriptions are stored into the Database, on first boot the system loads in an
 <img src="./ArchitectureDiagrams/NewDataCollectionSequenceDiagram.JPG"/>
 
         remember to describe the motivation why whe use async messages
+        
+#### D.2 AutomatedSOS  
+
 ##### Emergency Notification
 
 <img src="./ArchitectureDiagrams/NotifyEmergency.JPG"/>
+
+#### D.3 Track4Run  
 
 ##### Run Enrollment
 
 <img src="./ArchitectureDiagrams/runEnrollment.JPG"/>
 
-### 2.5 Component Intefaces
+### E. Component Intefaces
 
 The aim of the following diagram is to highlight the relationships between services implemented on the server of the entire system, in particular the interfaces exposing their public methods and the use relation between them.
 
 <img src="./ArchitectureDiagrams/ComponentInterfaces.JPG"/>
 
-### 2.6 Selected architectural styles and patterns
+### F. Selected architectural styles and patterns
 
 The main architectural style adopted, on which the communication with third party relies, is the Publisher/Subscriber paradigm.  
 It has been adopted to be able to manage the inherent transient nature of communication and asynchronicity of the services offered by the system. At the opposite the classical client-server architectural style doesn't fit with the purpose of queueing and dispatching of messages, as it would have made necessary establishing a new connection everytime the system had to send new data.  
@@ -202,7 +245,7 @@ Third Parties for the Data4Help service and Organizers for Track4Run are provide
 
 ## 4. Implementation, integration and testing plans 
 
-### 4.1 Implementation plan
+### A. Implementation Plan
 
 The way in which would be more appropriate to implement components and subsystem is described below. In the choice are mostly taken into account the inherent data centric nature of the services offered by TrackMe and the possible difficulties dealing with the JMQS service.
 
@@ -231,7 +274,7 @@ According to what is said above, is easy to imagine the order listed below:
 
 Notice that following this path it will be natural to follow a bottom up integration between components, avoiding the need of writing stubs that don't fit well with the development of this type of application. In fact, the injection of fake data, as a tecnique to write very specific drivers for many of the services (in the unit and integration testing as well), results therefore the best approach, also if we consider the fact that real data won't be available until the deployment of the system.
 
-### 4.2 Integration and Testing
+### B. Integration and Testing
 
 The Data4Help system, as mentioned in the previous section, is meant to be offering highly data-centered services, thus forcing a specific integration order of the services composing it.  
 The order and approach to be followed is described below.
@@ -269,7 +312,7 @@ The order and approach to be followed is described below.
     * RunManagementService - ExternalMapsService
     * Clients - ExternalMapsService
 
-### 4.3 Testing plan  
+### C. Testing Plan  
 
 Considering the different use cases of the System the most appropriate test sets are the systematic one, with this approach we can examine if the System actually fulfills the task that are stated in the requirements specification document. Using this test sets we could not be able to find minor bug in the System or verify the behaviour of the System in the case of several input which is a possibile scenario seeing the type of application we are developing.  
 
@@ -291,5 +334,7 @@ Once the System is completly developed and the compontend are fully integrated a
 
 
 
-## 5 Mockup
+## 5. Mockup
 ..
+
+## 6. Effort Table
