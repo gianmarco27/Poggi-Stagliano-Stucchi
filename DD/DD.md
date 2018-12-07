@@ -204,7 +204,7 @@ Third Parties for the Data4Help service and Organizers for Track4Run are provide
 
 ### 4.1 Implementation plan
 
-The way in which would be more appropriate to implement components and subsystem is described below. In the choice are mostly taken into account the inherent data centric nature of the services offered by TrackMe and the possible difficulties dealing with the JMSQ service.
+The way in which would be more appropriate to implement components and subsystem is described below. In the choice are mostly taken into account the inherent data centric nature of the services offered by TrackMe and the possible difficulties dealing with the JMQS service.
 
 According to what is said above, is easy to imagine the order listed below:
 
@@ -219,15 +219,15 @@ According to what is said above, is easy to imagine the order listed below:
         This service, as shown in the appriopriate diagrams, is very application specific and contains a large number of methods. Following the criteria of anticipating as much as possible the implementation of the largest classes it's simple to choose this class as the third to be implemented. 
     </li>
     <li>DataCollectionService
-        The main tasks of this service are the data managing, like the creation of appropriate and "real time needed" instances of the data structures, and the interaction with the DBMS, that results critical for the nature of the domain of the entire system; so the plan tackles all these aspects inserting this specific service just after the more critical servcies listed above. 
+        The main tasks of this service are the data managing, like the creation of appropriate and "real time needed" instances of the data structures, and the interaction with the DBMS, that results critical for the nature of the domain of the entire system; so the plan tackles all these aspects inserting this specific service just after the more critical services listed above. 
     </li>
     <li>FilteringService  
-        Considering the strong interaction with the Database of this component, concretized by the intensive execution of queries, xalong with what is said above about this type of criticities, is a good choice to put the implementation just after the DataCollectionService one.
+        Considering the strong interaction with the Database of this component, concretized by the intensive execution of queries, along with what is said above about this type of criticities, is a good choice to put the implementation just after the DataCollectionService one.
     </li>
     <li>All the others  
         The other services are in charge of executing actions that are not really application specific, for which a lot of consolidated algorithms have been already well known, so their implementation won't be as critical as for the previously listed services.
     </li>
 </ol>
 
-Notice that following this path it will be natural to follow a bottom up integration between components, avoiding the need of writing stubs that don't fit well with the development of this type of application. In fact, the injection of fake data, as a tecnique to write very specific drivers for many of the services (in the unit and intergation testing as well), results so natural, also if we consider the fact that real data won't be available until the deployment of the system.
+Notice that following this path it will be natural to follow a bottom up integration between components, avoiding the need of writing stubs that don't fit well with the development of this type of application. In fact, the injection of fake data, as a tecnique to write very specific drivers for many of the services (in the unit and integration testing as well), results therefore the best approach, also if we consider the fact that real data won't be available until the deployment of the system.
 
