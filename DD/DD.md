@@ -47,8 +47,9 @@ integration and testing plans.
 
 ### B. Scope
 
+### C. Acronyms, Abbreviations
 
-### C.1 Acronyms
+#### C.1 Acronyms
 
 API: Application programming interface  
 DB : Database  
@@ -56,12 +57,10 @@ DBMS: Database Management System
 DD: Design Document  
 JMQS: Java Message Queue Service  
 
-### C.2 Abbreviations  
-
+#### C.2 Abbreviations  
 
 [Gn]: n-th Goal   
 [Rn]: n-th Functional requirement  
-
 
 ### D. Document Structure
 
