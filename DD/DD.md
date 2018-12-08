@@ -9,15 +9,15 @@
         <a href="#c-acronyms-abbreviations">C. Acronyms, Abbreviations</a><br/>
         <a href="#d-document-structure">D. Document Structure</a><br/>
     </ul><br/>
-    <a href="#2--overall-architecture"><li>OVERALL ARCHITECTURE</li></a><br/>
+    <a href="#2-overall-architecture"><li>OVERALL ARCHITECTURE</li></a><br/>
     <ul style="list-style: none;">
         <a href="#a-overview">A. Overview</a><br/>
         <a href="#b-high-level-architecture-and-deployment ">B. High Level Architecture and Deployment </a><br/>
         <a href="#c-component-view ">C. Component View </a><br/>
         <a href="#d-runtime-view">D. Runtime View</a><br/>
         <ul style="list-style: none;">
-            <a href="#d1--data4help">D.1 Data4Help </a><br/>
-            <a href="#d2--automatedsos">D.2 AutomatedSOS</a><br/>
+            <a href="#d1-data4help">D.1 Data4Help </a><br/>
+            <a href="#d2-automatedsos">D.2 AutomatedSOS</a><br/>
             <a href="#d3-track4run">D.3 Track4Run</a>
         </ul>
         <a href="#e-component-intefaces ">E. Component Intefaces</a><br/>
@@ -26,13 +26,13 @@
     <a href="#3-requirements-traceability"><li>REQUIREMENTS TRACEABILITY</li></a><br/>
     <a href="#4-implementation-integration-and-testing-plans "><li>IMPLEMENTATION, INTEGRATION AND TESTING PLANS</li></a><br/>
     <ul style="list-style: none;">
-            <a href="#a--implementation-plan ">A. Implementation Plan </a><br/>
-            <a href="#b--integration-and-testing">B. Integration and Testing</a><br/>
+            <a href="#a-implementation-plan ">A. Implementation Plan </a><br/>
+            <a href="#b-integration-and-testing">B. Integration and Testing</a><br/>
             <a href="#c-testing-plan">C. Testing Plan</a>
         </ul><br/>
-    <a href="#5--mockup"><li>MOCKUP </li></a><br/>
-    <a href="#6--effort-table"><li>EFFORT TABLE </li></a><br/>
-    <a href="#7--reference-documents"><li>REFERENCE DOCUMENTS</li></a><br/>
+    <a href="#5-mockup"><li>MOCKUP </li></a><br/>
+    <a href="#6-effort-table"><li>EFFORT TABLE </li></a><br/>
+    <a href="#7-reference-documents"><li>REFERENCE DOCUMENTS</li></a><br/>
 </ol>
 
 
