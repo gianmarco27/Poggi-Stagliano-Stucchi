@@ -1,29 +1,40 @@
 # Design Document
 
 ## Table of Contents 
+<ol>
+    <a href="#1-introduction"><li>INTRODUCTION</li></a><br/>
+    <ul style="list-style: none;">
+        <a href="#a-purpose">A. Purpose</a><br/>
+        <a href="#b-scope">B. Scope</a><br/>
+        <a href="#c-acronyms-abbreviations">C. Acronyms, Abbreviations</a><br/>
+        <a href="#d-document-structure">D. Document Structure</a><br/>
+    </ul><br/>
+    <a href="#2--overall-architecture"><li>OVERALL ARCHITECTURE</li></a><br/>
+    <ul style="list-style: none;">
+        <a href="#a-overview">A. Overview</a><br/>
+        <a href="#b-high-level-architecture-and-deployment ">B. High Level Architecture and Deployment </a><br/>
+        <a href="#c-component-view ">C. Component View </a><br/>
+        <a href="#d-runtime-view">D. Runtime View</a><br/>
+        <ul style="list-style: none;">
+            <a href="#d1--data4help">D.1 Data4Help </a><br/>
+            <a href="#d2--automatedsos">D.2 AutomatedSOS</a><br/>
+            <a href="#d3-track4run">D.3 Track4Run</a>
+        </ul>
+        <a href="#e-component-intefaces ">E. Component Intefaces</a><br/>
+        <a href="#f-selected-architectural-styles-and-patterns">F. Selected architectural styles and patterns</a><br/>
+    </ul><br/>
+    <a href="#3-requirements-traceability"><li>REQUIREMENTS TRACEABILITY</li></a><br/>
+    <a href="#4-implementation-integration-and-testing-plans "><li>IMPLEMENTATION, INTEGRATION AND TESTING PLANS</li></a><br/>
+    <ul style="list-style: none;">
+            <a href="#a--implementation-plan ">A. Implementation Plan </a><br/>
+            <a href="#b--integration-and-testing">B. Integration and Testing</a><br/>
+            <a href="#c-testing-plan">C. Testing Plan</a>
+        </ul><br/>
+    <a href="#5--mockup"><li>MOCKUP </li></a><br/>
+    <a href="#6--effort-table"><li>EFFORT TABLE </li></a><br/>
+    <a href="#7--reference-documents"><li>REFERENCE DOCUMENTS</li></a><br/>
+</ol>
 
-1. INTRODUCTION  
- A. Purpose  
- B. Scope  
- C. Acronyms, Abbreviations  
- D. Document Structure  
-2. OVERALL ARCHITECTURE  
- A. Overview  
- B. High Level Architecture and deployment  
- C. Component View    
- D. Runtime View    
-    D.1 Data4Help  
-    D.2 AutomatedSOS  
-    D.3 Track4Run  
-    E. Component Intefaces  
-    F. Selected architectural styles and patterns  
-3. Requirements Traceability  
-4. Implementation, integration and testing plans   
- A. Implementation plan  
- B. Integration and Testing  
- C. Testing plan  
-5. Mockup   
-6. Effort Tabel  
 
 ## 1. Introduction
 
@@ -85,7 +96,7 @@ Upon new data arrival the server has the task to check if any of it matches filt
     
 <img src="./ArchitectureDiagrams/Architecture.JPG"/>
 
-### B. High Level Architecture and deployment
+### B. High Level Architecture and Deployment
 
 Below are described via a High Level Architechture graph the main components of our system and their main processes.  
 The main core of our system is rapresented by the Router and Dispatcher processes in the TrackMe System, toghether with the DBMS that is accessed by them to read and store collected data.
@@ -334,7 +345,12 @@ Once the System is completly developed and the compontend are fully integrated a
 
 
 
-## 5. Mockup
-..
+## 5. Mockup  
+
+According to the design decision and to better understande how the user interface the application we made some changes in the mock-ups presentated in the RASD document in the section 3.A.1. 
 
 ## 6. Effort Table
+
+## 7. Reference Documents
+
+<ul><li>Specification document "A.Y.2018-2019 Software Engineering 2 Mandatory Project</li><li>Slides-"Design"</li><li>Slides-"VerificationAndValidation TestingTechniques"</li><li>Slides-"Architecture and Design in Practice"</li></ul>
