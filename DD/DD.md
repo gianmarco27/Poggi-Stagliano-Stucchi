@@ -47,6 +47,8 @@ integration and testing plans.
 
 ### B. Scope
 
+The Scope of the Data4Help system remains the same as specified in the RASD Document, the service aims to provide its users with a powerful tracking and data monitoring service that dependending on user interests can be used both in a passive or active way, and to which major Third parties can revolve to obtain big volumes of data for study purposes and organize runs.
+
 ### C. Acronyms, Abbreviations
 
 #### C.1 Acronyms
