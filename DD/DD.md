@@ -53,16 +53,16 @@ The Scope of the TrackMe system remains the same as specified in the RASD Docume
 
 #### C.1 Acronyms
 
-** API: ** Application programming interface  
-** DB : ** Database  
-** DBMS: ** Database Management System  
-** DD: ** Design Document  
-** JMQS: ** Java Message Queue Service  
+**API:** Application programming interface  
+**DB:** Database  
+**DBMS:** Database Management System  
+**DD:** Design Document  
+**JMQS:** Java Message Queue Service  
 
 #### C.2 Abbreviations  
 
-** [Gn]: ** n-th Goal   
-** [Rn]: ** n-th Functional requirement  
+**[Gn]:** n-th Goal   
+**[Rn]:** n-th Functional requirement  
 
 ### D. Document Structure
 
