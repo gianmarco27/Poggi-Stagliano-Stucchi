@@ -318,9 +318,9 @@ The order and approach to be followed is described below.
    
 <b> - Integration between clients : </b> This kind of interactions should be allowed by system APIs and their configurations on respective clients 
 
-<b> - Integration between the components and (other) external services : </b> External services can be used for ease of use, like an external maps service, this integration should be implemented on the services that need it as :  
-    * RunManagementService - ExternalMapsService  
-    * Clients - ExternalMapsService  
+<b> - Integration between the components and (other) external services : </b> External services can be used for ease of use, like an external maps service, this integration should be implemented on the services that need it as :
+ * RunManagementService - ExternalMapsService  
+ * Clients - ExternalMapsService  
 
 ### C. Testing Plan  
 
