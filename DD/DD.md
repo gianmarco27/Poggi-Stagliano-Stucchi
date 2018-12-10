@@ -53,16 +53,16 @@ The Scope of the TrackMe system remains the same as specified in the RASD Docume
 
 #### C.1 Acronyms
 
-API: Application programming interface  
-DB : Database  
-DBMS: Database Management System  
-DD: Design Document  
-JMQS: Java Message Queue Service  
+** API: ** Application programming interface  
+** DB : ** Database  
+** DBMS: ** Database Management System  
+** DD: ** Design Document  
+** JMQS: ** Java Message Queue Service  
 
 #### C.2 Abbreviations  
 
-[Gn]: n-th Goal   
-[Rn]: n-th Functional requirement  
+** [Gn]: ** n-th Goal   
+** [Rn]: ** n-th Functional requirement  
 
 ### D. Document Structure
 
@@ -157,8 +157,8 @@ Subscriptions are stored into the Database, on first boot the system loads in an
 
 <img src="./ArchitectureDiagrams/NewDataCollectionSequenceDiagram.JPG"/>
 
-        remember to describe the motivation why whe use async messages
-        
+In the above graphs we made use of async messages to represent the fact that the messages are sent in a costant flow and a single one doesn't have to result in a blocking action both for the clients and the services taking care of it.
+
 #### D.2 AutomatedSOS  
 
 ##### Emergency Notification
