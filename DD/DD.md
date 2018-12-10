@@ -262,22 +262,22 @@ The way in which would be more appropriate to implement components and subsystem
 According to what is said above, is easy to imagine the order listed below:
 
 <ol> 
-    <li><b> MVC Model resembling data structures </b>     
+    <li><b> MVC Model resembling data structures </b><br/>     
         It will be very important to well identify and characterize data on which the services are based, not only to clarify as early as possible all these aspects but also because the whole server-side system will deal with them.
     </li>
-    <li><b> DispatchingService </b>   
+    <li><b> DispatchingService </b><br/>    
         Considering possible difficulties on its implementation, caused by the strong use of external services, components and interfaces, (for instance Emergency Services APIs) it would be reasonable to start the implementation of this service as second step of the plan. The duration of the implementation is also another aspect taken into account making this choice.
     </li>
-    <li><b> RunManagementService </b>    
+    <li><b> RunManagementService </b><br/>     
         This service, as shown in the appriopriate diagrams, is very application specific and contains a large number of methods. Following the criteria of anticipating as much as possible the implementation of the largest classes it's simple to choose this class as the third to be implemented. 
     </li>
-    <li><b> DataCollectionService</b>    
+    <li><b> DataCollectionService</b><br/>     
         The main tasks of this service are the data managing, like the creation of appropriate and "real time needed" instances of the data structures, and the interaction with the DBMS, that results critical for the nature of the domain of the entire system; so the plan tackles all these aspects inserting this specific service just after the more critical services listed above. 
     </li>
-    <li><b> FilteringService </b>   
+    <li><b> FilteringService </b><br/>    
         Considering the strong interaction with the Database of this component, concretized by the intensive execution of queries, along with what is said above about this type of criticities, is a good choice to put the implementation just after the DataCollectionService one.
     </li>
-    <li><b> All the others </b>   
+    <li><b> All the others </b><br/>    
         The other services are in charge of executing actions that are not really application specific, for which a lot of consolidated algorithms have been already well known, so their implementation won't be as critical as for the previously listed services.
     </li>
 </ol>
