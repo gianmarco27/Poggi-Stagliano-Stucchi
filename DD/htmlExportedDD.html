@@ -6,10 +6,12 @@
    Made with Remarkable!
   </title>
   <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+ <link href="../RASD/github-markdown.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="../RASD/main.css" media="all" rel="stylesheet" type="text/css"/>
   <style type="text/css">
   </style>
  </head>
- <body>
+ <body class="markdown-body">
   <h1 id="design-document">
    Design Document
   </h1>
@@ -19,39 +21,30 @@
   <p>
   </p>
   <ol>
-   <br/>
    <a href="#1-introduction">
     <li>
      INTRODUCTION
     </li>
    </a>
-   <br/>
-   <br/>
-  </ol>
+ <br/>
   <ul style="list-style: none;">
-   <br/>
    <a href="#a-purpose">
     A. Purpose
    </a>
-   <br/>
    <br/>
    <a href="#b-scope">
     B. Scope
    </a>
    <br/>
-   <br/>
    <a href="#c-acronyms-abbreviations">
     C. Acronyms, Abbreviations
    </a>
-   <br/>
    <br/>
    <a href="#d-document-structure">
     D. Document Structure
    </a>
    <br/>
-   <br/>
   </ul>
-  <br/>
   <br/>
   <a href="#2-overall-architecture">
    <li>
@@ -59,40 +52,32 @@
    </li>
   </a>
   <br/>
-  <br/>
   <ul style="list-style: none;">
    <br/>
    <a href="#a-overview">
     A. Overview
    </a>
    <br/>
-   <br/>
    <a href="#b-high-level-architecture-and-deployment ">
     B. High Level Architecture and Deployment
    </a>
-   <br/>
    <br/>
    <a href="#c-component-view ">
     C. Component View
    </a>
    <br/>
-   <br/>
    <a href="#d-runtime-view">
     D. Runtime View
    </a>
    <br/>
-   <br/>
    <ul style="list-style: none;">
-    <br/>
     <a href="#d1-data4help">
      D.1 Data4Help
     </a>
     <br/>
-    <br/>
     <a href="#d2-automatedsos">
      D.2 AutomatedSOS
     </a>
-    <br/>
     <br/>
     <a href="#d3-track4run">
      D.3 Track4Run
@@ -104,14 +89,11 @@
     E. Component Intefaces
    </a>
    <br/>
-   <br/>
    <a href="#f-selected-architectural-styles-and-patterns">
     F. Selected architectural styles and patterns
    </a>
    <br/>
-   <br/>
   </ul>
-  <br/>
   <br/>
   <a href="#3-requirements-traceability">
    <li>
@@ -119,13 +101,11 @@
    </li>
   </a>
   <br/>
-  <br/>
   <a href="#4-implementation-integration-and-testing-plans ">
    <li>
     IMPLEMENTATION, INTEGRATION AND TESTING PLANS
    </li>
   </a>
-  <br/>
   <br/>
   <ul style="list-style: none;">
    <br/>
@@ -133,11 +113,9 @@
     A. Implementation Plan
    </a>
    <br/>
-   <br/>
    <a href="#b-integration-and-testing">
     B. Integration and Testing
    </a>
-   <br/>
    <br/>
    <a href="#c-testing-plan">
     C. Testing Plan
@@ -145,13 +123,11 @@
    <br/>
   </ul>
   <br/>
-  <br/>
   <a href="#5-mockup">
    <li>
     MOCKUP
    </li>
   </a>
-  <br/>
   <br/>
   <a href="#6-effort-table">
    <li>
@@ -159,14 +135,27 @@
    </li>
   </a>
   <br/>
-  <br/>
   <a href="#7-reference-documents">
    <li>
     REFERENCE DOCUMENTS
    </li>
   </a>
   <br/>
+</ol>
   <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
+
   <h2 id="1-introduction">
    1. Introduction
   </h2>
@@ -265,6 +254,11 @@
   <p>
    The sixth chapter shows the effort spent by each group member on the various section of the project.
   </p>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
   <h2 id="2-overall-architecture">
    2. Overall Architecture
   </h2>
@@ -394,6 +388,19 @@
   <p>
    <img src="./ArchitectureDiagrams/InterfaceImplementation.JPG"/>
   </p>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
   <h3 id="d-runtime-view">
    D. Runtime View
   </h3>
@@ -415,6 +422,15 @@
   <p>
    In the above graphs we made use of async messages to represent the fact that the messages are sent in a costant flow and a single one doesn’t have to result in a blocking action both for the clients and the services taking care of it.
   </p>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
   <h4 id="d2-automatedsos">
    D.2 AutomatedSOS
   </h4>
@@ -433,6 +449,12 @@
   <p>
    <img src="./ArchitectureDiagrams/runEnrollment.JPG"/>
   </p>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
   <h3 id="e-component-intefaces">
    E. Component Intefaces
   </h3>
@@ -452,7 +474,7 @@
    <br/>
    This type of paradigm is used anyway on a different level in order to handle users’ interactions via the provided interfaces, as for registration, run enrollment and other operations that can be performed in a single connection instance.
    <br/>
-   <img src="#" width="150"/>
+   <img width="150"/>
    <img src="./ArchitectureDiagrams/SubscribingClients.JPG" width="600"/>
    <br/>
    As described in the picture above, a part of the Database is devoted to store topics and subsricptions of Third Parties along with the pure application data.
@@ -709,49 +731,38 @@
   </ul>
   <p>
    <b>
-    - Integration between components and the DBMS :
+    <li>Integration between components and the DBMS :</li>
    </b>
    Following this section are listed the system services that interface and interact with the external DBMS to accomplish their tasks:
    <br/>
-   * LoginService, DBMS
-   <br/>
-   * DataCollectionService, DBMS
-   <br/>
-   * DataMonitoringService, DBMS
-   <br/>
-   * SubscriptionService, DBMS
-   <br/>
-   * FilteringService, DBMS
-   <br/>
-   * RunManagementService, DBMS
+   <ul>
+   <li>- LoginService, DBMS</li>
+   <li>- DataCollectionService, DBMS</li>
+   <li>- DataMonitoringService, DBMS</li>
+   <li>- SubscriptionService, DBMS</li>
+   <li>- FilteringService, DBMS</li>
+   <li>- RunManagementService, DBMS </li></ul>
   </p>
   <p>
    <b>
-    - Integration between the components of the system server :
+       <li>Integration between the components of the system server :</li>
    </b>
    This group is related to the inner links and interactions between system services, both regarding data management and requests handling:
    <br/>
-   * RunManagementService - DataCollectionService
-   <br/>
-   * RunManagementService - LoginService
-   <br/>
-   * RunManagementService - DispatchingService
-   <br/>
-   * DataCollectionService - DataMonitoringService
-   <br/>
-   * DataCollectionService - SubscriptionService
-   <br/>
-   * SubscriptionService - DispatchingService
-   <br/>
-   * SubscriptionService - PrivatizationService
-   <br/>
-   * FilteringService - SubscriptionService
-   <br/>
-   * FilteringService - PrivatizationService
-   <br/>
-   * FilteringService - DispatchingService
-   <br/>
-   * DataMonitoringService - DispatchingService
+         <ul>
+
+   <li>- RunManagementService - DataCollectionService</li>
+   <li>- RunManagementService - LoginService</li>
+   <li>- RunManagementService - DispatchingService</li>
+   <li>- DataCollectionService - DataMonitoringService</li>
+   <li>- DataCollectionService - SubscriptionService</li>
+   <li>- SubscriptionService - DispatchingService</li>
+   <li>- SubscriptionService - PrivatizationService</li>
+   <li>- FilteringService - SubscriptionService</li>
+   <li>- FilteringService - PrivatizationService</li>
+   <li>- FilteringService - DispatchingService</li>
+   <li>- DataMonitoringService - DispatchingService</li>
+      </ul>
   </p>
   <p>
    <b>
@@ -805,10 +816,9 @@
   </h2>
   <p>
    According to the design decisions and to better understand how the users should interface with the application we made some changes in the mock-ups presented in the
-   <a href='http://href="https://github.com'>
-    href="https://github.com
+   <a href="https://github.com/gianmarco27/Poggi-Stagliano-Stucchi/blob/master/RASD/RASD%20v2.md#a1-user-interfaces"> 
+       RASD document at the section 3.A.1.
    </a>
-   /gianmarco27/Poggi-Stagliano-Stucchi/blob/master/RASD/RASD%20v2.md#a1-user-interfaces"&gt;RASD document at the section 3.A.1.
   </p>
   <h2 id="6-effort-table">
    6. Effort Table
