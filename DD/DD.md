@@ -47,7 +47,7 @@ integration and testing plans.
 
 ### B. Scope
 
-The Scope of the Data4Help system remains the same as specified in the RASD Document, the service aims to provide its users with a powerful tracking and data monitoring service that dependending on user interests can be used both in a passive or active way, and to which major Third parties can revolve to obtain big volumes of data for study purposes and organize runs.
+The Scope of the TrackMe system remains the same as specified in the RASD Document, the service aims to provide its users with a powerful tracking and data monitoring service that dependending on user interests can be used both in a passive or active way, and to which major Third parties can revolve to obtain big volumes of data for study purposes and organize runs.
 
 ### C. Acronyms, Abbreviations
 
@@ -262,22 +262,22 @@ The way in which would be more appropriate to implement components and subsystem
 According to what is said above, is easy to imagine the order listed below:
 
 <ol> 
-    <li>** MVC Model resembling data structures **   
+    <li><b> MVC Model resembling data structures </b>   
         It will be very important to well identify and characterize data on which the services are based, not only to clarify as early as possible all these aspects but also because the whole server-side system will deal with them.
     </li>
-    <li>** DispatchingService **  
+    <li><b> DispatchingService </b> 
         Considering possible difficulties on its implementation, caused by the strong use of external services, components and interfaces, (for instance Emergency Services APIs) it would be reasonable to start the implementation of this service as second step of the plan. The duration of the implementation is also another aspect taken into account making this choice.
     </li>
-    <li>** RunManagementService **  
+    <li><b> RunManagementService </b>  
         This service, as shown in the appriopriate diagrams, is very application specific and contains a large number of methods. Following the criteria of anticipating as much as possible the implementation of the largest classes it's simple to choose this class as the third to be implemented. 
     </li>
-    <li>** DataCollectionService **  
+    <li><b> DataCollectionService</b>  
         The main tasks of this service are the data managing, like the creation of appropriate and "real time needed" instances of the data structures, and the interaction with the DBMS, that results critical for the nature of the domain of the entire system; so the plan tackles all these aspects inserting this specific service just after the more critical services listed above. 
     </li>
-    <li>** FilteringService **  
+    <li><b> FilteringService </b> 
         Considering the strong interaction with the Database of this component, concretized by the intensive execution of queries, along with what is said above about this type of criticities, is a good choice to put the implementation just after the DataCollectionService one.
     </li>
-    <li>** All the others **  
+    <li><b> All the others </b> 
         The other services are in charge of executing actions that are not really application specific, for which a lot of consolidated algorithms have been already well known, so their implementation won't be as critical as for the previously listed services.
     </li>
 </ol>
@@ -286,7 +286,7 @@ Notice that following this path it will be natural to follow a bottom up integra
 
 ### B. Integration and Testing
 
-The Data4Help system, as mentioned in the previous section, is meant to be offering highly data-centered services, thus forcing a specific integration order of the services composing it.  
+The TrackMe system, as mentioned in the previous section, is meant to be offering highly data-centered services, thus forcing a specific integration order of the services composing it.  
 The order and approach to be followed is described below.
 
 - Integration between components and the DBMS
@@ -345,6 +345,51 @@ Purpose of these final tests referring to our application are to evaluate its pe
 According to the design decisions and to better understand how the users should interface with the application we made some changes in the mock-ups presented in the <a href="https://github.com/gianmarco27/Poggi-Stagliano-Stucchi/blob/master/RASD/RASD%20v2.md#a1-user-interfaces">RASD document at the section 3.A.1</a>. 
 
 ## 6. Effort Table
+
+#### Leonardo
+
+|Section                                      |Time spent
+|---------------------------------------------|----------
+|Introduction                                 | 1H
+|High Level Architecture and Deployment       | 2H
+|Component View                               | 8H
+|Runtime View                                 | 6H
+|Component Intefaces                          | 2H
+|Selected architectural styles and patterns   | 1H
+|Requirements Traceability                    | 3H
+|Implementation, Integration and Testing Plans| 4H
+|Mockup                                       | 1H
+
+#### Gabriele
+
+|Section                                      |Time spent
+|---------------------------------------------|----------
+|Introduction                                 | 1H
+|High Level Architecture and Deployment       | 2H
+|Component View                               | 4H
+|Runtime View                                 | 6H
+|Component Intefaces                          | 2H
+|Selected architectural styles and patterns   | 1H
+|Requirements Traceability                    | 3H
+|Implementation, Integration and Testing Plans| 4H
+|Mockup                                       | 1H
+
+
+
+#### Gianmarco
+
+|Section                                      |Time spent
+|---------------------------------------------|----------
+|Introduction                                 | 1H
+|High Level Architecture and Deployment       | 2H
+|Component View                               | 8H
+|Runtime View                                 | 6H
+|Component Intefaces                          | 2H
+|Selected architectural styles and patterns   | 1H
+|Requirements Traceability                    | 3H
+|Implementation, Integration and Testing Plans| 4H
+|Mockup                                       | 1H
+
 
 ## 7. Reference Documents
 
