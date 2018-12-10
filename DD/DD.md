@@ -114,15 +114,15 @@ As for DBMS here the External Services are not specifically charachterized to al
 <img src="./ArchitectureDiagrams/ComponentVIew.JPG"/>
 
 
-- **LoginService** - Provides authentication and registration services including eventual parameters setting depending on the type of user (i.e. The insertion of AutomatedSOSUser's monitoring constraints are handled here).
-- **DataCollectionService** - It is responsible for collecting and persistently storing in the Database the data received by the clients and sends them to: DataMonitoringService and SubscriptionService.
-- **DataMonitoringService** - Receives data from the DataCollectionService and performs controls based on users imposed constraints previously stored in the DBMS.
-- **SubscriptionService** - This service is responsible for managing subscriptions both receiving and storing them into the Database, it also receives real time data from DataCollectionService, if such data belong to subscribed topics it proceeds to forward those data to the PrivatizationService and successively to the DispatchingService (or directly to it in case of specific user data request).
-- **FilteringService** - Receives one-time data requests from Third Parties and queries the Database for the results to return to the DispatchingService, it is also responsible of forwarding eventual requests on specified topics to the PrivatizationService before forwarding it to the responsible service.
-- **PrivatizationService** - Receives data anonymization requests from other services and after processing user data returning the result to the caller.
-- **DispatchingService** - Is responsible of forwarding Data matching subscriptions and filtering requests to Third Parties.
-- **RoutingService** - This services takes care of handling various types of request received from users forwarding each of them to the appropriate service.
-- **RunManagementService** - Is responsible for Subscription, Insertion and Spectating requests for the Track4Run Service.
+- ** LoginService ** - Provides authentication and registration services including eventual parameters setting depending on the type of user (i.e. The insertion of AutomatedSOSUser's monitoring constraints are handled here).
+- ** DataCollectionService ** - It is responsible for collecting and persistently storing in the Database the data received by the clients and sends them to: DataMonitoringService and SubscriptionService.
+- ** DataMonitoringService ** - Receives data from the DataCollectionService and performs controls based on users imposed constraints previously stored in the DBMS.
+- ** SubscriptionService ** - This service is responsible for managing subscriptions both receiving and storing them into the Database, it also receives real time data from DataCollectionService, if such data belong to subscribed topics it proceeds to forward those data to the PrivatizationService and successively to the DispatchingService (or directly to it in case of specific user data request).
+- ** FilteringService ** - Receives one-time data requests from Third Parties and queries the Database for the results to return to the DispatchingService, it is also responsible of forwarding eventual requests on specified topics to the PrivatizationService before forwarding it to the responsible service.
+- ** PrivatizationService ** - Receives data anonymization requests from other services and after processing user data returning the result to the caller.
+- ** DispatchingService ** - Is responsible of forwarding Data matching subscriptions and filtering requests to Third Parties.
+- ** RoutingService ** - This services takes care of handling various types of request received from users forwarding each of them to the appropriate service.
+- ** RunManagementService ** - Is responsible for Subscription, Insertion and Spectating requests for the Track4Run Service.
 
 We assume that the routing functionality is responsible of forwarding messages to the directly interested services depending on the client that has performed the request. 
 
@@ -209,48 +209,48 @@ Third Parties for the Data4Help service and Organizers for Track4Run are provide
 
 ##### [G1] - The user must be able to register on the platform as an individual or third party.
 
-* **[R1] [R2]**  The LoginService interface provides three methods for registration, they takes differents arguments by which they allows different types of user to specify their credential and basic information needed by the system.
+* ** [R1] [R2] **  The LoginService interface provides three methods for registration, they takes differents arguments by which they allows different types of user to specify their credential and basic information needed by the system.
 
 ##### [G2] - The individual has to be monitored constantly.
 
-* **[R3]** The DataCollectionService interface accomplishes this requirement providing the method addUserData through which fresh data are stored in the database of the system.
+* ** [R3] ** The DataCollectionService interface accomplishes this requirement providing the method addUserData through which fresh data are stored in the database of the system.
 
 ##### [G3] - Third party users must be able to access both individual's and group's data safely.
 
-* **[R5] [R6] [R7]** The FilteringService interface along with the PrivatizationService one are responsible to control the cardinality of the group of individuals on which the request is based and remove any reference of the owners of the data provided. The method called "filterRequest()" is also capable to handle requests based on the SSN of the individual of interest.
+* ** [R5] [R6] [R7] ** The FilteringService interface along with the PrivatizationService one are responsible to control the cardinality of the group of individuals on which the request is based and remove any reference of the owners of the data provided. The method called "filterRequest()" is also capable to handle requests based on the SSN of the individual of interest.
 
 ##### [G4] - Third party users can choose to be notified about previous researches to be updated as soon as new data are available.
 
-* **[R8] **  The requirement is implicitly fullfilled through the architectural style adopted.
-* **[R9] ** DataCollectionService (notifyServices()), SubscriptionService (notifyNewData()) and DispatchingService (dispatchData()) together contribute to check subscription on arrival of new data and to (optionally) forward them to the subscribed users. 
+* ** [R8] **  The requirement is implicitly fullfilled through the architectural style adopted.
+* ** [R9] ** DataCollectionService (notifyServices()), SubscriptionService (notifyNewData()) and DispatchingService (dispatchData()) together contribute to check subscription on arrival of new data and to (optionally) forward them to the subscribed users. 
 
 ##### [G5] - The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
 
-* **[R10]**  The LoginService interface specifies a method registration() through which the AutomatedSOSUser is able to specify parameters and thresholds used to monitor his health status.
+* ** [R10] **  The LoginService interface specifies a method registration() through which the AutomatedSOSUser is able to specify parameters and thresholds used to monitor his health status.
 
-* **[R10] [R11]** DataMonitoringService receives the new data from DataCollectionService, checks the user's thresholds and forwards the Emergency that has to be notified to the DispatchingService, which contacts the Local Emergency Service.
+* ** [R10] [R11] ** DataMonitoringService receives the new data from DataCollectionService, checks the user's thresholds and forwards the Emergency that has to be notified to the DispatchingService, which contacts the Local Emergency Service.
 
 ##### [G6] - Users can register as organizers.
 
-* **[R13]** The requirement is fullfiled by the registration method provided by the LoginService interface.
+* ** [R13] ** The requirement is fullfiled by the registration method provided by the LoginService interface.
 
 ##### [G7] - Organizers can create runs.
 
-* **[R14]**  RunManagementService interface exports the method createRun() that allows the organizers to specify the required parameters in order to insert a new run into the System.
+* ** [R14] **  RunManagementService interface exports the method createRun() that allows the organizers to specify the required parameters in order to insert a new run into the System.
 
 ##### [G8]  Any user can access Track4Run as a Guest (Spectator).
 
-* **[R15] [R16]** RunManagementService implements two methods called getRunList() and spectateRun() through which the spectator is able to visualize all availble runs and to follow the one he/she selects.  
+* ** [R15] [R16] ** RunManagementService implements two methods called getRunList() and spectateRun() through which the spectator is able to visualize all availble runs and to follow the one he/she selects.  
 
 ##### [G9] - Users can enroll to a run.
 
-* **[R16]** As above, the method getRunList() allows to fulfill this requirement.
+* ** [R16] ** As above, the method getRunList() allows to fulfill this requirement.
 
-* **[R17]** RunManagementService allows a user to subscribe him/herself to a run via addRunSubscription method which exploits the LoginService interface to handle the login phase that is required in order to complete succesfully the registration.
+* ** [R17] ** RunManagementService allows a user to subscribe him/herself to a run via addRunSubscription method which exploits the LoginService interface to handle the login phase that is required in order to complete succesfully the registration.
 
 ##### [G10] - Spectators can follow the progress of an ongoing run.
 
-* **[R18]**  Once the spectator starts to follow a run, the DispatchingService contacted by the RunManagementService, sends the runners location on their arrival through the dispatchData() method.
+* ** [R18] **  Once the spectator starts to follow a run, the DispatchingService contacted by the RunManagementService, sends the runners location on their arrival through the dispatchData() method.
 
 
 ## 4. Implementation, integration and testing plans 
@@ -295,7 +295,7 @@ The order and approach to be followed is described below.
 - Integration between the components and (other) external services
 
 
-** - Integration between components and the DBMS : ** Following this section are listed the system services that interface and interact with the external DBMS to accomplish their tasks:
+<b> - Integration between components and the DBMS : </b> Following this section are listed the system services that interface and interact with the external DBMS to accomplish their tasks:
    * LoginService, DBMS
    * DataCollectionService, DBMS
    * DataMonitoringService, DBMS
@@ -303,7 +303,7 @@ The order and approach to be followed is described below.
    * FilteringService, DBMS
    * RunManagementService, DBMS
     
-** - Integration between the components of the system server : ** This group is related to the inner links and interactions between system services, both regarding data management and requests handling:
+<b> - Integration between the components of the system server : </b> This group is related to the inner links and interactions between system services, both regarding data management and requests handling:
    * RunManagementService - DataCollectionService
    * RunManagementService - LoginService
    * RunManagementService - DispatchingService
@@ -316,9 +316,9 @@ The order and approach to be followed is described below.
    * FilteringService - DispatchingService
    * DataMonitoringService - DispatchingService
    
-** - Integration between clients : ** This kind of interactions should be allowed by system APIs and their configurations on respective clients 
+<b> - Integration between clients : </b> This kind of interactions should be allowed by system APIs and their configurations on respective clients 
 
-** - Integration between the components and (other) external services : ** External services can be used for ease of use, like an external maps service, this integration should be implemented on the services that need it as :  
+<b> - Integration between the components and (other) external services : </b> External services can be used for ease of use, like an external maps service, this integration should be implemented on the services that need it as :  
     * RunManagementService - ExternalMapsService  
     * Clients - ExternalMapsService  
 
