@@ -182,11 +182,7 @@ The aim of the following diagram is to highlight the relationships between servi
 The main architectural style adopted, on which the communication with third party relies, is the Publisher/Subscriber paradigm.  
 It has been adopted to be able to manage the inherent transient nature of communication and asynchronicity of the services offered by the system. At the opposite the classical client-server architectural style doesn't fit with the purpose of queueing and dispatching of messages, as it would have made necessary establishing a new connection everytime the system had to send new data.  
 This type of paradigm is used anyway on a different level in order to handle users' interactions via the provided interfaces, as for registration, run enrollment and other operations that can be performed in a single connection instance.
-
-
-<img width=150/><img src="./ArchitectureDiagrams/SubscribingClients.JPG" width=600/>
-
-
+<img src="#" width="150"/><img src="./ArchitectureDiagrams/SubscribingClients.JPG" width="600"/>
 As described in the picture above, a part of the Database is devoted to store topics and subsricptions of Third Parties along with the pure application data.  
 Upon receiving a new data the system performs a check on the subrsciptions and relative topics and eventually dispatches, after an optional further elaboration of the data operated by internal services, new information to the interested Third Parties.
 

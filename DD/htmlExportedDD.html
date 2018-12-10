@@ -1,0 +1,1111 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <style type="text/css">
+  </style>
+ </head>
+ <body>
+  <h1 id="design-document">
+   Design Document
+  </h1>
+  <h2 id="table-of-contents">
+   Table of Contents
+  </h2>
+  <p>
+  </p>
+  <ol>
+   <br/>
+   <a href="#1-introduction">
+    <li>
+     INTRODUCTION
+    </li>
+   </a>
+   <br/>
+   <br/>
+  </ol>
+  <ul style="list-style: none;">
+   <br/>
+   <a href="#a-purpose">
+    A. Purpose
+   </a>
+   <br/>
+   <br/>
+   <a href="#b-scope">
+    B. Scope
+   </a>
+   <br/>
+   <br/>
+   <a href="#c-acronyms-abbreviations">
+    C. Acronyms, Abbreviations
+   </a>
+   <br/>
+   <br/>
+   <a href="#d-document-structure">
+    D. Document Structure
+   </a>
+   <br/>
+   <br/>
+  </ul>
+  <br/>
+  <br/>
+  <a href="#2-overall-architecture">
+   <li>
+    OVERALL ARCHITECTURE
+   </li>
+  </a>
+  <br/>
+  <br/>
+  <ul style="list-style: none;">
+   <br/>
+   <a href="#a-overview">
+    A. Overview
+   </a>
+   <br/>
+   <br/>
+   <a href="#b-high-level-architecture-and-deployment ">
+    B. High Level Architecture and Deployment
+   </a>
+   <br/>
+   <br/>
+   <a href="#c-component-view ">
+    C. Component View
+   </a>
+   <br/>
+   <br/>
+   <a href="#d-runtime-view">
+    D. Runtime View
+   </a>
+   <br/>
+   <br/>
+   <ul style="list-style: none;">
+    <br/>
+    <a href="#d1-data4help">
+     D.1 Data4Help
+    </a>
+    <br/>
+    <br/>
+    <a href="#d2-automatedsos">
+     D.2 AutomatedSOS
+    </a>
+    <br/>
+    <br/>
+    <a href="#d3-track4run">
+     D.3 Track4Run
+    </a>
+    <br/>
+   </ul>
+   <br/>
+   <a href="#e-component-intefaces ">
+    E. Component Intefaces
+   </a>
+   <br/>
+   <br/>
+   <a href="#f-selected-architectural-styles-and-patterns">
+    F. Selected architectural styles and patterns
+   </a>
+   <br/>
+   <br/>
+  </ul>
+  <br/>
+  <br/>
+  <a href="#3-requirements-traceability">
+   <li>
+    REQUIREMENTS TRACEABILITY
+   </li>
+  </a>
+  <br/>
+  <br/>
+  <a href="#4-implementation-integration-and-testing-plans ">
+   <li>
+    IMPLEMENTATION, INTEGRATION AND TESTING PLANS
+   </li>
+  </a>
+  <br/>
+  <br/>
+  <ul style="list-style: none;">
+   <br/>
+   <a href="#a-implementation-plan ">
+    A. Implementation Plan
+   </a>
+   <br/>
+   <br/>
+   <a href="#b-integration-and-testing">
+    B. Integration and Testing
+   </a>
+   <br/>
+   <br/>
+   <a href="#c-testing-plan">
+    C. Testing Plan
+   </a>
+   <br/>
+  </ul>
+  <br/>
+  <br/>
+  <a href="#5-mockup">
+   <li>
+    MOCKUP
+   </li>
+  </a>
+  <br/>
+  <br/>
+  <a href="#6-effort-table">
+   <li>
+    EFFORT TABLE
+   </li>
+  </a>
+  <br/>
+  <br/>
+  <a href="#7-reference-documents">
+   <li>
+    REFERENCE DOCUMENTS
+   </li>
+  </a>
+  <br/>
+  <br/>
+  <h2 id="1-introduction">
+   1. Introduction
+  </h2>
+  <h3 id="a-purpose">
+   A. Purpose
+  </h3>
+  <p>
+   The purpose of this document is to provide a more technical description over the
+   <br/>
+   architecture of the TrackMe application system. The Design Document aim is to describe the architecture paradigm on wich the system should be based and its services’ components (how they are connected to each other,
+   <br/>
+   their main purpose and their runtime view). It also describes the implementation,
+   <br/>
+   integration and testing plans.
+  </p>
+  <h3 id="b-scope">
+   B. Scope
+  </h3>
+  <p>
+   The Scope of the TrackMe system remains the same as specified in the RASD Document, the service aims to provide its users with a powerful tracking and data monitoring service that dependending on user interests can be used both in a passive or active way, and to which major Third parties can revolve to obtain big volumes of data for study purposes and organize runs.
+  </p>
+  <h3 id="c-acronyms-abbreviations">
+   C. Acronyms, Abbreviations
+  </h3>
+  <h4 id="c1-acronyms">
+   C.1 Acronyms
+  </h4>
+  <p>
+   <strong>
+    API:
+   </strong>
+   Application programming interface
+   <br/>
+   <strong>
+    DB:
+   </strong>
+   Database
+   <br/>
+   <strong>
+    DBMS:
+   </strong>
+   Database Management System
+   <br/>
+   <strong>
+    DD:
+   </strong>
+   Design Document
+   <br/>
+   <strong>
+    JMQS:
+   </strong>
+   Java Message Queue Service
+  </p>
+  <h4 id="c2-abbreviations">
+   C.2 Abbreviations
+  </h4>
+  <p>
+   <strong>
+    [Gn]:
+   </strong>
+   n-th Goal
+   <br/>
+   <strong>
+    [Rn]:
+   </strong>
+   n-th Functional requirement
+  </p>
+  <h3 id="d-document-structure">
+   D. Document Structure
+  </h3>
+  <p>
+   The first chapter gives an introduction to the DD explaining what is the aim of
+   <br/>
+   this document.
+  </p>
+  <p>
+   The second chapter illustrates via text description and graphs the
+   <br/>
+   architecture and the components of the system underlying the connection between
+   <br/>
+   them and their principal operations. Here there are also the sequence diagrams that
+   <br/>
+   are used to describe the runtime view of the components.
+   <br/>
+   At the end of the chapter there is a description of the selected architectural styles and patterns.
+  </p>
+  <p>
+   The third chapter describes how the components of the system fulfill the requirements specified in the RASD document explaining which method of the components is used for every requirement.
+  </p>
+  <p>
+   The fourth chapter gives instruction on how it could be the best way to proceed in the implementation, the integration and the testing. At the begin describes the most appropriate plan for the implementation, then gives a description of how the component should be intregate between themself and finally describes the testing plan and the approach that should be adopted.
+  </p>
+  <p>
+   The fifth chapter is about the mockup referring to the mockup presented in the RASD document.
+  </p>
+  <p>
+   The sixth chapter shows the effort spent by each group member on the various section of the project.
+  </p>
+  <h2 id="2-overall-architecture">
+   2. Overall Architecture
+  </h2>
+  <h3 id="a-overview">
+   A. Overview
+  </h3>
+  <p>
+   Depending on the functionality the system software should rely on different types of architecture, traditional requests are served via a Client-Server paradigm implementation while the most active operations are performed following the Publisher-Subscriber paradigm.
+  </p>
+  <p>
+   The system should be structured as follows:
+   <br/>
+   A server node and a Database Management System.
+   <br/>
+   The server node has the task to receive data from the registered users both sending it to the DBMS and elaborating it, along with checking if such data respect any possible constraints of the AutomatedSOSUser could have set, alerting the Emergency Service on need.
+   <br/>
+   Upon new data arrival the server has the task to check if any of it matches filters of subscribed third parties and in such case proceeds to forward said data to the specific Third Party, it also has to handle Third Parties subscription requests, single filters request and emergency notifications, to achieve these tasks it is linked directly with the DBMS, for mapping and localization purposes both User’s client and the TrackMe system communicate with external cloud services.
+  </p>
+  <p>
+   <img src="./ArchitectureDiagrams/Architecture.JPG"/>
+  </p>
+  <h3 id="b-high-level-architecture-and-deployment">
+   B. High Level Architecture and Deployment
+  </h3>
+  <p>
+   Below are described via a High Level Architechture graph the main components of our system and their main processes.
+   <br/>
+   The main core of our system is rapresented by the Router and Dispatcher processes in the TrackMe System, toghether with the DBMS that is accessed by them to read and store collected data.
+  </p>
+  <p>
+   The different Users of the services are provided with different Point Of Access depending on their needs, respectively implemented on different platforms like web browser for Organizers and Third Parties and mobile application for the data providing User.
+  </p>
+  <p>
+   <img src="./ArchitectureDiagrams/HighLevelArchitecture.png"/>
+  </p>
+  <h3 id="c-component-view">
+   C. Component View
+  </h3>
+  <p>
+   In the following diagram we have depicted more accurately the services, the links between them and how they are interfaced with each other. Notice the DBMS interface is generalized because it depends on the choiche of the DBMS technology and in order to mantain things more general we didn’t want to rule out any option.
+   <br/>
+   As for DBMS here the External Services are not specifically charachterized to allow a consequent choiche of the most appropriate service basing on the needs of the application.
+  </p>
+  <p>
+   <img src="./ArchitectureDiagrams/ComponentVIew.JPG"/>
+  </p>
+  <ul>
+   <li>
+    <b>
+     LoginService
+    </b>
+    - Provides authentication and registration services including eventual parameters setting depending on the type of user (i.e. The insertion of AutomatedSOSUser’s monitoring constraints are handled here).
+   </li>
+   <li>
+    <b>
+     DataCollectionService
+    </b>
+    - It is responsible for collecting and persistently storing in the Database the data received by the clients and sends them to: DataMonitoringService and SubscriptionService.
+   </li>
+   <li>
+    <b>
+     DataMonitoringService
+    </b>
+    - Receives data from the DataCollectionService and performs controls based on users imposed constraints previously stored in the DBMS.
+   </li>
+   <li>
+    <b>
+     SubscriptionService
+    </b>
+    - This service is responsible for managing subscriptions both receiving and storing them into the Database, it also receives real time data from DataCollectionService, if such data belong to subscribed topics it proceeds to forward those data to the PrivatizationService and successively to the DispatchingService (or directly to it in case of specific user data request).
+   </li>
+   <li>
+    <b>
+     FilteringService
+    </b>
+    - Receives one-time data requests from Third Parties and queries the Database for the results to return to the DispatchingService, it is also responsible of forwarding eventual requests on specified topics to the PrivatizationService before forwarding it to the responsible service.
+   </li>
+   <li>
+    <b>
+     PrivatizationService
+    </b>
+    - Receives data anonymization requests from other services and after processing user data returning the result to the caller.
+   </li>
+   <li>
+    <b>
+     DispatchingService
+    </b>
+    - Is responsible of forwarding Data matching subscriptions and filtering requests to Third Parties.
+   </li>
+   <li>
+    <b>
+     RoutingService
+    </b>
+    - This services takes care of handling various types of request received from users forwarding each of them to the appropriate service.
+   </li>
+   <li>
+    <b>
+     RunManagementService
+    </b>
+    - Is responsible for Subscription, Insertion and Spectating requests for the Track4Run Service.
+   </li>
+  </ul>
+  <p>
+   We assume that the routing functionality is responsible of forwarding messages to the directly interested services depending on the client that has performed the request.
+  </p>
+  <p>
+   The diagram below describes the data model of the entire application, more specifically the data rapresentation in memory used by software components to achieve their objective.
+   <br/>
+   The dispatching functionality implemented by the dispatching service is built on top of the architecture described below:
+  </p>
+  <p>
+   <img src="./ArchitectureDiagrams/MessageQueueing.JPG"/>
+  </p>
+  <p>
+   Data management is operated by most of the services previously listed in their implementation such as FilteringService, SubscriptionService and PrivatizationService.
+   <br/>
+   The architecture is supposed to resemble the publish/subscribe paradigm, in order to achieve this type of communication, the data model includes information to reach the subscribed client everytime an appropriate update about the subscribed topic is performed.
+   <br/>
+   Information about where to send the subscription updates are collected upon registration from the Third Party.
+  </p>
+  <p>
+   Subscriptions are stored into the Database, on first boot the system loads in an appropriate data structure the tuples stored, extracting from the relational database couples of subscription topic and subscriber, thus strongly reducing the response time on each update to be performed.
+  </p>
+  <p>
+   <img src="./ArchitectureDiagrams/UMLClassDiagram.JPG"/>
+  </p>
+  <p>
+   <img src="./ArchitectureDiagrams/InterfaceImplementation.JPG"/>
+  </p>
+  <h3 id="d-runtime-view">
+   D. Runtime View
+  </h3>
+  <h4 id="d1-data4help">
+   D.1 Data4Help
+  </h4>
+  <h5 id="filtering-request">
+   Filtering Request
+  </h5>
+  <p>
+   <img src="./ArchitectureDiagrams/FilteringRequestSequenceDiagram.JPG"/>
+  </p>
+  <h5 id="new-data-collection">
+   New Data Collection
+  </h5>
+  <p>
+   <img src="./ArchitectureDiagrams/NewDataCollectionSequenceDiagram.JPG"/>
+  </p>
+  <p>
+   In the above graphs we made use of async messages to represent the fact that the messages are sent in a costant flow and a single one doesn’t have to result in a blocking action both for the clients and the services taking care of it.
+  </p>
+  <h4 id="d2-automatedsos">
+   D.2 AutomatedSOS
+  </h4>
+  <h5 id="emergency-notification">
+   Emergency Notification
+  </h5>
+  <p>
+   <img src="./ArchitectureDiagrams/NotifyEmergency.JPG"/>
+  </p>
+  <h4 id="d3-track4run">
+   D.3 Track4Run
+  </h4>
+  <h5 id="run-enrollment">
+   Run Enrollment
+  </h5>
+  <p>
+   <img src="./ArchitectureDiagrams/runEnrollment.JPG"/>
+  </p>
+  <h3 id="e-component-intefaces">
+   E. Component Intefaces
+  </h3>
+  <p>
+   The aim of the following diagram is to highlight the relationships between services implemented on the server of the entire system, in particular the interfaces exposing their public methods and the use relation between them.
+  </p>
+  <p>
+   <img src="./ArchitectureDiagrams/ComponentInterfaces.JPG"/>
+  </p>
+  <h3 id="f-selected-architectural-styles-and-patterns">
+   F. Selected architectural styles and patterns
+  </h3>
+  <p>
+   The main architectural style adopted, on which the communication with third party relies, is the Publisher/Subscriber paradigm.
+   <br/>
+   It has been adopted to be able to manage the inherent transient nature of communication and asynchronicity of the services offered by the system. At the opposite the classical client-server architectural style doesn’t fit with the purpose of queueing and dispatching of messages, as it would have made necessary establishing a new connection everytime the system had to send new data.
+   <br/>
+   This type of paradigm is used anyway on a different level in order to handle users’ interactions via the provided interfaces, as for registration, run enrollment and other operations that can be performed in a single connection instance.
+   <br/>
+   <img src="#" width="150"/>
+   <img src="./ArchitectureDiagrams/SubscribingClients.JPG" width="600"/>
+   <br/>
+   As described in the picture above, a part of the Database is devoted to store topics and subsricptions of Third Parties along with the pure application data.
+   <br/>
+   Upon receiving a new data the system performs a check on the subrsciptions and relative topics and eventually dispatches, after an optional further elaboration of the data operated by internal services, new information to the interested Third Parties.
+  </p>
+  <p>
+   The basical structure relies on a message queueing middleware (implemented by JMQS in our choiche) that ensures message ordering at receiver side and also recovery on message loss.
+  </p>
+  <p>
+   <img src="./ArchitectureDiagrams/JMQSspecific.JPG"/>
+  </p>
+  <p>
+   The address lookup database figured above, is stored in the system along with other data as described in the
+   <strong>
+    <a href="#23-component-view">
+     Component View Class Diagram
+    </a>
+   </strong>
+   : each record contains the EndPoint reference (Transport Level Address [IP, Port]) of the receivers of the service.
+  </p>
+  <p>
+   The system is designed to allow future scalability improvements on need i.e. by means of a routing application layer on top of which could be applied the current implementation to improve the delivery time by the usage of a routing algorithm and spreading the communication overhead on different nodes.
+  </p>
+  <p>
+   Notice that in order to model the server-side data context we adopted an objective memory representation, performing a one to one mapping with the relational model of the Database to obtain a faster access intermediate representation of the queried data, making them available to processes for elaboration.
+   <br/>
+   This type of rapresentation could be compared with the model part of the MVC pattern.
+  </p>
+  <p>
+   Regarding the client level the Individual user is provided with an application deployed on his mobile, interfacing with his activity monitoring device APIs that takes care both of allowing the user to interact with the services offered by the server and to communicate monitored data to the appropriate service.
+   <br/>
+   Third Parties for the Data4Help service and Organizers for Track4Run are provided with a web portal through which they can perform active interactions with the server such as sending Filtering Requests or creating a new Run for the Users, while passive interactions such as data-sending regarding subscriptions to certain topics are perfomed on a different channel, on the IP and port provided at the moment of registration and stored in the Database.
+  </p>
+  <h2 id="3-requirements-traceability">
+   3. Requirements Traceability
+  </h2>
+  <h5 id="g1-the-user-must-be-able-to-register-on-the-platform-as-an-individual-or-third-party">
+   [G1] - The user must be able to register on the platform as an individual or third party.
+  </h5>
+  <ul>
+   <li>
+    <b>
+     [R1] [R2]
+    </b>
+    The LoginService interface provides three methods for registration, they takes differents arguments by which they allows different types of user to specify their credential and basic information needed by the system.
+   </li>
+  </ul>
+  <h5 id="g2-the-individual-has-to-be-monitored-constantly">
+   [G2] - The individual has to be monitored constantly.
+  </h5>
+  <ul>
+   <li>
+    <b>
+     [R3]
+    </b>
+    The DataCollectionService interface accomplishes this requirement providing the method addUserData through which fresh data are stored in the database of the system.
+   </li>
+  </ul>
+  <h5 id="g3-third-party-users-must-be-able-to-access-both-individuals-and-groups-data-safely">
+   [G3] - Third party users must be able to access both individual’s and group’s data safely.
+  </h5>
+  <ul>
+   <li>
+    <b>
+     [R5] [R6] [R7]
+    </b>
+    The FilteringService interface along with the PrivatizationService one are responsible to control the cardinality of the group of individuals on which the request is based and remove any reference of the owners of the data provided. The method called “filterRequest()” is also capable to handle requests based on the SSN of the individual of interest.
+   </li>
+  </ul>
+  <h5 id="g4-third-party-users-can-choose-to-be-notified-about-previous-researches-to-be-updated-as-soon-as-new-data-are-available">
+   [G4] - Third party users can choose to be notified about previous researches to be updated as soon as new data are available.
+  </h5>
+  <ul>
+   <li>
+    <b>
+     [R8]
+    </b>
+    The requirement is implicitly fullfilled through the architectural style adopted.
+   </li>
+   <li>
+    <b>
+     [R9]
+    </b>
+    DataCollectionService (notifyServices()), SubscriptionService (notifyNewData()) and DispatchingService (dispatchData()) together contribute to check subscription on arrival of new data and to (optionally) forward them to the subscribed users.
+   </li>
+  </ul>
+  <h5 id="g5-the-individual-is-assured-that-when-hisher-data-fall-below-certain-selected-thresholds-hisher-local-emergency-service-is-notified">
+   [G5] - The individual is assured that when his/her data fall below certain selected thresholds, his/her local emergency service is notified.
+  </h5>
+  <ul>
+   <li>
+    <p>
+     <b>
+      [R10]
+     </b>
+     The LoginService interface specifies a method registration() through which the AutomatedSOSUser is able to specify parameters and thresholds used to monitor his health status.
+    </p>
+   </li>
+   <li>
+    <p>
+     <b>
+      [R10] [R11]
+     </b>
+     DataMonitoringService receives the new data from DataCollectionService, checks the user’s thresholds and forwards the Emergency that has to be notified to the DispatchingService, which contacts the Local Emergency Service.
+    </p>
+   </li>
+  </ul>
+  <h5 id="g6-users-can-register-as-organizers">
+   [G6] - Users can register as organizers.
+  </h5>
+  <ul>
+   <li>
+    <b>
+     [R13]
+    </b>
+    The requirement is fullfiled by the registration method provided by the LoginService interface.
+   </li>
+  </ul>
+  <h5 id="g7-organizers-can-create-runs">
+   [G7] - Organizers can create runs.
+  </h5>
+  <ul>
+   <li>
+    <b>
+     [R14]
+    </b>
+    RunManagementService interface exports the method createRun() that allows the organizers to specify the required parameters in order to insert a new run into the System.
+   </li>
+  </ul>
+  <h5 id="g8-any-user-can-access-track4run-as-a-guest-spectator">
+   [G8]  Any user can access Track4Run as a Guest (Spectator).
+  </h5>
+  <ul>
+   <li>
+    <b>
+     [R15] [R16]
+    </b>
+    RunManagementService implements two methods called getRunList() and spectateRun() through which the spectator is able to visualize all availble runs and to follow the one he/she selects.
+   </li>
+  </ul>
+  <h5 id="g9-users-can-enroll-to-a-run">
+   [G9] - Users can enroll to a run.
+  </h5>
+  <ul>
+   <li>
+    <p>
+     <b>
+      [R16]
+     </b>
+     As above, the method getRunList() allows to fulfill this requirement.
+    </p>
+   </li>
+   <li>
+    <p>
+     <b>
+      [R17]
+     </b>
+     RunManagementService allows a user to subscribe him/herself to a run via addRunSubscription method which exploits the LoginService interface to handle the login phase that is required in order to complete succesfully the registration.
+    </p>
+   </li>
+  </ul>
+  <h5 id="g10-spectators-can-follow-the-progress-of-an-ongoing-run">
+   [G10] - Spectators can follow the progress of an ongoing run.
+  </h5>
+  <ul>
+   <li>
+    <b>
+     [R18]
+    </b>
+    Once the spectator starts to follow a run, the DispatchingService contacted by the RunManagementService, sends the runners location on their arrival through the dispatchData() method.
+   </li>
+  </ul>
+  <h2 id="4-implementation-integration-and-testing-plans">
+   4. Implementation, integration and testing plans
+  </h2>
+  <h3 id="a-implementation-plan">
+   A. Implementation Plan
+  </h3>
+  <p>
+   The way in which would be more appropriate to implement components and subsystem is described below. In the choice are mostly taken into account the inherent data centric nature of the services offered by TrackMe and the possible difficulties dealing with the JMQS service.
+  </p>
+  <p>
+   According to what is said above, is easy to imagine the order listed below:
+  </p>
+  <ol>
+   <li>
+    <b>
+     MVC Model resembling data structures
+    </b>
+    <br/>
+    It will be very important to well identify and characterize data on which the services are based, not only to clarify as early as possible all these aspects but also because the whole server-side system will deal with them.
+   </li>
+   <li>
+    <b>
+     DispatchingService
+    </b>
+    <br/>
+    Considering possible difficulties on its implementation, caused by the strong use of external services, components and interfaces, (for instance Emergency Services APIs) it would be reasonable to start the implementation of this service as second step of the plan. The duration of the implementation is also another aspect taken into account making this choice.
+   </li>
+   <li>
+    <b>
+     RunManagementService
+    </b>
+    <br/>
+    This service, as shown in the appriopriate diagrams, is very application specific and contains a large number of methods. Following the criteria of anticipating as much as possible the implementation of the largest classes it's simple to choose this class as the third to be implemented.
+   </li>
+   <li>
+    <b>
+     DataCollectionService
+    </b>
+    <br/>
+    The main tasks of this service are the data managing, like the creation of appropriate and "real time needed" instances of the data structures, and the interaction with the DBMS, that results critical for the nature of the domain of the entire system; so the plan tackles all these aspects inserting this specific service just after the more critical services listed above.
+   </li>
+   <li>
+    <b>
+     FilteringService
+    </b>
+    <br/>
+    Considering the strong interaction with the Database of this component, concretized by the intensive execution of queries, along with what is said above about this type of criticities, is a good choice to put the implementation just after the DataCollectionService one.
+   </li>
+   <li>
+    <b>
+     All the others
+    </b>
+    <br/>
+    The other services are in charge of executing actions that are not really application specific, for which a lot of consolidated algorithms have been already well known, so their implementation won't be as critical as for the previously listed services.
+   </li>
+  </ol>
+  <p>
+   Notice that following this path it will be natural to follow a bottom up integration between components, avoiding the need of writing stubs that don’t fit well with the development of this type of application. In fact, the injection of fake data, as a tecnique to write very specific drivers for many of the services (in the unit and integration testing as well), results therefore the best approach, also if we consider the fact that real data won’t be available until the deployment of the system.
+  </p>
+  <h3 id="b-integration-and-testing">
+   B. Integration and Testing
+  </h3>
+  <p>
+   The TrackMe system, as mentioned in the previous section, is meant to be offering highly data-centered services, thus forcing a specific integration order of the services composing it.
+   <br/>
+   The order and approach to be followed is described below.
+  </p>
+  <ul>
+   <li>
+    Integration between components and the DBMS
+   </li>
+   <li>
+    Integration between the components of the system server
+   </li>
+   <li>
+    Integration between clients (web interface and mobile application) and the application server
+   </li>
+   <li>
+    Integration between the components and (other) external services
+   </li>
+  </ul>
+  <p>
+   <b>
+    - Integration between components and the DBMS :
+   </b>
+   Following this section are listed the system services that interface and interact with the external DBMS to accomplish their tasks:
+   <br/>
+   * LoginService, DBMS
+   <br/>
+   * DataCollectionService, DBMS
+   <br/>
+   * DataMonitoringService, DBMS
+   <br/>
+   * SubscriptionService, DBMS
+   <br/>
+   * FilteringService, DBMS
+   <br/>
+   * RunManagementService, DBMS
+  </p>
+  <p>
+   <b>
+    - Integration between the components of the system server :
+   </b>
+   This group is related to the inner links and interactions between system services, both regarding data management and requests handling:
+   <br/>
+   * RunManagementService - DataCollectionService
+   <br/>
+   * RunManagementService - LoginService
+   <br/>
+   * RunManagementService - DispatchingService
+   <br/>
+   * DataCollectionService - DataMonitoringService
+   <br/>
+   * DataCollectionService - SubscriptionService
+   <br/>
+   * SubscriptionService - DispatchingService
+   <br/>
+   * SubscriptionService - PrivatizationService
+   <br/>
+   * FilteringService - SubscriptionService
+   <br/>
+   * FilteringService - PrivatizationService
+   <br/>
+   * FilteringService - DispatchingService
+   <br/>
+   * DataMonitoringService - DispatchingService
+  </p>
+  <p>
+   <b>
+    - Integration between clients :
+   </b>
+   This kind of interactions should be allowed by system APIs and their configurations on respective clients
+  </p>
+  <p>
+   <b>
+    - Integration between the components and (other) external services :
+   </b>
+   External services can be used for ease of use, like an external maps service, this integration should be implemented on the services that need it as :
+   <br/>
+   * RunManagementService - ExternalMapsService
+   <br/>
+   * Clients - ExternalMapsService
+  </p>
+  <h3 id="c-testing-plan">
+   C. Testing Plan
+  </h3>
+  <p>
+   Considering the different use cases of the System the most appropriate test sets are the systematic one, this approach allows to examine if the System actually fulfills the specifications that are stated in the requirements specification document. Using this test sets we acknowledge  that it will be difficoult to find any minor bugs in the System or verify the behaviour of the System in response to  several different inputs, which is a possibile scenario given  the nature of the service the System is offering, however a systematic approach could at least verify that the main functions are working as supposed.
+  </p>
+  <p>
+   In order to accomplish a good testing verification the testing plan should be as follows, first of all it would be useful for the developers to use unit tests to have feedback and make changes easily.
+   <br/>
+   After that it is essential to plan an integration testing so that the integration between the components of the System is tested.
+   <br/>
+   Since for the integration we follow a bottom-up strategy we should use this approach even for the integration testing, by doing so we are able to verify the integration part from the beginning and not only at the completion of the development. In this strategy testing takes place from the lowest level modules, then high level modules and at the end integrating the high level modules to the low level modules, drivers are used as temporary modules (simulate the behaviour of upper level modules).
+   <br/>
+   Once the System is completely developed and the compontend are fully integrated and tested is important to use System testing, performed on the entire system evaluating the system’s compliance with its specified requirements.
+   <br/>
+   Purpose of these final tests referring to our application are to evaluate its performance in differents scenarios such as:
+   <br/>
+   - its behaviour in response a different and various inputs
+   <br/>
+   - crash recovery and failure handling
+   <br/>
+   - resiliency to data and connection volumes (i.e. handling of simultaneous requests)
+   <br/>
+   - reliability: the System has to be reliable with a ratio greater then 99,95% in order to comply with the request stated in the requirements document, mainly regarding the AutomatedSOS service to be able to detect and notify an emergency whenever irregolar data are sent to the server within a 5 seconds timespan
+   <br/>
+   - availability: the System has to offer a very high availability ratio (at leat 99,9%) for the application which is always operating in order to be able to receive new data and handle requests
+   <br/>
+   - efficiency: this parameter is relevant in the data management section since this service is thought to be receiving constant flows of data to store into memory and forward each of them to the appropriate component, therefore it is necessary to optimize the cost of the data handling and elaboration algorithms
+   <br/>
+   - scalability: the application has to be scalable depending on the current load in order to handle an always changing amount of connections and requests
+  </p>
+  <h2 id="5-mockup">
+   5. Mockup
+  </h2>
+  <p>
+   According to the design decisions and to better understand how the users should interface with the application we made some changes in the mock-ups presented in the
+   <a href='http://href="https://github.com'>
+    href="https://github.com
+   </a>
+   /gianmarco27/Poggi-Stagliano-Stucchi/blob/master/RASD/RASD%20v2.md#a1-user-interfaces"&gt;RASD document at the section 3.A.1.
+  </p>
+  <h2 id="6-effort-table">
+   6. Effort Table
+  </h2>
+  <h4 id="leonardo">
+   Leonardo
+  </h4>
+  <table>
+   <thead>
+    <tr>
+     <th>
+      Section
+     </th>
+     <th>
+      Time spent
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      Introduction
+     </td>
+     <td>
+      1H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      High Level Architecture and Deployment
+     </td>
+     <td>
+      2H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Component View
+     </td>
+     <td>
+      8H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Runtime View
+     </td>
+     <td>
+      6H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Component Intefaces
+     </td>
+     <td>
+      2H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Selected architectural styles and patterns
+     </td>
+     <td>
+      1H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Requirements Traceability
+     </td>
+     <td>
+      3H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Implementation, Integration and Testing Plans
+     </td>
+     <td>
+      4H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Mockup
+     </td>
+     <td>
+      1H
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <h4 id="gabriele">
+   Gabriele
+  </h4>
+  <table>
+   <thead>
+    <tr>
+     <th>
+      Section
+     </th>
+     <th>
+      Time spent
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      Introduction
+     </td>
+     <td>
+      1H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      High Level Architecture and Deployment
+     </td>
+     <td>
+      2H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Component View
+     </td>
+     <td>
+      4H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Runtime View
+     </td>
+     <td>
+      6H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Component Intefaces
+     </td>
+     <td>
+      2H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Selected architectural styles and patterns
+     </td>
+     <td>
+      1H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Requirements Traceability
+     </td>
+     <td>
+      3H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Implementation, Integration and Testing Plans
+     </td>
+     <td>
+      4H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Mockup
+     </td>
+     <td>
+      1H
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <h4 id="gianmarco">
+   Gianmarco
+  </h4>
+  <table>
+   <thead>
+    <tr>
+     <th>
+      Section
+     </th>
+     <th>
+      Time spent
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      Introduction
+     </td>
+     <td>
+      1H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      High Level Architecture and Deployment
+     </td>
+     <td>
+      2H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Component View
+     </td>
+     <td>
+      8H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Runtime View
+     </td>
+     <td>
+      6H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Component Intefaces
+     </td>
+     <td>
+      2H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Selected architectural styles and patterns
+     </td>
+     <td>
+      1H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Requirements Traceability
+     </td>
+     <td>
+      3H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Implementation, Integration and Testing Plans
+     </td>
+     <td>
+      4H
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Mockup
+     </td>
+     <td>
+      1H
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <h2 id="7-reference-documents">
+   7. Reference Documents
+  </h2>
+  <ul>
+   <li>
+    Specification document "A.Y.2018-2019 Software Engineering 2 Mandatory Project
+   </li>
+   <li>
+    Slides - "Design"
+   </li>
+   <li>
+    Slides - "VerificationAndValidation TestingTechniques"
+   </li>
+   <li>
+    Slides - "Architecture and Design in Practice"
+   </li>
+  </ul>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+ </body>
+</html>
